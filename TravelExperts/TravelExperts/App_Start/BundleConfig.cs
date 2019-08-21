@@ -10,6 +10,8 @@ namespace TravelExperts
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/umd/popper.js",
+                        "~/Scripts/node_modules/jquery/jquery-waypoints/waypoints.min.js",
                         "~/Scripts/main.js",
                         "~/Scripts/plsReg.js"));
 
