@@ -217,9 +217,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Core\Models\AccountViewModels.cs" />
-    <Compile Include="Persistence\Migrations\201908210410171_InitialModel.cs" />
-    <Compile Include="Persistence\Migrations\201908210410171_InitialModel.Designer.cs">
-      <DependentUpon>201908210410171_InitialModel.cs</DependentUpon>
+    <Compile Include="Persistence\Migrations\201908211636308_initialModel.cs" />
+    <Compile Include="Persistence\Migrations\201908211636308_initialModel.Designer.cs">
+      <DependentUpon>201908211636308_initialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
@@ -292,7 +292,6 @@
     <Folder Include="Core\DTO\" />
     <Folder Include="Core\Repositories\" />
     <Folder Include="Core\ViewModel\" />
-    <Folder Include="Models\" />
     <Folder Include="Persistence\Repositories\" />
   </ItemGroup>
   <ItemGroup>
@@ -309,8 +308,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Persistence\Migrations\201908210410171_InitialModel.resx">
-      <DependentUpon>201908210410171_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Persistence\Migrations\201908211636308_initialModel.resx">
+      <DependentUpon>201908211636308_initialModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

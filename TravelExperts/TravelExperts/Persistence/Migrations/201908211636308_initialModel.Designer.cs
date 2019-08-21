@@ -7,13 +7,13 @@ namespace TravelExperts.Persistence.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialModel : IMigrationMetadata
+    public sealed partial class initialModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201908210410171_InitialModel"; }
+            get { return "201908211636308_initialModel"; }
         }
         
         string IMigrationMetadata.Source
