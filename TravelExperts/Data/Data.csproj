@@ -108,6 +108,8 @@
       <DependentUpon>201908211636308_initialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
+    <Compile Include="Persistence\Repositories\ProductRepository.cs" />
+    <Compile Include="Persistence\Repositories\TravelRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -116,9 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\DTO\" />
-    <Folder Include="Core\Repositories\" />
     <Folder Include="Core\ViewModel\" />
-    <Folder Include="Persistence\Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Persistence\Migrations\201908211636308_initialModel.resx">
