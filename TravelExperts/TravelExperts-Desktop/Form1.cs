@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TravelExpert_Desktop
+namespace TravelExperts_Desktop
 {
     public partial class Form1 : Form
     {

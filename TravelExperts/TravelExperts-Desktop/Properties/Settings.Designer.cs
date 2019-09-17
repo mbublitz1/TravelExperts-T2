@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TravelExpert_Desktop.Properties
+namespace TravelExperts_Desktop.Properties
 {
 
 

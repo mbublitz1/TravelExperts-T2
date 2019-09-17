@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FC13C530-2939-491D-A069-B340F11BB7AE}</ProjectGuid>
+    <ProjectGuid>{8D111455-DBE4-4172-890E-D12A2B172F43}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>TravelExpert_Desktop</RootNamespace>
-    <AssemblyName>TravelExpert-Desktop</AssemblyName>
+    <RootNamespace>TravelExperts_Desktop</RootNamespace>
+    <AssemblyName>TravelExperts-Desktop</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -75,12 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{b4d286f8-c110-4a40-b665-8b279b3aa058}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
