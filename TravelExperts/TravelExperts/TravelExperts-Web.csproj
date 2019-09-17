@@ -545,12 +545,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Core\DTO\" />
-    <Folder Include="Core\Models\" />
-    <Folder Include="Core\Repositories\" />
-    <Folder Include="Core\ViewModel\" />
-    <Folder Include="Persistence\Migrations\" />
-    <Folder Include="Persistence\Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -563,7 +557,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{B4D286F8-C110-4A40-B665-8B279B3AA058}</Project>
+      <Project>{b4d286f8-c110-4a40-b665-8b279b3aa058}</Project>
       <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>

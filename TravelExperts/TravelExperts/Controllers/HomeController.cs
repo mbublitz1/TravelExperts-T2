@@ -11,6 +11,7 @@ namespace TravelExperts.Controllers
     public class HomeController : Controller
     {
         private ApplicationDbContext context = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             List<Agency> agencies = context.Agencies.ToList();
