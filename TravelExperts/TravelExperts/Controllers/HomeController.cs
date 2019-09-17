@@ -5,16 +5,15 @@ using System.Web;
 using System.Web.Mvc;
 using Data.Core.Models;
 using Data.Persistence;
+using Data.Persistence.Repositories;
 
 namespace TravelExperts.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext context = new ApplicationDbContext();
 
         public ActionResult Index()
         {
-            List<Agency> agencies = context.Agencies.ToList();
             return View();
         }
 
