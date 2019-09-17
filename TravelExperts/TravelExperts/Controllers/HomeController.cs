@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TravelExperts.Core.Models;
-using TravelExperts.Persistence;
+using Data.Core.Models;
+using Data.Persistence;
 
 namespace TravelExperts.Controllers
 {

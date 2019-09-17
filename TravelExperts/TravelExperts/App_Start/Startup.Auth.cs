@@ -5,8 +5,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using TravelExperts.Core.Models;
-using TravelExperts.Persistence;
+using Data.Persistence;
 
 namespace TravelExperts
 {
