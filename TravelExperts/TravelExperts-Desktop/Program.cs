@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TravelExpert_Desktop
+namespace TravelExperts_Desktop
 {
     static class Program
     {

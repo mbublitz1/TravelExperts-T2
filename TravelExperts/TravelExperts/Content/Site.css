@@ -1,6 +1,18 @@
-﻿html {
+﻿@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+@import url('href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,300i,400');
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
     font-size: 62.5%;
 }
+
 
 body {
     font-size: 16px;
@@ -69,21 +81,21 @@ header {
     height: 100vh;
 }
 
-    header h1, h3 {
-        margin: 0 auto;
-        width: 848px;
-    }
+header h1, h3 {
+    margin: 0 auto;
+    width: 848px;
+}
 
-    header h1 {
-        font-family: 'Lobster', cursive;
-        font-size: 85px;
-        color: white;
-    }
+header h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 85px;
+    color: white;
+}
 
-    header h3 {
-        color: white;
-        font-family: 'Ubuntu', sans-serif;
-    }
+header h3 {
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+}
 
 /*Responsible for centering welcome text*/
 .heading-text-box {
@@ -105,6 +117,7 @@ header {
     margin-top: 10px;
 }
 
+
 /*---------------------------------------------*/
 /*NAVIGATION*/
 /*---------------------------------------------*/
@@ -122,39 +135,39 @@ header {
     margin-top: 52px;
 }
 
-    /*Select all li inside ul list in main-nav class*/
-    .head-nav li {
-        /*change display style to inline block*/
-        display: inline-block;
-        margin-left: 40px;
-    }
+/*Select all li inside ul list in main-nav class*/
+.head-nav li {
+    /*change display style to inline block*/
+    display: inline-block;
+    margin-left: 40px;
+}
 
-        /*Select all anchor elements with li as parent*/
-        /*Adding link and visited pseudo code will give effects when hovering over menu*/
-        .head-nav li a:link,
-        .head-nav li a:visited {
-            padding: 8px 0;
-            /*text to white*/
-            color: #fff;
-            /*remove underlines from menu items*/
-            text-decoration: none;
-            /*change text to upper case*/
-            text-transform: uppercase;
-            /*this will be 90% of base font in HTML selector, which would be 18px to figure out divide 18px by 20px to get .90 or 90%*/
-            font-size: 90%;
-            /*This will create the border but since you don't want to see it before the element is hovered over this needs to be made*/
-            /*transparent*/
-            border-bottom: 2px solid transparent;
-            transition: border-bottom 0.2s;
-        }
+/*Select all anchor elements with li as parent*/
+/*Adding link and visited pseudo code will give effects when hovering over menu*/
+.head-nav li a:link,
+.head-nav li a:visited {
+    padding: 8px 0;
+    /*text to white*/
+    color: #fff;
+    /*remove underlines from menu items*/
+    text-decoration: none;
+    /*change text to upper case*/
+    text-transform: uppercase;
+    /*this will be 90% of base font in HTML selector, which would be 18px to figure out divide 18px by 20px to get .90 or 90%*/
+    font-size: 90%;
+    /*This will create the border but since you don't want to see it before the element is hovered over this needs to be made*/
+    /*transparent*/
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
 
-        .head-nav li a:hover,
-        .head-nav li a:active,
-        .head-nav li button:hover,
-        .head-nav li button:active {
-            /*This will add the solid border when an element is hovered over*/
-            border-bottom: 2px solid #0099cc;
-        }
+.head-nav li a:hover,
+.head-nav li a:active,
+.head-nav li button:hover,
+.head-nav li button:active {
+    /*This will add the solid border when an element is hovered over*/
+    border-bottom: 2px solid #0099cc;
+}
 
 .loginlnk {
     background: none;

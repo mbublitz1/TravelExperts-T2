@@ -1,4 +1,4 @@
-﻿namespace TravelExpert_Desktop
+﻿namespace TravelExperts_Desktop
 {
     partial class Form1
     {
