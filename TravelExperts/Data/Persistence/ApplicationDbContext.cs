@@ -22,7 +22,7 @@ namespace Data.Persistence
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DbContextSchool", throwIfV1Schema: false)
+            : base("HPLAPTOP", throwIfV1Schema: false)
         {
         }
 
