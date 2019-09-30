@@ -20,7 +20,7 @@ namespace TravelExperts.Controllers
 
         public ActionResult Index()
         {
-            
+            List<Package> packages = context.GetPackages();
             return View();
         }
 

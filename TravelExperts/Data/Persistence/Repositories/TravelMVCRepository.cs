@@ -24,7 +24,7 @@ namespace Data.Persistence.Repositories
 
         public List<Package> GetPackages()
         {
-            throw new NotImplementedException();
+            return _context.Packages.ToList();
         }
 
         public List<Product> GetProducts()
