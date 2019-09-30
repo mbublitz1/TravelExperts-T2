@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Repository\IRepository.cs" />
     <Compile Include="Core\Models\AccountViewModels.cs" />
     <Compile Include="Core\Models\Affiliation.cs" />
     <Compile Include="Core\Models\Agency.cs" />
@@ -108,8 +109,8 @@
       <DependentUpon>201908211636308_initialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
-    <Compile Include="Persistence\Repositories\ProductRepository.cs" />
-    <Compile Include="Persistence\Repositories\TravelRepository.cs" />
+    <Compile Include="Persistence\Repositories\TravelMVCRepository.cs" />
+    <Compile Include="Persistence\Repositories\TravelWinRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
