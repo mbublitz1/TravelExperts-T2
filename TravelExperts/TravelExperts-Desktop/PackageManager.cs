@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace TravelExperts_Desktop
 {
-    public partial class Form1 : Form
-    {
-        public Form1()
+    public partial class PackageManager : Form
+    {        
+        public PackageManager()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
