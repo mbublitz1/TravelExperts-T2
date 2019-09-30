@@ -19,7 +19,7 @@ namespace Data.Persistence.Repositories
 
         public Customer GetCustomer(int id)
         {
-            throw new NotImplementedException();
+            return _context.Customers.Where(c => c.CustomerId == id).SingleOrDefault();
         }
 
         public List<Package> GetPackages()
@@ -29,12 +29,12 @@ namespace Data.Persistence.Repositories
 
         public List<Product> GetProducts()
         {
-            throw new NotImplementedException();
+            return _context.Products.ToList();
         }
 
         public List<Supplier> GetSuppliers()
         {
-            throw new NotImplementedException();
+            return _context.Suppliers.ToList();
         }
     }
 }

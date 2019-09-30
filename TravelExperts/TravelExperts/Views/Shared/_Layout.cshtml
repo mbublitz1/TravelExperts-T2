@@ -14,11 +14,10 @@
             <img class="logo" src="~/Content/img/travelexpertnew.png" alt="Travel experts logo">
             <ul class="head-nav">
                 <li><a href="#Plans">Travel Plans</a></li>
-                <li><a href="#Register">Register</a></li>
+                <li>@Html.ActionLink("Register", "Index", "Register")</li>
                 <li><a href="#AboutUs">About Us</a></li>
                 <li><a href="#ContactUs">Contact Us</a></li>
             </ul>
-            @Html.Partial("_LoginPartial")
         </div>
     </nav>
     @*<div class="navbar navbar-inverse navbar-fixed-top">
