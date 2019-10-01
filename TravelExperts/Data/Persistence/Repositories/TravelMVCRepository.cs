@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.Persistence.Repositories
 {
-    public class TravelMVCRepository 
+    public class TravelMVCRepository : IRepository
     {
         private readonly ApplicationDbContext _context;
 
@@ -23,14 +23,14 @@ namespace Data.Persistence.Repositories
             return _context.Customers.Where(c => c.CustomerId == id).SingleOrDefault();
         }
 
-        public List<Package> GetPackages()
+        public List<PackageListViewModel> GetPackages()
         {
-            return _context.Packages.ToList();
+            throw new NotImplementedException();
         }
 
         public List<Product> GetProducts()
         {
-            return _context.Products.ToList();
+            throw new NotImplementedException();
         }
 
         public List<Supplier> GetSuppliers()
