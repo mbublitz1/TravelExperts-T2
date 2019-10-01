@@ -28,9 +28,14 @@ namespace TravelExperts_Desktop
         private void GridPackages_SelectionChanged(object sender, EventArgs e)
         {
             TravelWinRepository package = new TravelWinRepository();
-            int selectedPackage = Convert.ToChar(gridPackages.CurrentRow.Cells["PackageId"].RowIndex);
+            int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
             var list = package.GetSinglePackage(selectedPackage);
-            lblPackageName.Text = list[selectedPackage].PkgName.ToString();
+            lblPackageName.Text = list.PkgName;
+            lblDesc.Text = list.PkgDesc;
+            txtStartDate.Text = list.PkgStartDate.ToString();
+            txtEndDate.Text = list.PkgEndDate.ToString();
+            txtBasePrice.Text = Convert.ToString(list.PkgBasePrice);
+            txtCommission.Text = Convert.ToString(list.PkgAgencyCommission);
         }
     }
 }

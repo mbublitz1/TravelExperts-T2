@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Data.Persistence.Repositories
 {
-    public class TravelWinRepository : IRepository
+    public class TravelWinRepository
     {
         public string connString= ConfigurationManager.ConnectionStrings["TravelWinConn"].ConnectionString;
 
@@ -57,14 +57,13 @@ namespace Data.Persistence.Repositories
 
             while (reader.Read())
             {
-                Package p = new Package();
-                p.PackageId = Convert.ToInt32(reader["PackageId"]);
-                p.PkgName = reader["PkgName"].ToString();
-                p.PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"]);
-                p.PkgEndDate = Convert.ToDateTime(reader["PkgEndDate"]);
-                p.PkgDesc = reader["PkgDesc"].ToString();
-                p.PkgBasePrice = Convert.ToDecimal(reader["PkgBasePrice"]);
-                p.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
+                data.PackageId = Convert.ToInt32(reader["PackageId"]);
+                data.PkgName = reader["PkgName"].ToString();
+                data.PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"]);
+                data.PkgEndDate = Convert.ToDateTime(reader["PkgEndDate"]);
+                data.PkgDesc = reader["PkgDesc"].ToString();
+                data.PkgBasePrice = Convert.ToDecimal(reader["PkgBasePrice"]);
+                data.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
             }
             conn.Close();
             return data;
