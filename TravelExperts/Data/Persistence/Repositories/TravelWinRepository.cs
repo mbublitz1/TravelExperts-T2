@@ -1,7 +1,9 @@
-﻿using Data.Core.Models;
+﻿using Castle.Components.DictionaryAdapter;
+using Data.Core.Models;
 using Data.Core.Repository;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Data.Persistence.Repositories
 {
-    class TravelWinRepository : IRepository
+    public class TravelWinRepository : IRepository
     {
         public string connString= ConfigurationManager.ConnectionStrings["TravelWinConn"].ConnectionString;
 
@@ -23,15 +25,22 @@ namespace Data.Persistence.Repositories
 
         public List<Package> GetPackages()
         {
-            string selectStatement = "SELECT PackageId, PkgName FROM Packages";
+            string selectStatement = "SELECT PkgName FROM Packages";
             SqlConnection conn = new SqlConnection(connString);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(selectStatement, conn);
-            SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-            DataSet ds = new DataSet();
-            dataAdapter.Fill(ds);
-            
+            SqlCommand cmd = new SqlCommand(selectStatement, conn);
 
-            throw new NotImplementedException();
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Package> data = new List<Package>();
+
+            while (reader.Read())
+            {
+                Package p = new Package();
+                p.PkgName = reader["PkgName"].ToString();
+                data.Add(p);
+            }
+            conn.Close();
+            return data;
         }
 
         public List<Product> GetProducts()

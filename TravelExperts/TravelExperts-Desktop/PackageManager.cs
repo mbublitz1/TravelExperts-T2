@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Data.Core.Repository;
+using Data.Persistence.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +21,8 @@ namespace TravelExperts_Desktop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            IRepository repo = new TravelWinRepository();
+            gridPackages.DataSource = repo.GetPackages();
         }
     }
 }
