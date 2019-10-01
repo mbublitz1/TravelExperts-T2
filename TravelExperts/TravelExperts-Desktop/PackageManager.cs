@@ -23,19 +23,30 @@ namespace TravelExperts_Desktop
         {
             TravelWinRepository packages = new TravelWinRepository();
             gridPackages.DataSource = packages.GetPackages();
+            int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
+            gridProducts.DataSource = packages.GetProducts(selectedPackage);
         }
 
         private void GridPackages_SelectionChanged(object sender, EventArgs e)
         {
             TravelWinRepository package = new TravelWinRepository();
             int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
-            var list = package.GetSinglePackage(selectedPackage);
-            lblPackageName.Text = list.PkgName;
-            lblDesc.Text = list.PkgDesc;
-            txtStartDate.Text = list.PkgStartDate.ToString();
-            txtEndDate.Text = list.PkgEndDate.ToString();
-            txtBasePrice.Text = Convert.ToString(list.PkgBasePrice);
-            txtCommission.Text = Convert.ToString(list.PkgAgencyCommission);
+            var data = package.GetSinglePackage(selectedPackage);
+            lblPackageName.Text = data.PkgName;
+            lblDesc.Text = data.PkgDesc;
+            txtStartDate.Text = data.PkgStartDate.ToString();
+            txtEndDate.Text = data.PkgEndDate.ToString();
+            txtBasePrice.Text = Convert.ToString(data.PkgBasePrice);
+            txtCommission.Text = Convert.ToString(data.PkgAgencyCommission);
+            gridProducts.DataSource = package.GetProducts(selectedPackage);
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            TravelWinRepository package = new TravelWinRepository();
+            int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
+            package.DeletePackage(selectedPackage);
+            gridPackages.DataSource = package.GetPackages();
         }
     }
 }

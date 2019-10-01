@@ -62,6 +62,7 @@
             this.gridPackages.ReadOnly = true;
             this.gridPackages.RowHeadersVisible = false;
             this.gridPackages.RowHeadersWidth = 51;
+            this.gridPackages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPackages.Size = new System.Drawing.Size(175, 352);
             this.gridPackages.TabIndex = 1;
             this.gridPackages.SelectionChanged += new System.EventHandler(this.GridPackages_SelectionChanged);
@@ -123,6 +124,7 @@
             // 
             this.txtStartDate.Location = new System.Drawing.Point(295, 138);
             this.txtStartDate.Name = "txtStartDate";
+            this.txtStartDate.ReadOnly = true;
             this.txtStartDate.Size = new System.Drawing.Size(100, 20);
             this.txtStartDate.TabIndex = 6;
             // 
@@ -130,6 +132,7 @@
             // 
             this.txtEndDate.Location = new System.Drawing.Point(295, 164);
             this.txtEndDate.Name = "txtEndDate";
+            this.txtEndDate.ReadOnly = true;
             this.txtEndDate.Size = new System.Drawing.Size(100, 20);
             this.txtEndDate.TabIndex = 7;
             // 
@@ -146,6 +149,7 @@
             // 
             this.txtBasePrice.Location = new System.Drawing.Point(529, 141);
             this.txtBasePrice.Name = "txtBasePrice";
+            this.txtBasePrice.ReadOnly = true;
             this.txtBasePrice.Size = new System.Drawing.Size(100, 20);
             this.txtBasePrice.TabIndex = 9;
             // 
@@ -162,15 +166,20 @@
             // 
             this.txtCommission.Location = new System.Drawing.Point(529, 167);
             this.txtCommission.Name = "txtCommission";
+            this.txtCommission.ReadOnly = true;
             this.txtCommission.Size = new System.Drawing.Size(100, 20);
             this.txtCommission.TabIndex = 11;
             // 
             // gridProducts
             // 
+            this.gridProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridProducts.Location = new System.Drawing.Point(237, 224);
             this.gridProducts.Name = "gridProducts";
+            this.gridProducts.ReadOnly = true;
+            this.gridProducts.RowHeadersVisible = false;
             this.gridProducts.RowHeadersWidth = 51;
+            this.gridProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridProducts.Size = new System.Drawing.Size(392, 140);
             this.gridProducts.TabIndex = 13;
             // 
@@ -191,6 +200,7 @@
             this.btnDelete.TabIndex = 15;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnUpdate
             // 

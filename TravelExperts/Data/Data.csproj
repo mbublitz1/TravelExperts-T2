@@ -108,6 +108,7 @@
     <Compile Include="Core\Models\SupplierContact.cs" />
     <Compile Include="Core\Models\TripType.cs" />
     <Compile Include="Core\ViewModel\PackageListViewModel.cs" />
+    <Compile Include="Core\ViewModel\ProductListViewModel.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
     <Compile Include="Persistence\Migrations\201908211636308_initialModel.cs" />
     <Compile Include="Persistence\Migrations\201908211636308_initialModel.Designer.cs">

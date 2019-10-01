@@ -69,14 +69,42 @@ namespace Data.Persistence.Repositories
             return data;
         }
 
-        public List<Product> GetProducts()
+        public List<ProductListViewModel> GetProducts(int id)
         {
-            throw new NotImplementedException();
+            string selectStatement =
+                @"SELECT pa.PackageId, p.ProdName, s.SupName FROM Products_Suppliers ps
+                JOIN Products p ON ps.ProductId = p.ProductId
+                JOIN Suppliers s ON ps.SupplierId = s.SupplierId
+                JOIN Packages_Products_Suppliers pps ON ps.ProductSupplierId = pps.ProductSupplierId
+                JOIN Packages pa ON pps.PackageId = pa.PackageId
+                WHERE pa.PackageId = " + id;
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(selectStatement, conn);
+
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<ProductListViewModel> data = new List<ProductListViewModel>();
+
+            while (reader.Read())
+            {
+                ProductListViewModel p = new ProductListViewModel();
+                p.ProdName = reader["ProdName"].ToString();
+                p.SupName = reader["SupName"].ToString();
+                data.Add(p);
+            }
+            conn.Close();
+            return data;
         }
 
-        public List<Supplier> GetSuppliers()
+        public void DeletePackage(int id)
         {
-            throw new NotImplementedException();
+            string deleteStatement = "DELETE FROM Packages WHERE PackageId = " + id;
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(deleteStatement, conn);
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }
