@@ -107,6 +107,7 @@
     <Compile Include="Core\Models\Supplier.cs" />
     <Compile Include="Core\Models\SupplierContact.cs" />
     <Compile Include="Core\Models\TripType.cs" />
+    <Compile Include="Core\ViewModel\PackageListViewModel.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
     <Compile Include="Persistence\Migrations\201908211636308_initialModel.cs" />
     <Compile Include="Persistence\Migrations\201908211636308_initialModel.Designer.cs">
@@ -123,7 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\DTO\" />
-    <Folder Include="Core\ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Persistence\Migrations\201908211636308_initialModel.resx">

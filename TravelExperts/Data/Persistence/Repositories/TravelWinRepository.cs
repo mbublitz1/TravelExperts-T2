@@ -1,6 +1,7 @@
 ﻿using Castle.Components.DictionaryAdapter;
 using Data.Core.Models;
 using Data.Core.Repository;
+using Data.Core.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,19 +24,20 @@ namespace Data.Persistence.Repositories
             throw new NotImplementedException();
         }
 
-        public List<Package> GetPackages()
+        public List<PackageListViewModel> GetPackages()
         {
-            string selectStatement = "SELECT PkgName FROM Packages";
+            string selectStatement = "SELECT PackageId, PkgName FROM Packages";
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(selectStatement, conn);
 
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
-            List<Package> data = new List<Package>();
+            List<PackageListViewModel> data = new List<PackageListViewModel>();
 
             while (reader.Read())
             {
-                Package p = new Package();
+                PackageListViewModel p = new PackageListViewModel();
+                p.PackageId = Convert.ToInt32(reader["PackageId"]);
                 p.PkgName = reader["PkgName"].ToString();
                 data.Add(p);
             }

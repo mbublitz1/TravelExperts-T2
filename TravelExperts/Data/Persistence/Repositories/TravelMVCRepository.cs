@@ -1,5 +1,6 @@
 ﻿using Data.Core.Models;
 using Data.Core.Repository;
+using Data.Core.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.Persistence.Repositories
 {
-    public class TravelMVCRepository : IRepository
+    public class TravelMVCRepository 
     {
         private readonly ApplicationDbContext _context;
 
