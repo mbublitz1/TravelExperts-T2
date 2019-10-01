@@ -21,8 +21,16 @@ namespace TravelExperts_Desktop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            IRepository repo = new TravelWinRepository();
-            gridPackages.DataSource = repo.GetPackages();
+            TravelWinRepository packages = new TravelWinRepository();
+            gridPackages.DataSource = packages.GetPackages();
+        }
+
+        private void GridPackages_SelectionChanged(object sender, EventArgs e)
+        {
+            TravelWinRepository package = new TravelWinRepository();
+            int selectedPackage = Convert.ToChar(gridPackages.CurrentRow.Cells["PackageId"].RowIndex);
+            var list = package.GetSinglePackage(selectedPackage);
+            lblPackageName.Text = list[selectedPackage].PkgName.ToString();
         }
     }
 }

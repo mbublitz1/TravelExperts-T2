@@ -45,6 +45,31 @@ namespace Data.Persistence.Repositories
             return data;
         }
 
+        public Package GetSinglePackage(int id)
+        {
+            string selectStatement = "SELECT * FROM Packages WHERE PackageId = " + id;
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(selectStatement, conn);
+
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            Package data = new Package();
+
+            while (reader.Read())
+            {
+                Package p = new Package();
+                p.PackageId = Convert.ToInt32(reader["PackageId"]);
+                p.PkgName = reader["PkgName"].ToString();
+                p.PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"]);
+                p.PkgEndDate = Convert.ToDateTime(reader["PkgEndDate"]);
+                p.PkgDesc = reader["PkgDesc"].ToString();
+                p.PkgBasePrice = Convert.ToDecimal(reader["PkgBasePrice"]);
+                p.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
+            }
+            conn.Close();
+            return data;
+        }
+
         public List<Product> GetProducts()
         {
             throw new NotImplementedException();
