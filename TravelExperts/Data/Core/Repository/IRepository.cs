@@ -11,7 +11,7 @@ namespace Data.Core.Repository
     public interface IRepository
     {
         Customer GetCustomer(int id);
-        List<PackageListViewModel> GetPackages();
+        List<Package> GetPackages();
         List<Product> GetProducts();
         List<Supplier> GetSuppliers();
     }

@@ -1,4 +1,5 @@
-﻿<!doctype html>
+﻿@model List<Data.Core.Models.Package>
+<!doctype html>
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8">
@@ -6,7 +7,8 @@
     <title>Travel Experts</title>
     <meta name="description" content="Travel Experts website">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
     <script src="https://kit.fontawesome.com/7a976362d3.js"></script>
 </head>
 
@@ -25,106 +27,82 @@
         <section id="Plans">
             <h3>Travel Plans</h3>
             <div id="plans" class="carousel slide" data-ride="carousel">
-                <ul class="carousel-indicators">
-                    <li data-target="#plans" data-slide-to="0" class="active"></li>
-                    <li data-target="#plans" data-slide-to="1"></li>
-                    <li data-target="#plans" data-slide-to="2"></li>
-                    <li data-target="#plans" data-slide-to="3"></li>
-                </ul>
+                @*<ul class="carousel-indicators">
+        <li data-target="#plans" data-slide-to="0" class="active"></li>
+        <li data-target="#plans" data-slide-to="1"></li>
+        <li data-target="#plans" data-slide-to="2"></li>
+            <li data-target="#plans" data-slide-to="3"></li>
+                </ul>*@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <h4>Caribbean New Year</h4>
-                        <div class="row">
-                            <div class="col">
-                                <img src="~/Content/img/1Caribbean_New_Year/1.jpg" alt="Los Angeles">
-                            </div>
-                            <div class="col">
-                                <img src="~/Content/img/1Caribbean_New_Year/a(2).jpg" alt="Los Angeles">
-                            </div>
-                            <div class="col">
-                                <img src="~/Content/img/1Caribbean_New_Year/2.jpg" alt="Los Angeles">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <h4>Polynesian Paradise</h4>
-                        <div class="row">
-                            <div class="col">
-                                <img src="~/Content/img/2Polynesian_Paradise/1.jpeg" alt="Chicago">
-                            </div>
-                            <div class="col">
-                                <img src="~/Content/img/2Polynesian_Paradise/a(1).jpg" alt="Chicago">
-                            </div>
-                            <div class="col">
-                                <img src="~/Content/img/2Polynesian_Paradise/3.jpg" alt="Chicago">
+                    @for (int i = 0; i < Model.Count(); i++)
+                    {
+
+                        if (i == 0)
+                        {
+                            @:<div class="carousel-item active">
+                            @: <div class="row">
+                        }
+                        else if (i % 3 == 0 && i != 0)
+                        {
+                                @: </div>
+                                @:</div>
+                                @:<div class="carousel-item ">
+                                @:<div class="row">
+                        }
+                        <div class="col">
+                            <h4>@Model[i].PkgName</h4>
+                            <img src="@Model[i].PackageImageLocation" alt="@Model[i].PkgName">
+                            <p>@Model[i].PkgDesc</p>
+                            <p>@Model[i].PkgBasePrice</p>
+                            <div>
+                                @Html.ActionLink("Book", "")
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <h4>Asian Expedition</h4>
-                        <div class="row">
-                            <div class="col">
-                                <img src="~/Content/img/3Asian_Expedition/img1.jpg" alt="Chicago">
-                            </div>
-                            <div class="col">
-                                <img src="~/Content/img/3Asian_Expedition/Thailand.jpg" alt="Chicago">
-                            </div>
-                            <div class="col">
-                                <img src="~/Content/img/3Asian_Expedition/Boracay-Philippines-1024x768.jpg" alt="Chicago">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <h4>European Vacation</h4>
-                        <div class="row">
-                            <div class="col">
-                                <img src="~/Content/img/4European_Vacation/london/london.jpg" alt="">
-                            </div>
-                            <div class="col">
-                                <img src="~/Content/img/4European_Vacation/paris/paris.jpg" alt="">
-                            </div>
-                            <div class="col">
-                                <img src="~/Content/img/4European_Vacation/rome/rome-italy.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <!--                        Left and right controls-->
-                    <a class="carousel-control-prev" href="#plans" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#plans" data-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </a>
+                    }
                 </div>
             </div>
-        </section>
-        <!-- Registration Section completed by John and Mike-->
-        <!--            John - Submit functionality-->
-        <!--            Mike - Design and styling of registration form amd validation-->
-        <section id="Register" class="registration--main_form">
-            <h3>Register</h3>
-            @Html.Partial("_RegisterPartial")
-        </section>
-        <!--            Contact Section - Sumit and John-->
-        <!--            Sumit and John worked on the style and loading records from database-->
-        <section id="ContactUs">
-        </section>
-        <a href="#" class="back-to-top"><i id="arrow" class="fas fa-arrow-alt-circle-up fa-3x"></i></a>
-    </main>
 
-    <footer>
-    </footer>
-    @*<script src="vendor/js/jquery-3.4.1.min.js"></script>
-        <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="vendor/js/bootstrap.min.js"></script>
-        <script src="vendor/js/node_modules/jquery-waypoints/waypoints.min.js"></script>
-        <script src="vendor/js/jquery-validation-1.19.1/dist/jquery.validate.min.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/plsReg.js"></script>*@
-    @*<script>
-                  $("#regForm").validate();
-        </script>*@
+            <!--                        Left and right controls-->
+            <a class="carousel-control-prev" href="#plans" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#plans" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Registration Section completed by John and Mike-->
+<!--            John - Submit functionality-->
+<!--            Mike - Design and styling of registration form amd validation-->
+<section id="Register" class="registration--main_form">
+    <h3>Register</h3>
+    @Html.Partial("_RegisterPartial")
+</section>
+<!--            Contact Section - Sumit and John-->
+<!--            Sumit and John worked on the style and loading records from database-->
+<section id="ContactUs">
+</section>
+<a href="#" class="back-to-top"><i id="arrow" class="fas fa-arrow-alt-circle-up fa-3x"></i></a>
+</main>
+
+<footer>
+</footer>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@*<script src="vendor/js/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="vendor/js/bootstrap.min.js"></script>
+    <script src="vendor/js/node_modules/jquery-waypoints/waypoints.min.js"></script>
+    <script src="vendor/js/jquery-validation-1.19.1/dist/jquery.validate.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/plsReg.js"></script>*@
+@*<script>
+              $("#regForm").validate();
+    </script>*@
 </body>
 </html>

@@ -23,9 +23,9 @@ namespace Data.Persistence.Repositories
             return _context.Customers.Where(c => c.CustomerId == id).SingleOrDefault();
         }
 
-        public List<PackageListViewModel> GetPackages()
+        public List<Package> GetPackages()
         {
-            throw new NotImplementedException();
+            return _context.Packages.ToList();
         }
 
         public List<Product> GetProducts()
