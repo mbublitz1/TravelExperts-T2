@@ -77,6 +77,7 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -108,10 +109,19 @@
     <Compile Include="Core\Models\SupplierContact.cs" />
     <Compile Include="Core\Models\TripType.cs" />
     <Compile Include="Core\ViewModel\PackageListViewModel.cs" />
+    <Compile Include="Core\ViewModel\ProductListViewModel.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
     <Compile Include="Persistence\Migrations\201908211636308_initialModel.cs" />
     <Compile Include="Persistence\Migrations\201908211636308_initialModel.Designer.cs">
       <DependentUpon>201908211636308_initialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201910020034106_addPackageImageLocation.cs" />
+    <Compile Include="Persistence\Migrations\201910020034106_addPackageImageLocation.Designer.cs">
+      <DependentUpon>201910020034106_addPackageImageLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201910020246347_ChangepackagelocLength.cs" />
+    <Compile Include="Persistence\Migrations\201910020246347_ChangepackagelocLength.Designer.cs">
+      <DependentUpon>201910020246347_ChangepackagelocLength.cs</DependentUpon>
     </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Persistence\Repositories\TravelMVCRepository.cs" />
@@ -128,6 +138,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Persistence\Migrations\201908211636308_initialModel.resx">
       <DependentUpon>201908211636308_initialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201910020034106_addPackageImageLocation.resx">
+      <DependentUpon>201910020034106_addPackageImageLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201910020246347_ChangepackagelocLength.resx">
+      <DependentUpon>201910020246347_ChangepackagelocLength.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
