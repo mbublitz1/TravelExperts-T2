@@ -17,7 +17,7 @@ namespace Data.Persistence.Repositories
 {
     public class TravelWinRepository
     {
-        public string connString= ConfigurationManager.ConnectionStrings["TravelWinConnCole"].ConnectionString;
+        public string connString = ConfigurationManager.ConnectionStrings["TravelWinConn"].ConnectionString;
 
         public List<PackageListViewModel> GetPackages()
         {
@@ -140,6 +140,38 @@ namespace Data.Persistence.Repositories
             {
                 conn.Open();
                 deleteCommand.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void InsertPackage(string PkgName, DateTime PkgStartDate,
+            DateTime PkgEndDate, string PkgDesc,
+            double PkgBasePrice, double PkgAgencyCommission)
+        {
+            string insertStatement =
+                @"INSERT INTO Packages  (PkgName,  PkgStartDate, 
+                PkgEndDate,  PkgDesc, PkgBasePrice,  PkgAgencyCommission) 
+                VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, 
+                @PkgBasePrice,  @PkgAgencyCommission)";
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand insertCommand = new SqlCommand(insertStatement, conn);
+            insertCommand.Parameters.AddWithValue("@PkgName", PkgName);
+            insertCommand.Parameters.AddWithValue("@PkgStartDate", PkgStartDate);
+            insertCommand.Parameters.AddWithValue("@PkgEndDate", PkgEndDate);
+            insertCommand.Parameters.AddWithValue("@PkgDesc", PkgDesc);
+            insertCommand.Parameters.AddWithValue("@PkgBasePrice", PkgBasePrice);
+            insertCommand.Parameters.AddWithValue("@PkgAgencyCommission", PkgAgencyCommission);
+            try
+            {
+                conn.Open();
+                insertCommand.ExecuteNonQuery();
                 conn.Close();
             }
             catch (SqlException ex)

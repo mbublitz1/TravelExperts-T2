@@ -48,5 +48,11 @@ namespace TravelExperts_Desktop
             package.DeletePackage(selectedPackage);
             gridPackages.DataSource = package.GetPackages();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddPackage AddPkgManager = new AddPackage();
+            AddPkgManager.Show();
+        }
     }
 }

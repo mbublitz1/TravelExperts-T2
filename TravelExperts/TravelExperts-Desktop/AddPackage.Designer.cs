@@ -45,11 +45,11 @@
             this.btnAddSupplier = new System.Windows.Forms.Button();
             this.btnRemoveSupplier = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -227,27 +227,24 @@
             this.panel1.Size = new System.Drawing.Size(1045, 300);
             this.panel1.TabIndex = 18;
             // 
-            // btnApply
+            // label3
             // 
-            this.btnApply.ForeColor = System.Drawing.Color.Black;
-            this.btnApply.Location = new System.Drawing.Point(821, 322);
-            this.btnApply.Margin = new System.Windows.Forms.Padding(4);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(157, 29);
-            this.btnApply.TabIndex = 19;
-            this.btnApply.Text = "Apply Package";
-            this.btnApply.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(521, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 17);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Products Suppliers";
             // 
-            // btnCancel
+            // label2
             // 
-            this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(984, 322);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 29);
-            this.btnCancel.TabIndex = 20;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(724, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 17);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Add ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -260,24 +257,28 @@
             this.label1.Text = "Remove";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // btnApply
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(724, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 17);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Add ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnApply.ForeColor = System.Drawing.Color.Black;
+            this.btnApply.Location = new System.Drawing.Point(821, 322);
+            this.btnApply.Margin = new System.Windows.Forms.Padding(4);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(157, 29);
+            this.btnApply.TabIndex = 19;
+            this.btnApply.Text = "Apply Package";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
-            // label3
+            // btnCancel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(521, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 17);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Products Suppliers";
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Location = new System.Drawing.Point(984, 322);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 29);
+            this.btnCancel.TabIndex = 20;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // AddPackage
             // 
