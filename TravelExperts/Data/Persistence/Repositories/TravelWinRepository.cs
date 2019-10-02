@@ -74,6 +74,7 @@ namespace Data.Persistence.Repositories
                     data.PkgDesc = reader["PkgDesc"].ToString();
                     data.PkgBasePrice = Convert.ToDecimal(reader["PkgBasePrice"]);
                     data.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
+                    data.PackageImageLocation = reader["PackageImageLocation"].ToString();
                 }
                 reader.Close();
                 return data;
@@ -171,7 +172,7 @@ namespace Data.Persistence.Repositories
             try
             {
                 conn.Open();
-                insertCommand.ExecuteNonQuery();
+                int count = insertCommand.ExecuteNonQuery();
                 conn.Close();
             }
             catch (SqlException ex)
