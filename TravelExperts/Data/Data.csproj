@@ -107,6 +107,7 @@
     <Compile Include="Core\Models\Supplier.cs" />
     <Compile Include="Core\Models\SupplierContact.cs" />
     <Compile Include="Core\Models\TripType.cs" />
+    <Compile Include="Core\ViewModel\BookingDetailViewModel.cs" />
     <Compile Include="Core\ViewModel\PackageListViewModel.cs" />
     <Compile Include="Core\ViewModel\ProductListViewModel.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
