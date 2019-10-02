@@ -11,62 +11,83 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 
 namespace Data.Persistence.Repositories
 {
     public class TravelWinRepository
     {
-        public string connString= ConfigurationManager.ConnectionStrings["TravelWinConn"].ConnectionString;
-
-        public Customer GetCustomer(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public string connString = ConfigurationManager.ConnectionStrings["TravelWinConn"].ConnectionString;
 
         public List<PackageListViewModel> GetPackages()
         {
             string selectStatement = "SELECT PackageId, PkgName FROM Packages";
             SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand(selectStatement, conn);
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
 
-            conn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            List<PackageListViewModel> data = new List<PackageListViewModel>();
-
-            while (reader.Read())
+            try
             {
-                PackageListViewModel p = new PackageListViewModel();
-                p.PackageId = Convert.ToInt32(reader["PackageId"]);
-                p.PkgName = reader["PkgName"].ToString();
-                data.Add(p);
+                conn.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                List<PackageListViewModel> data = new List<PackageListViewModel>();
+
+                while (reader.Read())
+                {
+                    PackageListViewModel p = new PackageListViewModel();
+                    p.PackageId = Convert.ToInt32(reader["PackageId"]);
+                    p.PkgName = reader["PkgName"].ToString();
+                    data.Add(p);
+                }
+                reader.Close();
+                return data;
             }
-            conn.Close();
-            return data;
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public Package GetSinglePackage(int id)
         {
-            string selectStatement = "SELECT * FROM Packages WHERE PackageId = " + id;
+            string selectStatement = "SELECT * FROM Packages WHERE PackageId = @id";
             SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand(selectStatement, conn);
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+            selectCommand.Parameters.AddWithValue("@id", id);
 
-            conn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            Package data = new Package();
-
-            while (reader.Read())
+            try
             {
-                data.PackageId = Convert.ToInt32(reader["PackageId"]);
-                data.PkgName = reader["PkgName"].ToString();
-                data.PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"]);
-                data.PkgEndDate = Convert.ToDateTime(reader["PkgEndDate"]);
-                data.PkgDesc = reader["PkgDesc"].ToString();
-                data.PkgBasePrice = Convert.ToDecimal(reader["PkgBasePrice"]);
-                data.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
+                conn.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader(CommandBehavior.CloseConnection & CommandBehavior.SingleRow);
+                Package data = new Package();
+
+                while (reader.Read())
+                {
+                    data.PackageId = Convert.ToInt32(reader["PackageId"]);
+                    data.PkgName = reader["PkgName"].ToString();
+                    data.PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"]);
+                    data.PkgEndDate = Convert.ToDateTime(reader["PkgEndDate"]);
+                    data.PkgDesc = reader["PkgDesc"].ToString();
+                    data.PkgBasePrice = Convert.ToDecimal(reader["PkgBasePrice"]);
+                    data.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
+                    data.PackageImageLocation = reader["PackageImageLocation"].ToString();
+                }
+                reader.Close();
+                return data;
             }
-            conn.Close();
-            return data;
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public List<ProductListViewModel> GetProducts(int id)
@@ -77,34 +98,91 @@ namespace Data.Persistence.Repositories
                 JOIN Suppliers s ON ps.SupplierId = s.SupplierId
                 JOIN Packages_Products_Suppliers pps ON ps.ProductSupplierId = pps.ProductSupplierId
                 JOIN Packages pa ON pps.PackageId = pa.PackageId
-                WHERE pa.PackageId = " + id;
+                WHERE pa.PackageId = @id";
             SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand(selectStatement, conn);
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+            selectCommand.Parameters.AddWithValue("@id", id);
 
-            conn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            List<ProductListViewModel> data = new List<ProductListViewModel>();
-
-            while (reader.Read())
+            try
             {
-                ProductListViewModel p = new ProductListViewModel();
-                p.ProdName = reader["ProdName"].ToString();
-                p.SupName = reader["SupName"].ToString();
-                data.Add(p);
+                conn.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                List<ProductListViewModel> data = new List<ProductListViewModel>();
+
+                while (reader.Read())
+                {
+                    ProductListViewModel p = new ProductListViewModel();
+                    p.ProdName = reader["ProdName"].ToString();
+                    p.SupName = reader["SupName"].ToString();
+                    data.Add(p);
+                }
+                reader.Close();
+                return data;
             }
-            conn.Close();
-            return data;
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public void DeletePackage(int id)
         {
-            string deleteStatement = "DELETE FROM Packages WHERE PackageId = " + id;
+            string deleteStatement = "DELETE FROM Packages WHERE PackageId = @id";
             SqlConnection conn = new SqlConnection(connString);
-            SqlCommand cmd = new SqlCommand(deleteStatement, conn);
+            SqlCommand deleteCommand = new SqlCommand(deleteStatement, conn);
+            deleteCommand.Parameters.AddWithValue("@id", id);
 
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            try
+            {
+                conn.Open();
+                deleteCommand.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void InsertPackage(string PkgName, DateTime PkgStartDate,
+            DateTime PkgEndDate, string PkgDesc,
+            double PkgBasePrice, double PkgAgencyCommission)
+        {
+            string insertStatement =
+                @"INSERT INTO Packages  (PkgName,  PkgStartDate, 
+                PkgEndDate,  PkgDesc, PkgBasePrice,  PkgAgencyCommission) 
+                VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, 
+                @PkgBasePrice,  @PkgAgencyCommission)";
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand insertCommand = new SqlCommand(insertStatement, conn);
+            insertCommand.Parameters.AddWithValue("@PkgName", PkgName);
+            insertCommand.Parameters.AddWithValue("@PkgStartDate", PkgStartDate);
+            insertCommand.Parameters.AddWithValue("@PkgEndDate", PkgEndDate);
+            insertCommand.Parameters.AddWithValue("@PkgDesc", PkgDesc);
+            insertCommand.Parameters.AddWithValue("@PkgBasePrice", PkgBasePrice);
+            insertCommand.Parameters.AddWithValue("@PkgAgencyCommission", PkgAgencyCommission);
+            try
+            {
+                conn.Open();
+                int count = insertCommand.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }
