@@ -13,7 +13,8 @@ using System.Windows.Forms;
 namespace TravelExperts_Desktop
 {
     public partial class PackageManager : Form
-    {        
+    {
+
         public PackageManager()
         {
             InitializeComponent();
@@ -34,19 +35,34 @@ namespace TravelExperts_Desktop
             var data = package.GetSinglePackage(selectedPackage);
             lblPackageName.Text = data.PkgName;
             lblDesc.Text = data.PkgDesc;
-            txtStartDate.Text = data.PkgStartDate.ToString();
-            txtEndDate.Text = data.PkgEndDate.ToString();
-            txtBasePrice.Text = Convert.ToString(data.PkgBasePrice);
-            txtCommission.Text = Convert.ToString(data.PkgAgencyCommission);
+            txtStartDate.Text = data.PkgStartDate.Value.Date.ToShortDateString();
+            txtEndDate.Text = data.PkgEndDate.Value.Date.ToShortDateString();
+            txtBasePrice.Text = data.PkgBasePrice.ToString("c");
+            txtCommission.Text = Convert.ToDouble(data.PkgAgencyCommission).ToString("c");
             gridProducts.DataSource = package.GetProducts(selectedPackage);
+            string image = @"C:\Users\John\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts" + data.PackageImageLocation;
+            try
+            {
+                pbImage.Image = Image.FromFile(image);
+            }
+            catch
+            {
+                PictureBox errorPic = new PictureBox();
+                //pbImage.Size = ;
+                pbImage.Image = errorPic.ErrorImage;
+            }
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            TravelWinRepository package = new TravelWinRepository();
-            int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
-            package.DeletePackage(selectedPackage);
-            gridPackages.DataSource = package.GetPackages();
+            DialogResult result = MessageBox.Show("Delete " + lblPackageName.Text + "?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                TravelWinRepository package = new TravelWinRepository();
+                int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
+                package.DeletePackage(selectedPackage);
+                gridPackages.DataSource = package.GetPackages();
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

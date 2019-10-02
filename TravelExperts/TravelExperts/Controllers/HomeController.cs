@@ -12,15 +12,17 @@ namespace TravelExperts.Controllers
 {
     public class HomeController : Controller
     {
-        IRepository context;
+        IRepository _context;
         public HomeController()
         {
-            context = new TravelMVCRepository(new ApplicationDbContext());
+            _context = new TravelMVCRepository(new ApplicationDbContext());
         }
 
         public ActionResult Index()
         {
-            return View();
+            List<Package> viewModel = _context.GetPackages();
+
+            return View(viewModel);
         }
 
         public ActionResult About()
