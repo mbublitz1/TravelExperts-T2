@@ -33,6 +33,7 @@ namespace Data.Core.Models
         [Column(TypeName = "money")]
         public decimal? PkgAgencyCommission { get; set; }
 
+        [MaxLength(255)]
         public string PackageImageLocation { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

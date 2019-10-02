@@ -118,6 +118,10 @@
     <Compile Include="Persistence\Migrations\201910020034106_addPackageImageLocation.Designer.cs">
       <DependentUpon>201910020034106_addPackageImageLocation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\201910020246347_ChangepackagelocLength.cs" />
+    <Compile Include="Persistence\Migrations\201910020246347_ChangepackagelocLength.Designer.cs">
+      <DependentUpon>201910020246347_ChangepackagelocLength.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Persistence\Repositories\TravelMVCRepository.cs" />
     <Compile Include="Persistence\Repositories\TravelWinRepository.cs" />
@@ -136,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\201910020034106_addPackageImageLocation.resx">
       <DependentUpon>201910020034106_addPackageImageLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201910020246347_ChangepackagelocLength.resx">
+      <DependentUpon>201910020246347_ChangepackagelocLength.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
