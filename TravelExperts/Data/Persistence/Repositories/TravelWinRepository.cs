@@ -17,7 +17,7 @@ namespace Data.Persistence.Repositories
 {
     public class TravelWinRepository
     {
-        public string connString= ConfigurationManager.ConnectionStrings["TravelWinConn"].ConnectionString;
+        public string connString= ConfigurationManager.ConnectionStrings["TravelWinConnCole"].ConnectionString;
 
         public Customer GetCustomer(int id)
         {

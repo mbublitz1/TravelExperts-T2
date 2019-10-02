@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPackage.Designer.cs">
+      <DependentUpon>AddPackage.cs</DependentUpon>
+    </Compile>
     <Compile Include="PackageManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +61,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdatePackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdatePackage.Designer.cs">
+      <DependentUpon>UpdatePackage.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddPackage.resx">
+      <DependentUpon>AddPackage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PackageManager.resx">
       <DependentUpon>PackageManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -67,6 +82,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UpdatePackage.resx">
+      <DependentUpon>UpdatePackage.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\DataSources\Data.Core.Models.Package.datasource" />
     <None Include="Properties\DataSources\Program.datasource" />
