@@ -31,6 +31,9 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.txtPackageDescription = new System.Windows.Forms.TextBox();
             this.txtPackageAgency = new System.Windows.Forms.TextBox();
@@ -47,9 +50,6 @@
             this.lblPkgEndDate = new System.Windows.Forms.Label();
             this.lblPkgDesc = new System.Windows.Forms.Label();
             this.lblPackagePrice = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -103,6 +103,36 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(1045, 300);
             this.panel1.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(507, -5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 17);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Products Suppliers";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Location = new System.Drawing.Point(709, 248);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 17);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Remove";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(720, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 17);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Add ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView2
             // 
@@ -243,36 +273,6 @@
             this.lblPackagePrice.Text = "Package Price:";
             this.lblPackagePrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(720, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 17);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Add ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(709, 248);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Remove";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(507, -5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 17);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Products Suppliers";
-            // 
             // UpdatePackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -284,6 +284,7 @@
             this.Name = "UpdatePackage";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Update Package Manager";
+            this.Load += new System.EventHandler(this.UpdatePackage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

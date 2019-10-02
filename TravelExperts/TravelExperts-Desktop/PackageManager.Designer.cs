@@ -58,7 +58,7 @@
             this.PackageId,
             this.PackageName});
             this.gridPackages.Location = new System.Drawing.Point(16, 15);
-            this.gridPackages.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridPackages.Margin = new System.Windows.Forms.Padding(4);
             this.gridPackages.Name = "gridPackages";
             this.gridPackages.ReadOnly = true;
             this.gridPackages.RowHeadersVisible = false;
@@ -128,7 +128,7 @@
             // txtStartDate
             // 
             this.txtStartDate.Location = new System.Drawing.Point(393, 170);
-            this.txtStartDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStartDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.ReadOnly = true;
             this.txtStartDate.Size = new System.Drawing.Size(132, 22);
@@ -137,7 +137,7 @@
             // txtEndDate
             // 
             this.txtEndDate.Location = new System.Drawing.Point(393, 202);
-            this.txtEndDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEndDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.ReadOnly = true;
             this.txtEndDate.Size = new System.Drawing.Size(132, 22);
@@ -156,7 +156,7 @@
             // txtBasePrice
             // 
             this.txtBasePrice.Location = new System.Drawing.Point(705, 174);
-            this.txtBasePrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBasePrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtBasePrice.Name = "txtBasePrice";
             this.txtBasePrice.ReadOnly = true;
             this.txtBasePrice.Size = new System.Drawing.Size(132, 22);
@@ -175,7 +175,7 @@
             // txtCommission
             // 
             this.txtCommission.Location = new System.Drawing.Point(705, 206);
-            this.txtCommission.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCommission.Margin = new System.Windows.Forms.Padding(4);
             this.txtCommission.Name = "txtCommission";
             this.txtCommission.ReadOnly = true;
             this.txtCommission.Size = new System.Drawing.Size(132, 22);
@@ -186,7 +186,7 @@
             this.gridProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridProducts.Location = new System.Drawing.Point(316, 276);
-            this.gridProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridProducts.Margin = new System.Windows.Forms.Padding(4);
             this.gridProducts.Name = "gridProducts";
             this.gridProducts.ReadOnly = true;
             this.gridProducts.RowHeadersVisible = false;
@@ -198,7 +198,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(255, 496);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 28);
             this.btnAdd.TabIndex = 14;
@@ -209,7 +209,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(363, 496);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 28);
             this.btnDelete.TabIndex = 15;
@@ -220,12 +220,13 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(471, 496);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 28);
             this.btnUpdate.TabIndex = 16;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // PackageManager
             // 
@@ -247,7 +248,7 @@
             this.Controls.Add(this.lblStartDate);
             this.Controls.Add(this.lblPackageName);
             this.Controls.Add(this.gridPackages);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PackageManager";
             this.Text = "Package Manager";
             this.Load += new System.EventHandler(this.Form1_Load);

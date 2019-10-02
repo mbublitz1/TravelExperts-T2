@@ -54,5 +54,19 @@ namespace TravelExperts_Desktop
             AddPackage AddPkgManager = new AddPackage();
             AddPkgManager.Show();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string PkgName = lblPackageName.Text;
+            DateTime PkgStartDate = DateTime.Parse(txtStartDate.Text);
+            DateTime PkgEndDate = DateTime.Parse(txtEndDate.Text);
+            string PkgDesc = lblDesc.Text;
+            double PkgBasePrice = double.Parse(txtBasePrice.Text);
+            double PkgAgencyCommission = double.Parse(txtCommission.Text);
+
+            UpdatePackage UpdatePkgManager = new UpdatePackage(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission);
+            UpdatePkgManager.Show();
+
+        }
     }
 }
