@@ -31,12 +31,21 @@ namespace TravelExperts_Desktop
         private void GridPackages_SelectionChanged(object sender, EventArgs e)
         {
             TravelWinRepository package = new TravelWinRepository();
-            int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
+            int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value) + 1;
             var data = package.GetSinglePackage(selectedPackage);
             lblPackageName.Text = data.PkgName;
             lblDesc.Text = data.PkgDesc;
+
+            /*************************************************
+            
+            Causes a null value to be applied and I don't know why
+
             txtStartDate.Text = data.PkgStartDate.Value.Date.ToShortDateString();
             txtEndDate.Text = data.PkgEndDate.Value.Date.ToShortDateString();
+
+            *************************************************/
+            txtStartDate.Text = data.PkgStartDate.ToString();
+            txtEndDate.Text = data.PkgEndDate.ToString();
             txtBasePrice.Text = data.PkgBasePrice.ToString("c");
             txtCommission.Text = Convert.ToDouble(data.PkgAgencyCommission).ToString("c");
             gridProducts.DataSource = package.GetProducts(selectedPackage);
