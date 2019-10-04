@@ -32,7 +32,7 @@ namespace TravelExperts_Desktop
         private void GridPackages_SelectionChanged(object sender, EventArgs e)
         {
             TravelWinRepository package = new TravelWinRepository();
-            int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value) + 1;
+            int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
             data = package.GetSinglePackage(selectedPackage);
             lblPackageName.Text = data.PkgName;
             lblDesc.Text = data.PkgDesc;
