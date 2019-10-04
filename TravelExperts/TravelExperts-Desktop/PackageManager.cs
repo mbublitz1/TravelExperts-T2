@@ -50,6 +50,7 @@ namespace TravelExperts_Desktop
             txtBasePrice.Text = data.PkgBasePrice.ToString("c");
             txtCommission.Text = Convert.ToDouble(data.PkgAgencyCommission).ToString("c");
             gridProducts.DataSource = package.GetProducts(selectedPackage);
+            //string image = @"C:\Users\John\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts" + data.PackageImageLocation;
             string image = @"C:\Users\John\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts" + data.PackageImageLocation;
             try
             {

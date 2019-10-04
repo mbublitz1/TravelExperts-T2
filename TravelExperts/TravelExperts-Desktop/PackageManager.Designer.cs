@@ -65,7 +65,7 @@
             this.gridPackages.RowHeadersVisible = false;
             this.gridPackages.RowHeadersWidth = 51;
             this.gridPackages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPackages.Size = new System.Drawing.Size(175, 352);
+            this.gridPackages.Size = new System.Drawing.Size(175, 594);
             this.gridPackages.TabIndex = 1;
             this.gridPackages.SelectionChanged += new System.EventHandler(this.GridPackages_SelectionChanged);
             // 
@@ -89,94 +89,108 @@
             // lblPackageName
             // 
             this.lblPackageName.AutoSize = true;
-            this.lblPackageName.Location = new System.Drawing.Point(193, 12);
+            this.lblPackageName.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPackageName.Location = new System.Drawing.Point(216, 39);
             this.lblPackageName.Name = "lblPackageName";
-            this.lblPackageName.Size = new System.Drawing.Size(78, 13);
+            this.lblPackageName.Size = new System.Drawing.Size(240, 39);
             this.lblPackageName.TabIndex = 2;
             this.lblPackageName.Text = "package name";
             // 
             // lblStartDate
             // 
             this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Location = new System.Drawing.Point(234, 141);
+            this.lblStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartDate.Location = new System.Drawing.Point(746, 278);
             this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(55, 13);
+            this.lblStartDate.Size = new System.Drawing.Size(69, 13);
             this.lblStartDate.TabIndex = 3;
-            this.lblStartDate.Text = "Start Date";
+            this.lblStartDate.Text = "Start Date:";
             // 
             // lblEndDate
             // 
             this.lblEndDate.AutoSize = true;
-            this.lblEndDate.Location = new System.Drawing.Point(237, 167);
+            this.lblEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEndDate.Location = new System.Drawing.Point(746, 304);
             this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(52, 13);
+            this.lblEndDate.Size = new System.Drawing.Size(64, 13);
             this.lblEndDate.TabIndex = 4;
-            this.lblEndDate.Text = "End Date";
+            this.lblEndDate.Text = "End Date:";
             // 
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(193, 45);
+            this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesc.Location = new System.Drawing.Point(219, 478);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(58, 13);
+            this.lblDesc.Size = new System.Drawing.Size(86, 20);
             this.lblDesc.TabIndex = 5;
             this.lblDesc.Text = "description";
             // 
             // txtStartDate
             // 
-            this.txtStartDate.Location = new System.Drawing.Point(295, 138);
+            this.txtStartDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStartDate.Location = new System.Drawing.Point(824, 278);
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.ReadOnly = true;
-            this.txtStartDate.Size = new System.Drawing.Size(100, 20);
+            this.txtStartDate.Size = new System.Drawing.Size(317, 13);
             this.txtStartDate.TabIndex = 6;
             // 
             // txtEndDate
             // 
-            this.txtEndDate.Location = new System.Drawing.Point(295, 164);
+            this.txtEndDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEndDate.Location = new System.Drawing.Point(824, 304);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.ReadOnly = true;
-            this.txtEndDate.Size = new System.Drawing.Size(100, 20);
+            this.txtEndDate.Size = new System.Drawing.Size(317, 13);
             this.txtEndDate.TabIndex = 7;
             // 
             // lblBasePrice
             // 
             this.lblBasePrice.AutoSize = true;
-            this.lblBasePrice.Location = new System.Drawing.Point(465, 144);
+            this.lblBasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBasePrice.Location = new System.Drawing.Point(746, 330);
             this.lblBasePrice.Name = "lblBasePrice";
-            this.lblBasePrice.Size = new System.Drawing.Size(58, 13);
+            this.lblBasePrice.Size = new System.Drawing.Size(72, 13);
             this.lblBasePrice.TabIndex = 8;
-            this.lblBasePrice.Text = "Base Price";
+            this.lblBasePrice.Text = "Base Price:";
             // 
             // txtBasePrice
             // 
-            this.txtBasePrice.Location = new System.Drawing.Point(529, 141);
+            this.txtBasePrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBasePrice.Location = new System.Drawing.Point(824, 330);
             this.txtBasePrice.Name = "txtBasePrice";
             this.txtBasePrice.ReadOnly = true;
-            this.txtBasePrice.Size = new System.Drawing.Size(100, 20);
+            this.txtBasePrice.Size = new System.Drawing.Size(317, 13);
             this.txtBasePrice.TabIndex = 9;
             // 
             // lblCommission
             // 
             this.lblCommission.AutoSize = true;
-            this.lblCommission.Location = new System.Drawing.Point(461, 170);
+            this.lblCommission.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCommission.Location = new System.Drawing.Point(746, 356);
             this.lblCommission.Name = "lblCommission";
-            this.lblCommission.Size = new System.Drawing.Size(62, 13);
+            this.lblCommission.Size = new System.Drawing.Size(76, 13);
             this.lblCommission.TabIndex = 10;
-            this.lblCommission.Text = "Commission";
+            this.lblCommission.Text = "Commission:";
             // 
             // txtCommission
             // 
-            this.txtCommission.Location = new System.Drawing.Point(529, 167);
+            this.txtCommission.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCommission.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCommission.Location = new System.Drawing.Point(824, 356);
             this.txtCommission.Name = "txtCommission";
             this.txtCommission.ReadOnly = true;
-            this.txtCommission.Size = new System.Drawing.Size(100, 20);
+            this.txtCommission.Size = new System.Drawing.Size(317, 13);
             this.txtCommission.TabIndex = 11;
             // 
             // gridProducts
             // 
             this.gridProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridProducts.Location = new System.Drawing.Point(237, 224);
+            this.gridProducts.Location = new System.Drawing.Point(749, 105);
             this.gridProducts.Name = "gridProducts";
             this.gridProducts.ReadOnly = true;
             this.gridProducts.RowHeadersVisible = false;
@@ -187,7 +201,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(191, 403);
+            this.btnAdd.Location = new System.Drawing.Point(223, 583);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 14;
@@ -197,7 +211,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(272, 403);
+            this.btnDelete.Location = new System.Drawing.Point(304, 583);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 15;
@@ -207,7 +221,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(353, 403);
+            this.btnUpdate.Location = new System.Drawing.Point(385, 583);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 16;
@@ -217,8 +231,8 @@
             // 
             // pbImage
             // 
-            this.pbImage.Location = new System.Drawing.Point(662, 12);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbImage.Location = new System.Drawing.Point(223, 105);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(2);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(466, 352);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -229,7 +243,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1145, 462);
+            this.ClientSize = new System.Drawing.Size(1151, 645);
             this.Controls.Add(this.pbImage);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
