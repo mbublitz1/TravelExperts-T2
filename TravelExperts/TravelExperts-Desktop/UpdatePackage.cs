@@ -15,7 +15,7 @@ namespace TravelExperts_Desktop
     {
         public UpdatePackage(string PkgName, DateTime PkgStartDate, 
             DateTime PkgEndDate, string PkgDesc, 
-            double PkgBasePrice, double PkgAgencyCommission )
+            decimal PkgBasePrice, decimal PkgAgencyCommission )
         {
             InitializeComponent();
             txtPackageName.Text = PkgName;

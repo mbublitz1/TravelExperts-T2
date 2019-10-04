@@ -1,4 +1,5 @@
-﻿using Data.Core.Repository;
+﻿using Data.Core.Models;
+using Data.Core.Repository;
 using Data.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace TravelExperts_Desktop
 {
     public partial class PackageManager : Form
     {
-
+        Package data;
         public PackageManager()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace TravelExperts_Desktop
         {
             TravelWinRepository package = new TravelWinRepository();
             int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value) + 1;
-            var data = package.GetSinglePackage(selectedPackage);
+            data = package.GetSinglePackage(selectedPackage);
             lblPackageName.Text = data.PkgName;
             lblDesc.Text = data.PkgDesc;
 
@@ -82,12 +83,12 @@ namespace TravelExperts_Desktop
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string PkgName = lblPackageName.Text;
-            DateTime PkgStartDate = DateTime.Parse(txtStartDate.Text);
-            DateTime PkgEndDate = DateTime.Parse(txtEndDate.Text);
-            string PkgDesc = lblDesc.Text;
-            double PkgBasePrice = double.Parse(txtBasePrice.Text);
-            double PkgAgencyCommission = double.Parse(txtCommission.Text);
+            string PkgName = data.PkgName;
+            DateTime PkgStartDate = Convert.ToDateTime(data.PkgStartDate);
+            DateTime PkgEndDate = Convert.ToDateTime(data.PkgEndDate);
+            string PkgDesc = data.PkgDesc;
+            decimal PkgBasePrice = data.PkgBasePrice;
+            decimal PkgAgencyCommission = Convert.ToDecimal(data.PkgAgencyCommission);
 
             UpdatePackage UpdatePkgManager = new UpdatePackage(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission);
             UpdatePkgManager.Show();
