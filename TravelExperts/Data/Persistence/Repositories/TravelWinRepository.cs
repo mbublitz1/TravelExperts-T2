@@ -98,7 +98,8 @@ namespace Data.Persistence.Repositories
                 JOIN Suppliers s ON ps.SupplierId = s.SupplierId
                 JOIN Packages_Products_Suppliers pps ON ps.ProductSupplierId = pps.ProductSupplierId
                 JOIN Packages pa ON pps.PackageId = pa.PackageId
-                WHERE pa.PackageId = @id";
+                WHERE pa.PackageId = @id
+                ORDER BY ProdName";
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
             selectCommand.Parameters.AddWithValue("@id", id);
@@ -154,13 +155,13 @@ namespace Data.Persistence.Repositories
         }
         public void InsertPackage(string PkgName, DateTime PkgStartDate,
             DateTime PkgEndDate, string PkgDesc,
-            double PkgBasePrice, double PkgAgencyCommission)
+            double PkgBasePrice, double PkgAgencyCommission, string PackageImageLocation)
         {
             string insertStatement =
                 @"INSERT INTO Packages  (PkgName,  PkgStartDate, 
-                PkgEndDate,  PkgDesc, PkgBasePrice,  PkgAgencyCommission) 
+                PkgEndDate,  PkgDesc, PkgBasePrice,  PkgAgencyCommission, PackageImageLocation) 
                 VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, 
-                @PkgBasePrice,  @PkgAgencyCommission)";
+                @PkgBasePrice,  @PkgAgencyCommission, @PackageImageLocation)";
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand insertCommand = new SqlCommand(insertStatement, conn);
             insertCommand.Parameters.AddWithValue("@PkgName", PkgName);
@@ -169,6 +170,7 @@ namespace Data.Persistence.Repositories
             insertCommand.Parameters.AddWithValue("@PkgDesc", PkgDesc);
             insertCommand.Parameters.AddWithValue("@PkgBasePrice", PkgBasePrice);
             insertCommand.Parameters.AddWithValue("@PkgAgencyCommission", PkgAgencyCommission);
+            insertCommand.Parameters.AddWithValue("@PackageImageLocation", PackageImageLocation);
             try
             {
                 conn.Open();
@@ -183,6 +185,41 @@ namespace Data.Persistence.Repositories
             {
                 conn.Close();
             }
+        }
+        public List<ProductListViewModel> GetProductSuppliers ()
+        {
+            string selectStatement =
+                @"SELECT s.SupName, p.ProdName  FROM Suppliers s
+                JOIN Products_Suppliers ps ON s.SupplierId = ps.SupplierId
+                JOIN Products p ON ps.ProductId = p.ProductId;";
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                List<ProductListViewModel> data = new List<ProductListViewModel>();
+
+                while (reader.Read())
+                {
+                    ProductListViewModel p = new ProductListViewModel();
+                    p.ProdName = reader["SupName"].ToString();
+                    p.SupName = reader["ProdName"].ToString();
+                    data.Add(p);
+                }
+                reader.Close();
+                return data;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
         }
     }
 }

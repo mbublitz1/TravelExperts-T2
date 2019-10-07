@@ -20,6 +20,13 @@ namespace TravelExperts_Desktop
         {
             InitializeComponent();
         }
+        public void RefreshData()
+        {
+            TravelWinRepository packages = new TravelWinRepository();
+            gridPackages.DataSource = packages.GetPackages();
+            int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
+            gridProducts.DataSource = packages.GetProducts(selectedPackage);
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -27,6 +34,7 @@ namespace TravelExperts_Desktop
             gridPackages.DataSource = packages.GetPackages();
             int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
             gridProducts.DataSource = packages.GetProducts(selectedPackage);
+            AddPackage.callRefreshData += RefreshData;
         }
 
         private void GridPackages_SelectionChanged(object sender, EventArgs e)
