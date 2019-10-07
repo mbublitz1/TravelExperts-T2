@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Data.Core.Models;
+using Data.Core.ViewModel;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Data.Persistence;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace TravelExperts.Controllers
 {

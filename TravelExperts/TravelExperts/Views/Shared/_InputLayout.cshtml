@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Experts</title>
+    <meta name="description" content="Travel Experts website">
+    @Styles.Render("~/Content/inputcss")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav>
+        <div class="pgrow">
+            <img class="logo" src="~/Content/img/travelexpertnew.png" alt="Travel experts logo">
+            <ul class="head-nav">
+                <li><a href="#Plans">Home</a></li>
+                <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li><a href="#AboutUs">About Us</a></li>
+                <li><a href="#ContactUs">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    @RenderBody()
+</body>
+</html>
+

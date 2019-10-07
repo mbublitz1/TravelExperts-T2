@@ -1,6 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
-@import url('href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,300i,400');
 
 *, *:before, *:after {
@@ -208,21 +208,25 @@ header h3 {
 /*PLAN SECTION*/
 /*---------------------------------------------*/
 
+#Plans {
+    height: 434px;
+}
+
 .carousel-inner {
     padding-bottom: 40px;
 }
 
 .carousel-item {
-    padding-top: 2%;
+    padding-top: 5px;
     text-align: center;
 }
 
 .carousel-item h4 {
-    padding: 1%;
+    padding: 2px;
 }
 
 .carousel-item img {
-    padding: 1%;
+    padding: 5px;
     width: 389px;
     height: 294px;
 }

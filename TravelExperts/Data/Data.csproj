@@ -87,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Repository\IRepository.cs" />
-    <Compile Include="Core\Models\AccountViewModels.cs" />
+    <Compile Include="Core\ViewModel\AccountViewModels.cs" />
     <Compile Include="Core\Models\Affiliation.cs" />
     <Compile Include="Core\Models\Agency.cs" />
     <Compile Include="Core\Models\Agent.cs" />
@@ -99,7 +99,7 @@
     <Compile Include="Core\Models\Customers_Rewards.cs" />
     <Compile Include="Core\Models\Employee.cs" />
     <Compile Include="Core\Models\Fee.cs" />
-    <Compile Include="Core\Models\ManageViewModels.cs" />
+    <Compile Include="Core\ViewModel\ManageViewModels.cs" />
     <Compile Include="Core\Models\Package.cs" />
     <Compile Include="Core\Models\Product.cs" />
     <Compile Include="Core\Models\Products_Suppliers.cs" />
@@ -124,6 +124,10 @@
     <Compile Include="Persistence\Migrations\201910020246347_ChangepackagelocLength.Designer.cs">
       <DependentUpon>201910020246347_ChangepackagelocLength.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\201910062259533_SeedUsers.cs" />
+    <Compile Include="Persistence\Migrations\201910062259533_SeedUsers.Designer.cs">
+      <DependentUpon>201910062259533_SeedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Persistence\Repositories\TravelMVCRepository.cs" />
     <Compile Include="Persistence\Repositories\TravelWinRepository.cs" />
@@ -145,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\201910020246347_ChangepackagelocLength.resx">
       <DependentUpon>201910020246347_ChangepackagelocLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201910062259533_SeedUsers.resx">
+      <DependentUpon>201910062259533_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
