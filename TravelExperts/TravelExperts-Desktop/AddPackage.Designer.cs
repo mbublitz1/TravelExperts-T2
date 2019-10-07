@@ -52,6 +52,9 @@
             this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductSupplierAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductSupplierRemove)).BeginInit();
+            this.btnAddImage = new System.Windows.Forms.Button();
+            this.fileURLTextBox = new System.Windows.Forms.TextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -296,17 +299,40 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
+            // btnAddImage
+            // 
+            this.btnAddImage.Location = new System.Drawing.Point(616, 291);
+            this.btnAddImage.Name = "btnAddImage";
+            this.btnAddImage.Size = new System.Drawing.Size(118, 23);
+            this.btnAddImage.TabIndex = 21;
+            this.btnAddImage.Text = "Add Image";
+            this.btnAddImage.UseVisualStyleBackColor = true;
+            this.btnAddImage.Click += new System.EventHandler(this.BtnAddImage_Click);
+            // 
+            // fileURLTextBox
+            // 
+            this.fileURLTextBox.Location = new System.Drawing.Point(337, 381);
+            this.fileURLTextBox.Name = "fileURLTextBox";
+            this.fileURLTextBox.Size = new System.Drawing.Size(100, 20);
+            this.fileURLTextBox.TabIndex = 22;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // AddPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 363);
+            this.ClientSize = new System.Drawing.Size(809, 573);
+            this.Controls.Add(this.fileURLTextBox);
+            this.Controls.Add(this.btnAddImage);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddPackage";
-            this.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.Text = "Add Package Manager";
             this.Load += new System.EventHandler(this.AddManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridProductSupplierAdd)).EndInit();
@@ -314,6 +340,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -340,5 +367,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAddImage;
+        private System.Windows.Forms.TextBox fileURLTextBox;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
