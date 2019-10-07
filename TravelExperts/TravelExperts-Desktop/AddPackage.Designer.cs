@@ -51,11 +51,16 @@
             this.btnApply = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAddImage = new System.Windows.Forms.Button();
-            this.fileURLTextBox = new System.Windows.Forms.TextBox();
+            this.txtFilePath = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lblImageLocation = new System.Windows.Forms.Label();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblPkgName
@@ -221,6 +226,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lblImageLocation);
+            this.panel1.Controls.Add(this.txtFilePath);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -243,7 +250,7 @@
             this.panel1.ForeColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(10, 11);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(8);
+            this.panel1.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.panel1.Size = new System.Drawing.Size(784, 244);
             this.panel1.TabIndex = 18;
             // 
@@ -283,7 +290,7 @@
             // btnApply
             // 
             this.btnApply.ForeColor = System.Drawing.Color.Black;
-            this.btnApply.Location = new System.Drawing.Point(616, 262);
+            this.btnApply.Location = new System.Drawing.Point(614, 597);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(118, 23);
             this.btnApply.TabIndex = 19;
@@ -294,7 +301,7 @@
             // btnCancel
             // 
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(738, 262);
+            this.btnCancel.Location = new System.Drawing.Point(738, 598);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(56, 23);
             this.btnCancel.TabIndex = 20;
@@ -304,46 +311,75 @@
             // 
             // btnAddImage
             // 
-            this.btnAddImage.Location = new System.Drawing.Point(616, 291);
+            this.btnAddImage.Location = new System.Drawing.Point(490, 598);
             this.btnAddImage.Name = "btnAddImage";
-            this.btnAddImage.Size = new System.Drawing.Size(118, 23);
+            this.btnAddImage.Size = new System.Drawing.Size(82, 23);
             this.btnAddImage.TabIndex = 21;
             this.btnAddImage.Text = "Add Image";
             this.btnAddImage.UseVisualStyleBackColor = true;
             this.btnAddImage.Click += new System.EventHandler(this.BtnAddImage_Click);
             // 
-            // fileURLTextBox
+            // txtFilePath
             // 
-            this.fileURLTextBox.Location = new System.Drawing.Point(337, 381);
-            this.fileURLTextBox.Name = "fileURLTextBox";
-            this.fileURLTextBox.Size = new System.Drawing.Size(100, 20);
-            this.fileURLTextBox.TabIndex = 22;
+            this.txtFilePath.Location = new System.Drawing.Point(121, 215);
+            this.txtFilePath.Name = "txtFilePath";
+            this.txtFilePath.Size = new System.Drawing.Size(151, 20);
+            this.txtFilePath.TabIndex = 22;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // lblImageLocation
+            // 
+            this.lblImageLocation.AutoSize = true;
+            this.lblImageLocation.Location = new System.Drawing.Point(11, 218);
+            this.lblImageLocation.Name = "lblImageLocation";
+            this.lblImageLocation.Size = new System.Drawing.Size(83, 13);
+            this.lblImageLocation.TabIndex = 22;
+            this.lblImageLocation.Text = "Image Location:";
+            // 
+            // pbImage
+            // 
+            this.pbImage.Location = new System.Drawing.Point(2, 2);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(2);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(466, 352);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 22;
+            this.pbImage.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.pbImage);
+            this.panel2.Location = new System.Drawing.Point(11, 261);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(473, 360);
+            this.panel2.TabIndex = 23;
+            // 
             // AddPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 573);
-            this.Controls.Add(this.fileURLTextBox);
+            this.ClientSize = new System.Drawing.Size(803, 631);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnAddImage);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "AddPackage";
-            this.Padding = new System.Windows.Forms.Padding(8);
+            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.Text = "Add Package Manager";
             this.Load += new System.EventHandler(this.AddManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -371,7 +407,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddImage;
-        private System.Windows.Forms.TextBox fileURLTextBox;
+        private System.Windows.Forms.TextBox txtFilePath;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label lblImageLocation;
+        private System.Windows.Forms.PictureBox pbImage;
+        private System.Windows.Forms.Panel panel2;
     }
 }

@@ -40,10 +40,18 @@ namespace TravelExperts_Desktop
             string PkgDesc = txtPackageDescription.Text;
             double PkgBasePrice = double.Parse(txtPackagePrice.Text);
             double PkgAgencyCommission = double.Parse(txtPackageAgency.Text);
-            string PackageImageLocation = @"\Content\img\" + Path.GetFileName(fileURLTextBox.Text);
+            string PackageImageLocation = "";
+            if (txtFilePath.Text == "")
+            {
+                PackageImageLocation = null;
+            }
+            else
+            {
+                PackageImageLocation = @"\Content\img\" + Path.GetFileName(txtFilePath.Text);
+                File.Copy(txtFilePath.Text, @"C:\Users\John\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts\Content\img\" + Path.GetFileName(txtFilePath.Text));
+            }
             TravelWinRepository package = new TravelWinRepository();
             package.InsertPackage(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PackageImageLocation);
-            File.Copy(fileURLTextBox.Text, @"C:\Users\John\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts\Content\img\" + Path.GetFileName(fileURLTextBox.Text));
             callRefreshData();
         }
 
@@ -57,7 +65,8 @@ namespace TravelExperts_Desktop
             DialogResult result = this.openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                this.fileURLTextBox.Text = this.openFileDialog1.FileName;
+                this.txtFilePath.Text = this.openFileDialog1.FileName;
+                pbImage.Image = Image.FromFile(txtFilePath.Text);
             }
         }
     }

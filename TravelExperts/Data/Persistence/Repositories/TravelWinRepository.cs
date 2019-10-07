@@ -21,7 +21,7 @@ namespace Data.Persistence.Repositories
 
         public List<PackageListViewModel> GetPackages()
         {
-            string selectStatement = "SELECT PackageId, PkgName FROM Packages";
+            string selectStatement = "SELECT PackageId, PkgName FROM Packages ORDER BY PackageId";
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
 
@@ -170,7 +170,14 @@ namespace Data.Persistence.Repositories
             insertCommand.Parameters.AddWithValue("@PkgDesc", PkgDesc);
             insertCommand.Parameters.AddWithValue("@PkgBasePrice", PkgBasePrice);
             insertCommand.Parameters.AddWithValue("@PkgAgencyCommission", PkgAgencyCommission);
-            insertCommand.Parameters.AddWithValue("@PackageImageLocation", PackageImageLocation);
+            if (PackageImageLocation == null)
+            {
+                insertCommand.Parameters.AddWithValue("@PackageImageLocation", DBNull.Value);
+            }
+            else
+            {
+                insertCommand.Parameters.AddWithValue("@PackageImageLocation", PackageImageLocation);
+            }
             try
             {
                 conn.Open();
