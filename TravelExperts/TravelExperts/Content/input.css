@@ -185,7 +185,7 @@ header {
 .register select {
     display: inline;
     margin-top: 1rem;
-    vertical-align: middle;
+    /*vertical-align: middle;*/
 }
 
 .register label {
@@ -196,17 +196,18 @@ header {
 .register input,
 .register select {
     padding: 0.4rem;
-    width: 68%;
+    width: 225px;
     border-radius: 5px;
 }
 
 #registerbtn {
     position: relative;
     top: 50%;
-    left: 50%;
+    left: 0%;
+    
     transform: translate(-70%, 30%);
     height: 70px;
-    width: 70px;
+    width:  10px;
 }
 
 input[type="submit"] {
@@ -223,7 +224,7 @@ input[type="submit"] {
 
 button[type="button"] {
     /* margin: 8% 0 0 31%; */
-    padding: 2rem 5rem;
+    /*padding: 2rem 5rem;*/
     background-color: #ffffff;
     border: 1px solid #000000;
     color: #000000;

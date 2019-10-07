@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Data.Persistence;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Data.Core.Models
@@ -13,6 +15,7 @@ namespace Data.Core.Models
             CreditCards = new HashSet<CreditCard>();
             Customers_Rewards = new HashSet<Customers_Rewards>();
         }
+
 
         public int CustomerId { get; set; }
 
@@ -57,6 +60,10 @@ namespace Data.Core.Models
         public int? AgentId { get; set; }
 
         public virtual Agent Agent { get; set; }
+
+        [StringLength(128)]
+        public string UserId { get; set; }
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }

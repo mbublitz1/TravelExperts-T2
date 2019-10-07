@@ -210,8 +210,8 @@ namespace Data.Persistence.Repositories
                 while (reader.Read())
                 {
                     ProductListViewModel p = new ProductListViewModel();
-                    p.ProdName = reader["SupName"].ToString();
-                    p.SupName = reader["ProdName"].ToString();
+                    p.ProdName = reader["ProdName"].ToString();
+                    p.SupName = reader["SupName"].ToString();
                     data.Add(p);
                 }
                 reader.Close();

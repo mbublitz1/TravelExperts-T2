@@ -24,7 +24,8 @@ namespace TravelExperts_Desktop
 
         private void AddManager_Load(object sender, EventArgs e)
         {
-
+            TravelWinRepository package = new TravelWinRepository();
+            gridProductSupplierAdd.DataSource = package.GetProductSuppliers();
         }
 
         private void btnAddSupplier_Click(object sender, EventArgs e)

@@ -32,6 +32,7 @@ namespace TravelExperts_Desktop
         {
             TravelWinRepository package = new TravelWinRepository();
             gridProductSupplierAdd.DataSource = package.GetProductSuppliers();
+            int selectedProductSupplier = Convert.ToInt32(gridProductSupplierAdd.CurrentRow.Cells[0].Value);
 
         }
 
