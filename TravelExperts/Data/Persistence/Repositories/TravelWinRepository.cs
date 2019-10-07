@@ -184,5 +184,40 @@ namespace Data.Persistence.Repositories
                 conn.Close();
             }
         }
+        public List<ProductListViewModel> GetProductSuppliers ()
+        {
+            string selectStatement =
+                @"SELECT s.SupName, p.ProdName  FROM Suppliers s
+                JOIN Products_Suppliers ps ON s.SupplierId = ps.SupplierId
+                JOIN Products p ON ps.ProductId = p.ProductId;";
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                List<ProductListViewModel> data = new List<ProductListViewModel>();
+
+                while (reader.Read())
+                {
+                    ProductListViewModel p = new ProductListViewModel();
+                    p.ProdName = reader["SupName"].ToString();
+                    p.SupName = reader["ProdName"].ToString();
+                    data.Add(p);
+                }
+                reader.Close();
+                return data;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
     }
 }

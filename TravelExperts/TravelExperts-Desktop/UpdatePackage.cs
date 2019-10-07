@@ -30,7 +30,8 @@ namespace TravelExperts_Desktop
         {
 
             TravelWinRepository package = new TravelWinRepository();
-            
+            gridProductSupplierAdd.DataSource = package.GetProductSuppliers();
+
         }
     }
 }

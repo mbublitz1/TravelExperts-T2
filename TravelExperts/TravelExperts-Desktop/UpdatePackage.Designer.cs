@@ -34,12 +34,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.gridProductSupplierRemove = new System.Windows.Forms.DataGridView();
             this.txtPackageDescription = new System.Windows.Forms.TextBox();
             this.txtPackageAgency = new System.Windows.Forms.TextBox();
             this.btnRemoveSupplier = new System.Windows.Forms.Button();
             this.txtPackagePrice = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridProductSupplierAdd = new System.Windows.Forms.DataGridView();
             this.txtPackageName = new System.Windows.Forms.TextBox();
             this.btnAddSupplier = new System.Windows.Forms.Button();
             this.dateTimePackageEnd = new System.Windows.Forms.DateTimePicker();
@@ -51,8 +51,8 @@
             this.lblPkgDesc = new System.Windows.Forms.Label();
             this.lblPackagePrice = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductSupplierRemove)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductSupplierAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -81,12 +81,12 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.dataGridView2);
+            this.panel1.Controls.Add(this.gridProductSupplierRemove);
             this.panel1.Controls.Add(this.txtPackageDescription);
             this.panel1.Controls.Add(this.txtPackageAgency);
             this.panel1.Controls.Add(this.btnRemoveSupplier);
             this.panel1.Controls.Add(this.txtPackagePrice);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.gridProductSupplierAdd);
             this.panel1.Controls.Add(this.txtPackageName);
             this.panel1.Controls.Add(this.btnAddSupplier);
             this.panel1.Controls.Add(this.dateTimePackageEnd);
@@ -134,14 +134,15 @@
             this.label2.Text = "Add ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridView2
+            // gridProductSupplierRemove
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(778, 13);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(252, 244);
-            this.dataGridView2.TabIndex = 15;
+            this.gridProductSupplierRemove.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridProductSupplierRemove.Location = new System.Drawing.Point(778, 13);
+            this.gridProductSupplierRemove.Name = "gridProductSupplierRemove";
+            this.gridProductSupplierRemove.RowHeadersVisible = false;
+            this.gridProductSupplierRemove.RowTemplate.Height = 24;
+            this.gridProductSupplierRemove.Size = new System.Drawing.Size(252, 244);
+            this.gridProductSupplierRemove.TabIndex = 15;
             // 
             // txtPackageDescription
             // 
@@ -174,14 +175,15 @@
             this.txtPackagePrice.Size = new System.Drawing.Size(200, 22);
             this.txtPackagePrice.TabIndex = 11;
             // 
-            // dataGridView1
+            // gridProductSupplierAdd
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(453, 13);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(244, 244);
-            this.dataGridView1.TabIndex = 14;
+            this.gridProductSupplierAdd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridProductSupplierAdd.Location = new System.Drawing.Point(453, 13);
+            this.gridProductSupplierAdd.Name = "gridProductSupplierAdd";
+            this.gridProductSupplierAdd.RowHeadersVisible = false;
+            this.gridProductSupplierAdd.RowTemplate.Height = 24;
+            this.gridProductSupplierAdd.Size = new System.Drawing.Size(244, 244);
+            this.gridProductSupplierAdd.TabIndex = 14;
             // 
             // txtPackageName
             // 
@@ -287,8 +289,8 @@
             this.Load += new System.EventHandler(this.UpdatePackage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductSupplierRemove)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductSupplierAdd)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -298,12 +300,12 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView gridProductSupplierRemove;
         private System.Windows.Forms.TextBox txtPackageDescription;
         private System.Windows.Forms.TextBox txtPackageAgency;
         private System.Windows.Forms.Button btnRemoveSupplier;
         private System.Windows.Forms.TextBox txtPackagePrice;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gridProductSupplierAdd;
         private System.Windows.Forms.TextBox txtPackageName;
         private System.Windows.Forms.Button btnAddSupplier;
         private System.Windows.Forms.DateTimePicker dateTimePackageEnd;
