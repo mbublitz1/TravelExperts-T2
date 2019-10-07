@@ -13,6 +13,8 @@ namespace TravelExperts_Desktop
 {
     public partial class UpdatePackage : Form
     {
+        public delegate void GenerateEvent();
+        public static GenerateEvent callRefreshData;
         public UpdatePackage(string PkgName, DateTime PkgStartDate, 
             DateTime PkgEndDate, string PkgDesc, 
             decimal PkgBasePrice, decimal PkgAgencyCommission )
@@ -28,9 +30,17 @@ namespace TravelExperts_Desktop
 
         private void UpdatePackage_Load(object sender, EventArgs e)
         {
-
             TravelWinRepository package = new TravelWinRepository();
-            
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnApply_Click(object sender, EventArgs e)
+        {
+            callRefreshData();
         }
     }
 }

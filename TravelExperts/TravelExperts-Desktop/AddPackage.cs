@@ -13,6 +13,8 @@ namespace TravelExperts_Desktop
 {
     public partial class AddPackage : Form
     {
+        public delegate void GenerateEvent();
+        public static GenerateEvent callRefreshData;
         public AddPackage()
         {
             InitializeComponent();
@@ -38,7 +40,12 @@ namespace TravelExperts_Desktop
             double PkgAgencyCommission = double.Parse(txtPackageAgency.Text);
             TravelWinRepository package = new TravelWinRepository();
             package.InsertPackage(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission);
+            callRefreshData();
+        }
 
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
