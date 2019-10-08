@@ -7,6 +7,7 @@ namespace Data.Persistence.Migrations
     {
         public override void Up()
         {
+            AddColumn("dbo.Customers", "UserId", c => c.String(maxLength: 128));
             CreateIndex("dbo.Customers", "UserId");
             AddForeignKey("dbo.Customers", "UserId", "dbo.AspNetUsers", "Id");
         }
@@ -15,6 +16,7 @@ namespace Data.Persistence.Migrations
         {
             DropForeignKey("dbo.Customers", "UserId", "dbo.AspNetUsers");
             DropIndex("dbo.Customers", new[] { "UserId" });
+            DropColumn("dbo.Customers", "UserId");
         }
     }
 }
