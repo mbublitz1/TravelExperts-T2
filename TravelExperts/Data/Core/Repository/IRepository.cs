@@ -14,6 +14,6 @@ namespace Data.Core.Repository
         List<Package> GetPackages();
         List<Product> GetProducts();
         List<Supplier> GetSuppliers();
-        void GetAgentandAgencies(int id);
+        IEnumerable<Agent> GetAgentandAgencies(int id);
     }
 }

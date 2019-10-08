@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Data.Core.Models;
 using Data.Core.Repository;
+using Data.Core.ViewModel;
 using Data.Persistence;
 using Data.Persistence.Repositories;
 
@@ -20,9 +21,14 @@ namespace TravelExperts.Controllers
 
         public ActionResult Index()
         {
-            List<Package> viewModel = _context.GetPackages();
-           
-            _context.GetAgentandAgencies(1);
+            
+            PackageAgentViewModel viewModel = new PackageAgentViewModel
+            {
+                Packages = _context.GetPackages(),
+                Agents = _context.GetAgentandAgencies(1).ToList()
+                
+            };
+
 
             return View(viewModel);
         }
