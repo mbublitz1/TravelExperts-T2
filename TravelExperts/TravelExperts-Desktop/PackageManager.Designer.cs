@@ -98,9 +98,9 @@
             this.lblPackageName.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPackageName.Location = new System.Drawing.Point(216, 39);
             this.lblPackageName.Name = "lblPackageName";
-            this.lblPackageName.Size = new System.Drawing.Size(240, 39);
+            this.lblPackageName.Size = new System.Drawing.Size(237, 39);
             this.lblPackageName.TabIndex = 2;
-            this.lblPackageName.Text = "package name";
+            this.lblPackageName.Text = "packageName";
             // 
             // lblStartDate
             // 
