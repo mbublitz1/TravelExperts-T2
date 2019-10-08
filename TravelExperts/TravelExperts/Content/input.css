@@ -150,32 +150,47 @@ header {
 /*---------------------------------------------*/
 
 .container {
-    margin-top: 5%;
+    padding-top: 85px;
     display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     width: 100vw;
-    text-align: center;
+    justify-content: end;
 
 }
 
+.labelContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.leftAlign {
+    text-align: left;
+}
+
+.rightAligh{
+    text-align: right;
+}
 /*---------------------------------------------*/
 /*REGISTRATION*/
 /*---------------------------------------------*/
-.register {
+/*.register {
     margin-top: 10px;
 }
 
 .registration--main_form {
     padding-bottom: 3%;
-}
+}*/
 
-.profile {
+/*.profile {
     text-align: left;
-}
+}*/
+
+
+
 
 .container label {
     color: white;
+    width: 50px;
 }
 
 #form {
@@ -202,7 +217,7 @@ header {
     border-radius: 5px;
 }
 
-#registerbtn {
+/*#registerbtn {
     position: relative;
     top: 50%;
     left: 0%;
@@ -210,11 +225,11 @@ header {
     transform: translate(-70%, 30%);
     height: 70px;
     width:  10px;
-}
+}*/
 
 input[type="submit"] {
-    margin: 8% 0 0 31%;
-    padding: 2rem 5rem;
+    margin: 8% 0 0 0;
+    padding: 1rem 2rem;
     background-color: #ffffff;
     border: 1px solid #000000;
     color: #000000;

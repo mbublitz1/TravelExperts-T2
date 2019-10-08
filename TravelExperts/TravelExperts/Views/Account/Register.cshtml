@@ -7,10 +7,25 @@
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <div class="container">
-        <div class="register">
+        <div class="register labelContaine rightAligh">
+            <div>
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+
+            </div>
+            <div>
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="register labelContaine rightAligh">
             @Html.AntiForgeryToken()
-            @Html.ValidationSummary("", new { @class = "text-danger" })
-            <div class="profile">
+            <div>
                 <div>
                     @Html.LabelFor(c => c.CustFirstName)
                     @Html.TextBoxFor(c => c.CustFirstName)
@@ -19,6 +34,8 @@
                 <div>
                     @Html.LabelFor(c => c.CustLastName)
                     @Html.TextBoxFor(c => c.CustLastName)
+                    @Html.ValidationMessageFor(c => c.CustLastName)
+
                 </div>
                 <div>
                     @Html.LabelFor(c => c.CustAddress)
@@ -39,41 +56,29 @@
             </div>
         </div>
         <div>
-            <div>
-                @Html.LabelFor(c => c.CustCountry)
-                @Html.TextBoxFor(c => c.CustCountry)
-            </div>
-            <div>
-                @Html.LabelFor(c => c.CustHomePhone)
-                @Html.TextBoxFor(c => c.CustHomePhone)
-            </div>
-            <div>
-                @Html.LabelFor(c => c.CustBusPhone)
-                @Html.TextBoxFor(c => c.CustBusPhone)
-            </div>
-        </div>
-        <div class="register">
-            <div>
-                @Html.LabelFor(m => m.Email)
-                @Html.TextBoxFor(m => m.Email)
-
-            </div>
-            <div>
-                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-
-            </div>
-            <div>
-                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-            </div>
-            <div class="form-group">
+            <div class="register labelContainer rightAligh">
                 <div>
-                    <input id="registerbtn" type="submit" class="btn btn-default" value="Register" />
+                    <div>
+                        @Html.LabelFor(c => c.CustCountry)
+                        @Html.TextBoxFor(c => c.CustCountry)
+                    </div>
+                    <div>
+                        @Html.LabelFor(c => c.CustHomePhone)
+                        @Html.TextBoxFor(c => c.CustHomePhone)
+                    </div>
+                    <div>
+                        @Html.LabelFor(c => c.CustBusPhone)
+                        @Html.TextBoxFor(c => c.CustBusPhone)
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input id="registerbtn" type="submit" class="btn btn-default" value="Register" />
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
+
     </div>
 }
 @*https://stackoverflow.com/questions/33197402/link-asp-net-identity-users-to-user-detail-table*@
