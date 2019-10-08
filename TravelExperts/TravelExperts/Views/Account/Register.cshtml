@@ -36,27 +36,72 @@
                     @Html.TextBoxFor(c => c.CustLastName)
                     @Html.ValidationMessageFor(c => c.CustLastName)
 
+
                 </div>
                 <div>
                     @Html.LabelFor(c => c.CustAddress)
                     @Html.TextBoxFor(c => c.CustAddress)
+                    @Html.ValidationMessageFor(v => v.CustAddress)
+
                 </div>
                 <div>
                     @Html.LabelFor(c => c.CustCity)
                     @Html.TextBoxFor(c => c.CustCity)
+                    @Html.ValidationMessageFor(v => v.CustCity)
+
                 </div>
                 <div>
                     @Html.LabelFor(c => c.CustProv)
                     @Html.TextBoxFor(c => c.CustProv)
+                    @Html.ValidationMessageFor(v => v.CustProv)
+
                 </div>
                 <div>
                     @Html.LabelFor(c => c.CustPostal)
                     @Html.TextBoxFor(c => c.CustPostal)
+                    @Html.ValidationMessageFor(v => v.CustPostal)
+
                 </div>
             </div>
         </div>
         <div>
             <div class="register labelContainer rightAligh">
+            <div>
+                @Html.LabelFor(c => c.CustCountry)
+                @Html.TextBoxFor(c => c.CustCountry)
+                @Html.ValidationMessageFor(v => v.CustCountry)
+
+            </div>
+            <div>
+                @Html.LabelFor(c => c.CustHomePhone)
+                @Html.TextBoxFor(c => c.CustHomePhone)
+                @Html.ValidationMessageFor(v => v.CustHomePhone)
+
+            </div>
+            <div>
+                @Html.LabelFor(c => c.CustBusPhone)
+                @Html.TextBoxFor(c => c.CustBusPhone)
+                @Html.ValidationMessageFor(v => v.CustBusPhone
+               )
+
+            </div>
+        </div>
+        <div class="register">
+            <div>
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+
+            </div>
+            <div>
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
                 <div>
                     <div>
                         @Html.LabelFor(c => c.CustCountry)
