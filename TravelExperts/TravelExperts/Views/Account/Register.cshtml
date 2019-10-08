@@ -14,6 +14,7 @@
                 <div>
                     @Html.LabelFor(c => c.CustFirstName)
                     @Html.TextBoxFor(c => c.CustFirstName)
+                    @Html.ValidationMessageFor(v => v.CustFirstName)
                 </div>
                 <div>
                     @Html.LabelFor(c => c.CustLastName)
