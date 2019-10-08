@@ -14,7 +14,7 @@
         <div class="pgrow">
             <img class="logo" src="~/Content/img/travelexpertnew.png" alt="Travel experts logo">
             <ul class="head-nav">
-                <li><a href="#Plans">Home</a></li>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
                 <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                 <li><a href="#AboutUs">About Us</a></li>
                 <li><a href="#ContactUs">Contact Us</a></li>

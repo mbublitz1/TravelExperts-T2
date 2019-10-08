@@ -153,8 +153,8 @@ header {
     padding-top: 85px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 100vw;
-    justify-content: end;
+    width: 90vw;
+    justify-content: center;
 
 }
 
