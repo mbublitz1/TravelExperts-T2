@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Data.Persistence.Repositories
 {
@@ -42,6 +43,13 @@ namespace Data.Persistence.Repositories
         {
             _context.Customers.Add(customer);
             _context.SaveChanges();
+        }
+
+        public IEnumerable<Agent> GetAgentandAgencies(int id)
+        {
+            return _context.Agents
+                .Where(ag => ag.AgentId == id)
+                .Include(a => a.Agency);
         }
     }
 }

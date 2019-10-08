@@ -21,6 +21,8 @@ namespace TravelExperts.Controllers
         public ActionResult Index()
         {
             List<Package> viewModel = _context.GetPackages();
+           
+            _context.GetAgentandAgencies(1);
 
             return View(viewModel);
         }
