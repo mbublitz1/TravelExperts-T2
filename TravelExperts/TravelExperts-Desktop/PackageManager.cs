@@ -92,14 +92,16 @@ namespace TravelExperts_Desktop
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            int PackageId = data.PackageId;
             string PkgName = data.PkgName;
             DateTime PkgStartDate = Convert.ToDateTime(data.PkgStartDate);
             DateTime PkgEndDate = Convert.ToDateTime(data.PkgEndDate);
             string PkgDesc = data.PkgDesc;
             decimal PkgBasePrice = data.PkgBasePrice;
             decimal PkgAgencyCommission = Convert.ToDecimal(data.PkgAgencyCommission);
+            string PackageImageLocation = data.PackageImageLocation;
 
-            UpdatePackage UpdatePkgManager = new UpdatePackage(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission);
+            UpdatePackage UpdatePkgManager = new UpdatePackage(PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PackageImageLocation);
             UpdatePkgManager.Show();
 
         }
