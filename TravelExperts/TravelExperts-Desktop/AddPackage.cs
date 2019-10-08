@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Data.Core.ViewModel;
 
 namespace TravelExperts_Desktop
 {
@@ -16,6 +17,8 @@ namespace TravelExperts_Desktop
     {
         public delegate void GenerateEvent();
         public static GenerateEvent callRefreshData;
+        BindingList<ProductListViewModel> toAdd = new BindingList<ProductListViewModel>();
+        //BindingList<ProductListViewModel> toRemove = new BindingList<ProductListViewModel>();
 
         public AddPackage()
         {
@@ -24,13 +27,23 @@ namespace TravelExperts_Desktop
 
         private void AddManager_Load(object sender, EventArgs e)
         {
-            TravelWinRepository package = new TravelWinRepository();
-            gridProductSupplierAdd.DataSource = package.GetProductSuppliers();
+            TravelWinRepository products = new TravelWinRepository();
+            gridProductSupplierAdd.DataSource = products.GetProductSuppliers();
         }
 
         private void btnAddSupplier_Click(object sender, EventArgs e)
         {
+            ProductListViewModel gridRight = new ProductListViewModel();
+            gridRight.ProdName = gridProductSupplierAdd.CurrentRow.Cells["colProdTypeLeft"].Value.ToString();
+            gridRight.SupName = gridProductSupplierAdd.CurrentRow.Cells["colSupplierLeft"].Value.ToString();
+            toAdd.Add(gridRight);
+            gridProductSupplierRemove.DataSource = toAdd;
+        }
 
+        private void BtnRemoveSupplier_Click(object sender, EventArgs e)
+        {
+            toAdd.RemoveAt(gridProductSupplierRemove.CurrentRow.Index);
+            gridProductSupplierRemove.DataSource = toAdd;
         }
 
         private void btnApply_Click(object sender, EventArgs e)
