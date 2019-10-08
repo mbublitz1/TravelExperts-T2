@@ -7,13 +7,13 @@ namespace Data.Persistence.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddUserIdToCustomer : IMigrationMetadata
+    public sealed partial class AddUserIdToCustomerModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddUserIdToCustomer));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddUserIdToCustomerModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201910071918250_AddUserIdToCustomer"; }
+            get { return "201910080234574_AddUserIdToCustomerModel"; }
         }
         
         string IMigrationMetadata.Source

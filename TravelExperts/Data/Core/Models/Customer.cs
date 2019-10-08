@@ -64,6 +64,8 @@ namespace Data.Core.Models
         [StringLength(128)]
         public string UserId { get; set; }
 
+        public ApplicationUser User { get; set; }
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }
