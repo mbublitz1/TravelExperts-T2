@@ -14,26 +14,37 @@
                 <div>
                     @Html.LabelFor(c => c.CustFirstName)
                     @Html.TextBoxFor(c => c.CustFirstName)
+                    @Html.ValidationMessageFor(v => v.CustFirstName)
                 </div>
                 <div>
                     @Html.LabelFor(c => c.CustLastName)
                     @Html.TextBoxFor(c => c.CustLastName)
+                    @Html.ValidationMessageFor(v => v.CustLastName)
+
                 </div>
                 <div>
                     @Html.LabelFor(c => c.CustAddress)
                     @Html.TextBoxFor(c => c.CustAddress)
+                    @Html.ValidationMessageFor(v => v.CustAddress)
+
                 </div>
                 <div>
                     @Html.LabelFor(c => c.CustCity)
                     @Html.TextBoxFor(c => c.CustCity)
+                    @Html.ValidationMessageFor(v => v.CustCity)
+
                 </div>
                 <div>
                     @Html.LabelFor(c => c.CustProv)
                     @Html.TextBoxFor(c => c.CustProv)
+                    @Html.ValidationMessageFor(v => v.CustProv)
+
                 </div>
                 <div>
                     @Html.LabelFor(c => c.CustPostal)
                     @Html.TextBoxFor(c => c.CustPostal)
+                    @Html.ValidationMessageFor(v => v.CustPostal)
+
                 </div>
             </div>
         </div>
@@ -41,14 +52,21 @@
             <div>
                 @Html.LabelFor(c => c.CustCountry)
                 @Html.TextBoxFor(c => c.CustCountry)
+                @Html.ValidationMessageFor(v => v.CustCountry)
+
             </div>
             <div>
                 @Html.LabelFor(c => c.CustHomePhone)
                 @Html.TextBoxFor(c => c.CustHomePhone)
+                @Html.ValidationMessageFor(v => v.CustHomePhone)
+
             </div>
             <div>
                 @Html.LabelFor(c => c.CustBusPhone)
                 @Html.TextBoxFor(c => c.CustBusPhone)
+                @Html.ValidationMessageFor(v => v.CustBusPhone
+               )
+
             </div>
         </div>
         <div class="register">
