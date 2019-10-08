@@ -20,7 +20,7 @@ namespace Data.Persistence.Repositories
 
         public Customer GetCustomer(int id)
         {
-            return _context.Customers.Where(c => c.CustomerId == id).SingleOrDefault();
+            return _context.Customers.SingleOrDefault(c => c.CustomerId == id);
         }
 
         public List<Package> GetPackages()
@@ -36,6 +36,12 @@ namespace Data.Persistence.Repositories
         public List<Supplier> GetSuppliers()
         {
             return _context.Suppliers.ToList();
+        }
+
+        public void AddCustomer(Customer customer)
+        {
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
         }
     }
 }

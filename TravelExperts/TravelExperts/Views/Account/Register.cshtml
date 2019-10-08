@@ -4,17 +4,54 @@
     Layout = "~/Views/Shared/_InputLayout.cshtml";
 }
 
-<div class="container">
-    <div class="profile">
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary("", new { @class = "text-danger" })
-        test
-    </div>
-    <div class="register">
-        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-        {
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="container">
+        <div class="register">
             @Html.AntiForgeryToken()
             @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="profile">
+                <div>
+                    @Html.LabelFor(c => c.CustFirstName)
+                    @Html.TextBoxFor(c => c.CustFirstName)
+                </div>
+                <div>
+                    @Html.LabelFor(c => c.CustLastName)
+                    @Html.TextBoxFor(c => c.CustLastName)
+                </div>
+                <div>
+                    @Html.LabelFor(c => c.CustAddress)
+                    @Html.TextBoxFor(c => c.CustAddress)
+                </div>
+                <div>
+                    @Html.LabelFor(c => c.CustCity)
+                    @Html.TextBoxFor(c => c.CustCity)
+                </div>
+                <div>
+                    @Html.LabelFor(c => c.CustProv)
+                    @Html.TextBoxFor(c => c.CustProv)
+                </div>
+                <div>
+                    @Html.LabelFor(c => c.CustPostal)
+                    @Html.TextBoxFor(c => c.CustPostal)
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                @Html.LabelFor(c => c.CustCountry)
+                @Html.TextBoxFor(c => c.CustCountry)
+            </div>
+            <div>
+                @Html.LabelFor(c => c.CustHomePhone)
+                @Html.TextBoxFor(c => c.CustHomePhone)
+            </div>
+            <div>
+                @Html.LabelFor(c => c.CustBusPhone)
+                @Html.TextBoxFor(c => c.CustBusPhone)
+            </div>
+        </div>
+        <div class="register">
             <div>
                 @Html.LabelFor(m => m.Email)
                 @Html.TextBoxFor(m => m.Email)
@@ -34,8 +71,8 @@
                     <input id="registerbtn" type="submit" class="btn btn-default" value="Register" />
                 </div>
             </div>
-        }
-    </div>
-</div>
 
+        </div>
+    </div>
+}
 @*https://stackoverflow.com/questions/33197402/link-asp-net-identity-users-to-user-detail-table*@

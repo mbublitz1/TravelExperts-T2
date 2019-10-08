@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Data.Persistence;
+using Data.Persistence.Repositories;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace TravelExperts.Controllers
@@ -155,6 +156,19 @@ namespace TravelExperts.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var customer = new Customer
+                {
+                    CustFirstName = model.CustFirstName,
+                    CustLastName = model.CustLastName,
+                    CustAddress = model.CustAddress,
+                    CustCity = model.CustCity,
+                    CustProv = model.CustProv,
+                    CustPostal = model.CustPostal,
+                    CustCountry = model.CustCountry,
+                    CustBusPhone = model.CustBusPhone,
+                    CustHomePhone = model.CustHomePhone,
+                    CustEmail = model.Email
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -165,7 +179,9 @@ namespace TravelExperts.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                    customer.UserId = user.Id;
+                    TravelMVCRepository repository = new TravelMVCRepository(new ApplicationDbContext());
+                    repository.AddCustomer(customer);
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);

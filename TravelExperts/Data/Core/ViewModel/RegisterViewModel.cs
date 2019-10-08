@@ -24,41 +24,46 @@ namespace Data.Core.ViewModel
 
         [Required]
         [StringLength(25)]
+        [Display(Name = "First Name")]
         public string CustFirstName { get; set; }
 
         [Required]
         [StringLength(25)]
+        [Display(Name = "Last Name")]
         public string CustLastName { get; set; }
 
         [Required]
         [StringLength(75)]
+        [Display(Name = "Address")]
         public string CustAddress { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "City")]
         public string CustCity { get; set; }
 
         [Required]
         [StringLength(2)]
+        [Display(Name = "Province")]
         public string CustProv { get; set; }
 
         [Required]
         [StringLength(7)]
+        [Display(Name = "Postal Code")]
         public string CustPostal { get; set; }
 
         [StringLength(25)]
+        [Display(Name = "Country")]
         public string CustCountry { get; set; }
 
         [StringLength(20)]
+        [Display(Name = "Home Phone")]
         public string CustHomePhone { get; set; }
 
         [Required]
         [StringLength(20)]
+        [Display(Name = "Business Phone")]
         public string CustBusPhone { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string CustEmail { get; set; }
 
         [StringLength(128)]
         public string UserId { get; set; }
