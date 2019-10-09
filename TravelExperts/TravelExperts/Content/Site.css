@@ -379,13 +379,26 @@ button[type="button"] {
 ul {
     list-style-type: none;
 }
+
+.listPadding {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    text-align :left;
+}
+
+.listPadding span {
+    font-weight: bold;
+}
+.center{
+    text-align :center;
+}
+
 /*a:link a:visited { color: #999999; }*/
 /*a:hover a:active { color: #000000; }*/
-
 /*---------------------------------------------*/
 /*CONTACT*/
 /*---------------------------------------------*/
-
 .back-to-top {
     background-color: #50A1CB; /* button color */
     color: white; /* text/arrow color */

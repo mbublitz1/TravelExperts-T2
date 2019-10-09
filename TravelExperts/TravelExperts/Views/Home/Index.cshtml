@@ -76,45 +76,46 @@
             <div>
                 <em class="fas fa-phone-square-alt fa-3x"></em><br><br>
                 <p><strong>PHONE:</strong></p>
-                <ul>
-                    @foreach (var item in Model.Agencies)
-                    {
 
-                        <li>@item.AgncyCity</li>
+                @foreach (var item in Model.Agencies)
+                {
+                    <ul class="listPadding">
+                        <li><span class="center">@item.AgncyCity</span></li>
                         <li><span>Phone: </span>@item.AgncyPhone</li>
                         <li><span>Fax: </span>@item.AgncyFax</li>
-                    }
-                </ul>
-            </div>
+                        
+                    </ul>
+                }
+                </div>
             <div>
                 <em class="fas fa-envelope-open-text fa-3x"></em><br><br>
                 <p><strong>EMAIL:</strong></p>
-                <ul>
                     @foreach (var parent in Model.Agencies)
-                    {
-                        <li>@parent.AgncyCity</li>
-                        <ul>
-                            @foreach (var child in parent.Agents)
-                            {
+                    {   <ul class="listPadding">
+                        <li><span>@parent.AgncyCity</span></li>
+                        </ul>
+                        foreach (var child in parent.Agents)
+                        {
+                            <ul class="listPadding">
                                 <li><span>Agent Name: </span>@child.AgtFirstName @child.AgtLastName</li>
                                 <li><span>Email: </span>@child.AgtEmail</li>
                                 <li></li>
-                            }
-                        </ul>
+                            </ul>
+                        }
                     }
-                </ul>
             </div>
             <div>
                 <em class="fas fa-map-marker-alt fa-3x"></em><br><br>
                 <p><strong>ADDRESS:</strong></p>
-                <ul>
+                
                     @foreach (var item in Model.Agencies)
                     {
-                        <li>@item.AgncyCity</li>
-                        <li>@item.AgncyAddress</li>
-
+                        <ul class="listPadding">
+                            <li><span>@item.AgncyCity</span></li>
+                             <li><span>@item.AgncyAddress</span></li>
+                        </ul>
                     }
-                </ul>
+                
             </div>
         </section>
 <a href="#" class="back-to-top"><i id="arrow" class="fas fa-arrow-alt-circle-up fa-3x"></i></a>
