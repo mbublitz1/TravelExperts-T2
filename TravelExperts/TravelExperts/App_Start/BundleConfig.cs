@@ -15,6 +15,8 @@ namespace TravelExperts
                         "~/Scripts/main.js",
                         "~/Scripts/plsReg.js"));
 
+
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
