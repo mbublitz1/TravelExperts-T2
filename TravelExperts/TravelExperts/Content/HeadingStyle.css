@@ -1,0 +1,201 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,300i,400');
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+
+body {
+    font-size: 16px;
+    font-size: 1.6rem;
+}
+/* = 16px */
+
+.pgrow {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.box {
+    padding: 1%;
+}
+
+#form label.error {
+    display: block;
+    color: red;
+    width: 100%;
+    text-align: right;
+    padding-right: 25%;
+}
+
+/*  Typograhical Scales  */
+h3 {
+    font-size: 5rem;
+    padding-top: 4rem;
+    text-align: center;
+    font-family: 'Lato', 'Arial', sans-serif;
+}
+
+    h2:after, h3:after {
+        display: block;
+        height: 2px;
+        background-color: #217dbb;
+        content: " ";
+        width: 100px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+.added-class:after {
+    content: none
+}
+
+.addLine:after {
+    background-color: orange;
+}
+
+h4 {
+    font-size: 3rem;
+    padding-top: 3rem;
+    text-align: center;
+}
+
+/*---------------------------------------------*/
+/*HEADER*/
+/*---------------------------------------------*/
+
+header {
+    height: 100vh;
+}
+
+    header h1, h3 {
+        margin: 0 auto;
+        width: 848px;
+    }
+
+    header h1 {
+        font-family: 'Lobster', cursive;
+        font-size: 85px;
+        color: white;
+    }
+
+    header h3 {
+        color: white;
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+/*Responsible for centering welcome text*/
+.heading-text-box {
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    /*Sets height of logo*/
+    height: 80px;
+    /*Width should be determined automatically*/
+    width: auto;
+    /*image to be floated to the left*/
+    float: left;
+    /*add space between the top of page and logo*/
+    margin-top: 10px;
+}
+
+
+/*---------------------------------------------*/
+/*NAVIGATION*/
+/*---------------------------------------------*/
+
+.head-nav {
+    top: 10px;
+    right: 10px;
+    Display: inline-block;
+    color: white;
+    /*Navigation unordered list should be floated to the right*/
+    float: right;
+    /*Get rid of bullet points*/
+    list-style: none;
+    /*Add space between top of page an menu*/
+    margin-top: 52px;
+}
+
+    /*Select all li inside ul list in main-nav class*/
+    .head-nav li {
+        /*change display style to inline block*/
+        display: inline-block;
+        margin-left: 40px;
+    }
+
+        /*Select all anchor elements with li as parent*/
+        /*Adding link and visited pseudo code will give effects when hovering over menu*/
+        .head-nav li a:link,
+        .head-nav li a:visited {
+            padding: 8px 0;
+            /*text to white*/
+            color: #fff;
+            /*remove underlines from menu items*/
+            text-decoration: none;
+            /*change text to upper case*/
+            text-transform: uppercase;
+            /*this will be 90% of base font in HTML selector, which would be 18px to figure out divide 18px by 20px to get .90 or 90%*/
+            font-size: 90%;
+            /*This will create the border but since you don't want to see it before the element is hovered over this needs to be made*/
+            /*transparent*/
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.2s;
+        }
+
+        .head-nav li a:hover,
+        .head-nav li a:active,
+        .head-nav li button:hover,
+        .head-nav li button:active {
+            /*This will add the solid border when an element is hovered over*/
+            border-bottom: 2px solid #0099cc;
+        }
+
+.loginlnk {
+    background: none;
+    color: inherit;
+    border: none;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+}
+
+.dropdown-menu.p-4.show {
+    width: 200px;
+}
+
+/*Sticky nav*/
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 58px;
+    background-color: rgba(255, 255, 255, 0.30);
+    z-index: 9999;
+}
+
+    .sticky .head-nav {
+        margin: 25px 0 0 0;
+    }
+
+        .sticky .head-nav li a:link,
+        .sticky .head-nav li a:visited,
+        .head-nav li button:link,
+        .head-nav li button:visited {
+            padding: 8px 0;
+            color: #555;
+        }
