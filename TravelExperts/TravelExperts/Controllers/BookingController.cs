@@ -9,13 +9,14 @@ namespace TravelExperts.Controllers
     public class BookingController : Controller
     {
         // GET: Booking
-       public ActionResult Index()
-        { 
-            return View();
+       public ActionResult Index(int id)
+        {
+            BookingDetailViewModel viewModel = new BookingDetailViewModel();
+            viewModel.PackageId = id;
+            return View(viewModel);
         }
 
-
-        public ActionResult Insert(BookingDetailViewModel viewModel)
+        public ActionResult BookTrip(int id)
         {
             return View();
         }

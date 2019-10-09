@@ -4,66 +4,66 @@
     <script src="https://kit.fontawesome.com/7a976362d3.js"></script>
 </head>
 
-<body>
-    <header>
-        <div class="heading-text-box">
-            <h1>Welcome to Travel Experts</h1>
-            <h3>We are here to get you there!</h3>
-        </div>
-    </header>
-
-    <main>
-        <!--            Plan section coded by Cole and Mike-->
-        <!--            Cole - Code to load plans from database-->
-        <!--            Mike - implemented Bootstrap carousel and styling -->
-        <section id="Plans">
-            <h3>Travel Plans</h3>
-            <div id="plans" class="carousel slide" data-ride="carousel">
-                @*<ul class="carousel-indicators">
-                    <li data-target="#plans" data-slide-to="0" class="active"></li>
-                    <li data-target="#plans" data-slide-to="1"></li>
-                    <li data-target="#plans" data-slide-to="2"></li>
-                        <li data-target="#plans" data-slide-to="3"></li>
-                            </ul>*@
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    @for (int i = 0; i < Model.Packages.Count(); i++)
-                    {
-
-                        if (i == 0)
-                        {
-                            @:<div class="carousel-item active">
-                                @: <div class="row">
-                                }
-                                else if (i % 3 == 0 && i != 0)
-                                {
-                                @: </div>
-                            @:</div>
-                            @:<div class="carousel-item ">
-                                @:<div class="row">
-                                }
-                                <div class="col">
-                                    <h4>@Model.Packages[i].PkgName</h4>
-                                    <img src="@Model.Packages[i].PackageImageLocation" alt="@Model.Packages[i].PkgName">
-                                    <p>@Model.Packages[i].PkgDesc</p>
-                                    <p>@Model.Packages[i].PkgBasePrice</p>
-                                    <div>
-                                        @Html.ActionLink("Book", "")
-                                    </div>
-                                </div>
-                            }
-                </div>
-            </div>
-
-            <!--                        Left and right controls-->
-            <a class="carousel-control-prev" href="#plans" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#plans" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-        </div>
+<header>
+    <div class="heading-text-box">
+        <h1>Welcome to Travel Experts</h1>
+        <h3>We are here to get you there!</h3>
     </div>
+</header>
+
+<main>
+    <!--            Plan section coded by Cole and Mike-->
+    <!--            Cole - Code to load plans from database-->
+    <!--            Mike - implemented Bootstrap carousel and styling -->
+    <section id="Plans">
+        <h3>Travel Plans</h3>
+        <div id="plans" class="carousel slide" data-ride="carousel">
+            @*<ul class="carousel-indicators">
+                <li data-target="#plans" data-slide-to="0" class="active"></li>
+                <li data-target="#plans" data-slide-to="1"></li>
+                <li data-target="#plans" data-slide-to="2"></li>
+                    <li data-target="#plans" data-slide-to="3"></li>
+                        </ul>*@
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                @for (int i = 0; i < Model.Packages.Count(); i++)
+                {
+
+                    if (i == 0)
+                    {
+                        @:<div class="carousel-item active">
+                            @: <div class="row">
+                            }
+                            else if (i % 3 == 0 && i != 0)
+                            {
+                            @: </div>
+                        @:</div>
+                        @:<div class="carousel-item ">
+                            @:<div class="row">
+                            }
+                            <div class="col">
+                                <h4>@Model.Packages[i].PkgName</h4>
+                                <img src="@Model.Packages[i].PackageImageLocation" alt="@Model.Packages[i].PkgName">
+                                <p>@Model.Packages[i].PkgDesc</p>
+                                <p>@Model.Packages[i].PkgBasePrice</p>
+                                <div class="buttonContainer">
+                                    @Html.ActionLink("Book", "Index", "Booking", new { id = Model.Packages[i].PackageId }, null)
+                                </div>
+                            </div>
+                        }
+
+            </div>
+        </div>
+
+        <!--                        Left and right controls-->
+        <a class="carousel-control-prev" href="#plans" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#plans" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
 </section>
 <!-- Registration Section completed by John and Mike-->
 <!--            John - Submit functionality-->
@@ -121,8 +121,6 @@
 <a href="#" class="back-to-top"><i id="arrow" class="fas fa-arrow-alt-circle-up fa-3x"></i></a>
 </main>
 
-<footer>
-</footer>
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
@@ -137,5 +135,4 @@
 @*<script>
               $("#regForm").validate();
     </script>*@
-</body>
-</html>
+

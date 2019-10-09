@@ -62,12 +62,12 @@ namespace TravelExperts_Desktop
             else
             {
                 PackageImageLocation = @"\Content\img\" + Path.GetFileName(txtFilePath.Text);
-                //File.Copy(txtFilePath.Text, @"C:\Users\John\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts\Content\img\" + Path.GetFileName(txtFilePath.Text));
-                File.Copy(txtFilePath.Text, @"C:\Users\Mike\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts\Content\img\" + Path.GetFileName(txtFilePath.Text));
+                File.Copy(txtFilePath.Text, @"C:\Users\John\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts\Content\img\" + Path.GetFileName(txtFilePath.Text));
+                //File.Copy(txtFilePath.Text, @"C:\Users\Mike\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts\Content\img\" + Path.GetFileName(txtFilePath.Text));
             }
 
             List<int> productsList = new List<int>();
-            for (int i = 0; i < gridProductSupplierRemove.Rows.Count; i++)
+            for (int i = 0; i < gridProductSupplierRemove.Rows.Count - 1; i++)
             {
                 int product = Convert.ToInt32(gridProductSupplierRemove.Rows[i].Cells["ProductSupplierId"].Value);
                 productsList.Add(product);
