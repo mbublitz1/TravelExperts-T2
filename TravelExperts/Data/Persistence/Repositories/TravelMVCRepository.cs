@@ -6,10 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Data.Persistence.Repositories
 {
-    public class TravelMVCRepository : IRepository
+    public class TravelMVCRepository
     {
         private readonly ApplicationDbContext _context;
 
@@ -42,6 +43,16 @@ namespace Data.Persistence.Repositories
         {
             _context.Customers.Add(customer);
             _context.SaveChanges();
+        }
+
+        public List<Agency> GetAgentandAgencies()
+        {
+            var result = _context.Agencies
+                .Include(a => a.Agents).ToList();
+
+            return result;
+
+
         }
     }
 }
