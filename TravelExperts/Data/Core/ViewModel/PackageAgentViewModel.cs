@@ -10,8 +10,8 @@ namespace Data.Core.ViewModel
     public class PackageAgentViewModel
     {
         public List <Package> Packages { get; set; } 
-        public List<Agent> Agents { get; set; }
-        public List<Agency> Agencies { get; set; }
+        public ICollection<Agent> Agents { get; set; }
+        public ICollection<Agency> Agencies { get; set; }
 
     }
 

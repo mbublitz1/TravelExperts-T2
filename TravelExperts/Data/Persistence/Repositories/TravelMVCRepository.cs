@@ -10,7 +10,7 @@ using System.Data.Entity;
 
 namespace Data.Persistence.Repositories
 {
-    public class TravelMVCRepository : IRepository
+    public class TravelMVCRepository
     {
         private readonly ApplicationDbContext _context;
 
@@ -45,11 +45,14 @@ namespace Data.Persistence.Repositories
             _context.SaveChanges();
         }
 
-        public IEnumerable<Agent> GetAgentandAgencies(int id)
+        public List<Agency> GetAgentandAgencies()
         {
-            return _context.Agents
-                .Where(ag => ag.AgentId == id)
-                .Include(a => a.Agency);
+            var result = _context.Agencies
+                .Include(a => a.Agents).ToList();
+
+            return result;
+
+
         }
     }
 }

@@ -27,7 +27,7 @@
                             </ul>*@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
-                    @*@for (int i = 0; i < Model.Count(); i++)
+                    @for (int i = 0; i < Model.Packages.Count(); i++)
                     {
 
                         if (i == 0)
@@ -43,15 +43,15 @@
                                 @:<div class="row">
                                 }
                                 <div class="col">
-                                    <h4>@Model[i].PkgName</h4>
-                                    <img src="@Model[i].PackageImageLocation" alt="@Model[i].PkgName">
-                                    <p>@Model[i].PkgDesc</p>
-                                    <p>@Model[i].PkgBasePrice</p>
+                                    <h4>@Model.Packages[i].PkgName</h4>
+                                    <img src="@Model.Packages[i].PackageImageLocation" alt="@Model.Packages[i].PkgName">
+                                    <p>@Model.Packages[i].PkgDesc</p>
+                                    <p>@Model.Packages[i].PkgBasePrice</p>
                                     <div>
                                         @Html.ActionLink("Book", "")
                                     </div>
                                 </div>
-                            }*@
+                            }
                 </div>
             </div>
 
@@ -72,8 +72,51 @@
 </section>
 <!--            Contact Section - Sumit and John-->
 <!--            Sumit and John worked on the style and loading records from database-->
-<section id="ContactUs">
-</section>
+        <section id="ContactUs">
+            <div>
+                <em class="fas fa-phone-square-alt fa-3x"></em><br><br>
+                <p><strong>PHONE:</strong></p>
+                <ul>
+                    @foreach (var item in Model.Agencies)
+                    {
+
+                        <li>@item.AgncyCity</li>
+                        <li><span>Phone: </span>@item.AgncyPhone</li>
+                        <li><span>Fax: </span>@item.AgncyFax</li>
+                    }
+                </ul>
+            </div>
+            <div>
+                <em class="fas fa-envelope-open-text fa-3x"></em><br><br>
+                <p><strong>EMAIL:</strong></p>
+                <ul>
+                    @foreach (var parent in Model.Agencies)
+                    {
+                        <li>@parent.AgncyCity</li>
+                        <ul>
+                            @foreach (var child in parent.Agents)
+                            {
+                                <li><span>Agent Name: </span>@child.AgtFirstName @child.AgtLastName</li>
+                                <li><span>Email: </span>@child.AgtEmail</li>
+                                <li></li>
+                            }
+                        </ul>
+                    }
+                </ul>
+            </div>
+            <div>
+                <em class="fas fa-map-marker-alt fa-3x"></em><br><br>
+                <p><strong>ADDRESS:</strong></p>
+                <ul>
+                    @foreach (var item in Model.Agencies)
+                    {
+                        <li>@item.AgncyCity</li>
+                        <li>@item.AgncyAddress</li>
+
+                    }
+                </ul>
+            </div>
+        </section>
 <a href="#" class="back-to-top"><i id="arrow" class="fas fa-arrow-alt-circle-up fa-3x"></i></a>
 </main>
 

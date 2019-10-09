@@ -8,12 +8,13 @@ using Data.Core.Repository;
 using Data.Core.ViewModel;
 using Data.Persistence;
 using Data.Persistence.Repositories;
+using System.Data.Entity;
 
 namespace TravelExperts.Controllers
 {
     public class HomeController : Controller
     {
-        IRepository _context;
+        TravelMVCRepository _context;
         public HomeController()
         {
             _context = new TravelMVCRepository(new ApplicationDbContext());
@@ -21,15 +22,12 @@ namespace TravelExperts.Controllers
 
         public ActionResult Index()
         {
-            
             PackageAgentViewModel viewModel = new PackageAgentViewModel
             {
                 Packages = _context.GetPackages(),
-                Agents = _context.GetAgentandAgencies(1).ToList()
-                
+                Agencies = _context.GetAgentandAgencies()
             };
-
-
+            
             return View(viewModel);
         }
 

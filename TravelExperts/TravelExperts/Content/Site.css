@@ -364,6 +364,21 @@ button[type="button"] {
     text-align: center;
 }
 
+#ContactUs {
+    padding-top: 85px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100vw;
+}
+
+#ContactUs div {
+    text-align: center;
+    
+}
+
+ul {
+    list-style-type: none;
+}
 /*a:link a:visited { color: #999999; }*/
 /*a:hover a:active { color: #000000; }*/
 
