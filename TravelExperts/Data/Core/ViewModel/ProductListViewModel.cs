@@ -8,6 +8,7 @@ namespace Data.Core.ViewModel
 {
     public class ProductListViewModel
     {
+        public int ProductSupplierId { get; set; }
         public string ProdName { get; set; }
         public string SupName { get; set; }
     }

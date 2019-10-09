@@ -18,7 +18,6 @@ namespace TravelExperts_Desktop
         public delegate void GenerateEvent();
         public static GenerateEvent callRefreshData;
         BindingList<ProductListViewModel> toAdd = new BindingList<ProductListViewModel>();
-        //BindingList<ProductListViewModel> toRemove = new BindingList<ProductListViewModel>();
 
         public AddPackage()
         {
@@ -36,6 +35,7 @@ namespace TravelExperts_Desktop
             ProductListViewModel gridRight = new ProductListViewModel();
             gridRight.ProdName = gridProductSupplierAdd.CurrentRow.Cells["colProdTypeLeft"].Value.ToString();
             gridRight.SupName = gridProductSupplierAdd.CurrentRow.Cells["colSupplierLeft"].Value.ToString();
+            gridRight.ProductSupplierId = Convert.ToInt32(gridProductSupplierAdd.CurrentRow.Cells["colProductSupplierId"].Value);
             toAdd.Add(gridRight);
             gridProductSupplierRemove.DataSource = toAdd;
         }
@@ -64,8 +64,16 @@ namespace TravelExperts_Desktop
                 PackageImageLocation = @"\Content\img\" + Path.GetFileName(txtFilePath.Text);
                 File.Copy(txtFilePath.Text, @"C:\Users\John\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts\Content\img\" + Path.GetFileName(txtFilePath.Text));
             }
+
+            List<int> productsList = new List<int>();
+            for (int i = 0; i < gridProductSupplierRemove.Rows.Count; i++)
+            {
+                int product = Convert.ToInt32(gridProductSupplierRemove.Rows[i].Cells["ProductSupplierId"].Value);
+                productsList.Add(product);
+            }
+
             TravelWinRepository package = new TravelWinRepository();
-            package.InsertPackage(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PackageImageLocation);
+            package.InsertPackage(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PackageImageLocation, productsList);
             callRefreshData();
         }
 
