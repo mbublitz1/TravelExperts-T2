@@ -35,6 +35,7 @@ namespace TravelExperts_Desktop
             int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
             gridProducts.DataSource = packages.GetProducts(selectedPackage);
             AddPackage.callRefreshData += RefreshData;
+            UpdatePackage.callRefreshData += RefreshData;
         }
 
         private void GridPackages_SelectionChanged(object sender, EventArgs e)
@@ -58,8 +59,8 @@ namespace TravelExperts_Desktop
             txtBasePrice.Text = data.PkgBasePrice.ToString("c");
             txtCommission.Text = Convert.ToDouble(data.PkgAgencyCommission).ToString("c");
             gridProducts.DataSource = package.GetProducts(selectedPackage);
-            //string image = @"C:\Users\John\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts" + data.PackageImageLocation;
-            string image = @"C:\Users\Mike\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts" + data.PackageImageLocation;
+            string image = @"C:\Users\John\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts" + data.PackageImageLocation;
+            //string image = @"C:\Users\Mike\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts" + data.PackageImageLocation;
             try
             {
                 pbImage.Image = Image.FromFile(image);
