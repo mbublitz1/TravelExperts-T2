@@ -41,8 +41,6 @@
             this.txtPackageAgency = new System.Windows.Forms.TextBox();
             this.txtPackageDescription = new System.Windows.Forms.TextBox();
             this.gridProductSupplierAdd = new System.Windows.Forms.DataGridView();
-            this.colProdTypeLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupplierLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridProductSupplierRemove = new System.Windows.Forms.DataGridView();
             this.colProdTypeRight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSupplierRight = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +58,9 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.colProdTypeLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupplierLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductSupplierAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductSupplierRemove)).BeginInit();
             this.panel1.SuspendLayout();
@@ -189,7 +190,8 @@
             this.gridProductSupplierAdd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridProductSupplierAdd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colProdTypeLeft,
-            this.colSupplierLeft});
+            this.colSupplierLeft,
+            this.colProductSupplierId});
             this.gridProductSupplierAdd.Location = new System.Drawing.Point(346, 33);
             this.gridProductSupplierAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gridProductSupplierAdd.Name = "gridProductSupplierAdd";
@@ -200,24 +202,6 @@
             this.gridProductSupplierAdd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridProductSupplierAdd.Size = new System.Drawing.Size(183, 198);
             this.gridProductSupplierAdd.TabIndex = 14;
-            // 
-            // colProdTypeLeft
-            // 
-            this.colProdTypeLeft.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdTypeLeft.DataPropertyName = "ProdName";
-            this.colProdTypeLeft.HeaderText = "Product Type";
-            this.colProdTypeLeft.MinimumWidth = 10;
-            this.colProdTypeLeft.Name = "colProdTypeLeft";
-            this.colProdTypeLeft.ReadOnly = true;
-            this.colProdTypeLeft.Width = 96;
-            // 
-            // colSupplierLeft
-            // 
-            this.colSupplierLeft.DataPropertyName = "SupName";
-            this.colSupplierLeft.HeaderText = "Supplier";
-            this.colSupplierLeft.MinimumWidth = 10;
-            this.colSupplierLeft.Name = "colSupplierLeft";
-            this.colSupplierLeft.ReadOnly = true;
             // 
             // gridProductSupplierRemove
             // 
@@ -307,7 +291,7 @@
             this.panel1.ForeColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(10, 11);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel1.Padding = new System.Windows.Forms.Padding(8);
             this.panel1.Size = new System.Drawing.Size(784, 244);
             this.panel1.TabIndex = 18;
             // 
@@ -324,7 +308,7 @@
             // txtFilePath
             // 
             this.txtFilePath.Location = new System.Drawing.Point(121, 214);
-            this.txtFilePath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFilePath.Margin = new System.Windows.Forms.Padding(2);
             this.txtFilePath.Name = "txtFilePath";
             this.txtFilePath.Size = new System.Drawing.Size(151, 20);
             this.txtFilePath.TabIndex = 22;
@@ -387,7 +371,7 @@
             // btnAddImage
             // 
             this.btnAddImage.Location = new System.Drawing.Point(492, 604);
-            this.btnAddImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddImage.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddImage.Name = "btnAddImage";
             this.btnAddImage.Size = new System.Drawing.Size(100, 23);
             this.btnAddImage.TabIndex = 21;
@@ -402,7 +386,7 @@
             // pbImage
             // 
             this.pbImage.Location = new System.Drawing.Point(4, 6);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(2);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(466, 352);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -414,16 +398,42 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.pbImage);
             this.panel2.Location = new System.Drawing.Point(10, 262);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(478, 365);
             this.panel2.TabIndex = 23;
+            // 
+            // colProdTypeLeft
+            // 
+            this.colProdTypeLeft.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdTypeLeft.DataPropertyName = "ProdName";
+            this.colProdTypeLeft.HeaderText = "Product Type";
+            this.colProdTypeLeft.MinimumWidth = 10;
+            this.colProdTypeLeft.Name = "colProdTypeLeft";
+            this.colProdTypeLeft.ReadOnly = true;
+            this.colProdTypeLeft.Width = 96;
+            // 
+            // colSupplierLeft
+            // 
+            this.colSupplierLeft.DataPropertyName = "SupName";
+            this.colSupplierLeft.HeaderText = "Supplier";
+            this.colSupplierLeft.MinimumWidth = 10;
+            this.colSupplierLeft.Name = "colSupplierLeft";
+            this.colSupplierLeft.ReadOnly = true;
+            // 
+            // colProductSupplierId
+            // 
+            this.colProductSupplierId.DataPropertyName = "ProductSupplierId";
+            this.colProductSupplierId.HeaderText = "ProductSupplierId";
+            this.colProductSupplierId.Name = "colProductSupplierId";
+            this.colProductSupplierId.ReadOnly = true;
+            this.colProductSupplierId.Visible = false;
             // 
             // AddPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 648);
+            this.ClientSize = new System.Drawing.Size(804, 648);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnAddImage);
             this.Controls.Add(this.btnCancel);
@@ -431,7 +441,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "AddPackage";
-            this.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Padding = new System.Windows.Forms.Padding(6);
             this.Text = "Add Package Manager";
             this.Load += new System.EventHandler(this.AddManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridProductSupplierAdd)).EndInit();
@@ -473,9 +483,10 @@
         private System.Windows.Forms.Label lblImageLocation;
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProdTypeLeft;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSupplierLeft;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProdTypeRight;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSupplierRight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProdTypeLeft;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSupplierLeft;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductSupplierId;
     }
 }

@@ -155,13 +155,14 @@ namespace Data.Persistence.Repositories
         }
         public void InsertPackage(string PkgName, DateTime PkgStartDate,
             DateTime PkgEndDate, string PkgDesc,
-            double PkgBasePrice, double PkgAgencyCommission, string PackageImageLocation)
+            double PkgBasePrice, double PkgAgencyCommission, string PackageImageLocation, List<int> productsList)
         {
             string insertStatement =
-                @"INSERT INTO Packages  (PkgName,  PkgStartDate, 
-                PkgEndDate,  PkgDesc, PkgBasePrice,  PkgAgencyCommission, PackageImageLocation) 
+                @"INSERT INTO Packages (PkgName, PkgStartDate, 
+                PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PackageImageLocation)
+                OUTPUT INSERTED.PackageId
                 VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, 
-                @PkgBasePrice,  @PkgAgencyCommission, @PackageImageLocation)";
+                @PkgBasePrice, @PkgAgencyCommission, @PackageImageLocation)";
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand insertCommand = new SqlCommand(insertStatement, conn);
             insertCommand.Parameters.AddWithValue("@PkgName", PkgName);
@@ -181,8 +182,34 @@ namespace Data.Persistence.Repositories
             try
             {
                 conn.Open();
-                int count = insertCommand.ExecuteNonQuery();
+                //int count = insertCommand.ExecuteNonQuery();
+                int modified = (int)insertCommand.ExecuteScalar();
                 conn.Close();
+
+                for (int i = 0; i < productsList.Count; i++)
+                {
+                    string insertProductStatement =
+                        @"INSERT INTO Packages_Products_Suppliers
+                        VALUES (@PackageId, @ProductSupplierId)";
+                    SqlCommand insertProductCommand = new SqlCommand(insertProductStatement, conn);
+                    insertProductCommand.Parameters.AddWithValue("@PackageId", modified);
+                    insertProductCommand.Parameters.AddWithValue("@ProductSupplierId", i);
+                    try
+                    {
+                        conn.Open();
+                        insertProductCommand.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+
             }
             catch (SqlException ex)
             {
@@ -192,11 +219,12 @@ namespace Data.Persistence.Repositories
             {
                 conn.Close();
             }
+
         }
-        public List<ProductListViewModel> GetProductSuppliers ()
+        public List<ProductListViewModel> GetProductSuppliers()
         {
             string selectStatement =
-                @"SELECT s.SupName, p.ProdName  FROM Suppliers s
+                @"SELECT s.SupName, p.ProdName, ps.ProductSupplierId FROM Suppliers s
                 JOIN Products_Suppliers ps ON s.SupplierId = ps.SupplierId
                 JOIN Products p ON ps.ProductId = p.ProductId;";
             SqlConnection conn = new SqlConnection(connString);
@@ -212,6 +240,7 @@ namespace Data.Persistence.Repositories
                     ProductListViewModel p = new ProductListViewModel();
                     p.ProdName = reader["ProdName"].ToString();
                     p.SupName = reader["SupName"].ToString();
+                    p.ProductSupplierId = Convert.ToInt32(reader["ProductSupplierId"]);
                     data.Add(p);
                 }
                 reader.Close();
@@ -226,11 +255,7 @@ namespace Data.Persistence.Repositories
             {
                 conn.Close();
             }
-
         }
-        //public void insertPackageProductSupplier(List<> products)
-        //{
-
-        //}
     }
 }
+
