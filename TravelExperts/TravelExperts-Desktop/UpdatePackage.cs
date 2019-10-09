@@ -3,6 +3,7 @@ using Data.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -19,6 +20,7 @@ namespace TravelExperts_Desktop
         public static GenerateEvent callRefreshData;
         BindingList<ProductListViewModel> toAdd = new BindingList<ProductListViewModel>();
         int selectedPackage;
+        bool newImage = false;
         public UpdatePackage(int PackageId, string PkgName, DateTime PkgStartDate,
             DateTime PkgEndDate, string PkgDesc,
             decimal PkgBasePrice, decimal PkgAgencyCommission, string PackageImageLocation)
@@ -48,7 +50,7 @@ namespace TravelExperts_Desktop
                 toAdd.Add(gridRight);
             }
 
-            string image = @"C:\Users\John\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts" + txtFilePath.Text;
+            string image = ConfigurationManager.AppSettings["PathToProject"] + txtFilePath.Text;
             try
             {
                 pbImage.Image = Image.FromFile(image);
@@ -78,19 +80,22 @@ namespace TravelExperts_Desktop
             double PkgBasePrice = double.Parse(txtPackagePrice.Text);
             double PkgAgencyCommission = double.Parse(txtPackageAgency.Text);
             string PackageImageLocation = "";
-            if (txtFilePath.Text == "")
+            if (!newImage) {
+                PackageImageLocation = txtFilePath.Text;
+            }
+            else if (txtFilePath.Text == "")
             {
                 PackageImageLocation = null;
             }
             else
             {
+                string image = ConfigurationManager.AppSettings["PathToProject"];
                 PackageImageLocation = @"\Content\img\" + Path.GetFileName(txtFilePath.Text);
-                File.Copy(txtFilePath.Text, @"C:\Users\John\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts\Content\img\" + Path.GetFileName(txtFilePath.Text));
-                //File.Copy(txtFilePath.Text, @"C:\Users\Mike\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts\Content\img\" + Path.GetFileName(txtFilePath.Text));
+                File.Copy(txtFilePath.Text, image + PackageImageLocation);
             }
 
             List<int> productsList = new List<int>();
-            for (int i = 0; i < gridProductSupplierRemove.Rows.Count - 1; i++)
+            for (int i = 0; i < gridProductSupplierRemove.Rows.Count; i++)
             {
                 int product = Convert.ToInt32(gridProductSupplierRemove.Rows[i].Cells["colProductSupplierIdRight"].Value);
                 productsList.Add(product);
@@ -106,6 +111,7 @@ namespace TravelExperts_Desktop
             DialogResult result = this.openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
+                newImage = true;
                 this.txtFilePath.Text = this.openFileDialog1.FileName;
                 pbImage.Image = Image.FromFile(txtFilePath.Text);
             }
@@ -119,6 +125,7 @@ namespace TravelExperts_Desktop
             gridRight.SupName = gridProductSupplierAdd.CurrentRow.Cells["colSupplierLeft"].Value.ToString();
             gridRight.ProductSupplierId = Convert.ToInt32(gridProductSupplierAdd.CurrentRow.Cells["colProductSupplierId"].Value);
             toAdd.Add(gridRight);
+            gridProductSupplierRemove.DataSource = null;
             gridProductSupplierRemove.DataSource = toAdd;
         }
 

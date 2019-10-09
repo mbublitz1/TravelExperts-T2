@@ -276,7 +276,8 @@ namespace Data.Persistence.Repositories
                     PkgEndDate = @PkgEndDate,
                     PkgDesc = @PkgDesc,
                     PkgBasePrice = @PkgBasePrice,
-                    PkgAgencyCommission = @PkgAgencyCommission
+                    PkgAgencyCommission = @PkgAgencyCommission,
+                    PackageImageLocation = @PackageImageLocation
                 WHERE PackageId = @PackageId";
             string deleteStatement =
                 @"DELETE FROM Packages_Products_Suppliers WHERE PackageId = @PackageId";

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Data.Core.ViewModel;
+using System.Configuration;
 
 namespace TravelExperts_Desktop
 {
@@ -61,9 +62,9 @@ namespace TravelExperts_Desktop
             }
             else
             {
+                string image = ConfigurationManager.AppSettings["PathToProject"];
                 PackageImageLocation = @"\Content\img\" + Path.GetFileName(txtFilePath.Text);
-                File.Copy(txtFilePath.Text, @"C:\Users\John\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts\Content\img\" + Path.GetFileName(txtFilePath.Text));
-                //File.Copy(txtFilePath.Text, @"C:\Users\Mike\Documents\GitHub\TravelExperts-T2\TravelExperts\TravelExperts\Content\img\" + Path.GetFileName(txtFilePath.Text));
+                File.Copy(txtFilePath.Text, image + PackageImageLocation);
             }
 
             List<int> productsList = new List<int>();
