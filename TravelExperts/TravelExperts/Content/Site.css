@@ -386,15 +386,17 @@ ul {
 .listPadding {
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 50px;
+    /*padding-left: 50px;*/
     text-align :left;
 }
 
 .listPadding span {
     font-weight: bold;
+    padding-left : 190px;
 }
-.center{
-    text-align :center;
+.listPadding div {
+    text-align :center; 
+    font-weight : bold;
 }
 
 /*a:link a:visited { color: #999999; }*/
