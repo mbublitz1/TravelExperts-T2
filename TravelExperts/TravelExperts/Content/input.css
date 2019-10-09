@@ -15,6 +15,7 @@ body {
     margin: 0 auto;
 }
 
+
 /*---------------------------------------------*/
 /*HEADER*/
 /*---------------------------------------------*/
@@ -153,11 +154,17 @@ header {
     padding-top: 85px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 100vw;
     justify-content: center;
-
+    width: 95%;
+    padding-right: 15px;
+    padding-left: 15px;
 }
-
+.conleft{
+    margin-left: 1rem;
+}
+.conright{
+    margin-right: 1rem;
+}
 .labelContainer {
     display: grid;
     grid-template-columns: 1fr;
@@ -176,16 +183,19 @@ header {
 /*---------------------------------------------*/
 
 .account{
-    padding: 0 60px 0 20px;
+    padding: 0 60px 0 0;
 }
 
-.account label{
+/*label{
     text-align: left;
+    color: red;
 }
 
-.account input {
-    text-align: right;
-}
+input {
+    box-sizing: border-box;
+
+    float: right;
+}*/
 
 /*---------------------------------------------*/
 /*REGISTRATION*/
@@ -225,13 +235,15 @@ header {
 .container label {
     width: 30%;
     font-weight: bold;
+    float: left;
 }
 
 .container input,
 .container select {
     padding: 0.4rem;
-    width: 225px;
+    width: 200px;
     border-radius: 5px;
+    float: right;
 }
 
 /*#registerbtn {
