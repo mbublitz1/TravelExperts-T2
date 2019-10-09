@@ -3,18 +3,71 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,300i,400');
 
-body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/Register Button.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+html {
+    font-size: 62.5%;
+}
+
+
+body {
+    font-size: 16px;
+    font-size: 1.6rem;
+}
+/* = 16px */
 
 .pgrow {
     max-width: 1140px;
     margin: 0 auto;
 }
 
+.box {
+    padding: 1%;
+}
+
+#form label.error {
+    display: block;
+    color: red;
+    width: 100%;
+    text-align: right;
+    padding-right: 25%;
+}
+
+/*  Typograhical Scales  */
+h3 {
+    font-size: 5rem;
+    padding-top: 4rem;
+    text-align: center;
+    font-family: 'Lato', 'Arial', sans-serif;
+}
+
+    h2:after, h3:after {
+        display: block;
+        height: 2px;
+        background-color: #217dbb;
+        content: " ";
+        width: 100px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+.added-class:after {
+    content: none
+}
+
+.addLine:after {
+    background-color: orange;
+}
+
+h4 {
+    font-size: 3rem;
+    padding-top: 3rem;
+    text-align: center;
+}
 
 /*---------------------------------------------*/
 /*HEADER*/
@@ -59,6 +112,7 @@ header {
     /*add space between the top of page and logo*/
     margin-top: 10px;
 }
+
 
 /*---------------------------------------------*/
 /*NAVIGATION*/
@@ -145,137 +199,3 @@ header {
             padding: 8px 0;
             color: #555;
         }
-
-/*---------------------------------------------*/
-/*MAIN*/
-/*---------------------------------------------*/
-
-.container {
-    padding-top: 85px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    width: 95%;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-.conleft{
-    margin-left: 1rem;
-}
-.conright{
-    margin-right: 1rem;
-}
-.labelContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-.leftAlign {
-    text-align: left;
-}
-
-.rightAligh{
-    text-align: right;
-}
-
-/*---------------------------------------------*/
-/*New Account*/
-/*---------------------------------------------*/
-
-.account{
-    padding: 0 60px 0 0;
-}
-
-/*label{
-    text-align: left;
-    color: red;
-}
-
-input {
-    box-sizing: border-box;
-
-    float: right;
-}*/
-
-/*---------------------------------------------*/
-/*REGISTRATION*/
-/*---------------------------------------------*/
-/*.register {
-    margin-top: 10px;
-}
-
-.registration--main_form {
-    padding-bottom: 3%;
-}*/
-
-/*.profile {
-    text-align: left;
-}*/
-
-
-
-
-.container label {
-    color: white;
-    width: 50px;
-}
-
-#form {
-    padding-top: 4%;
-}
-
-.container label,
-.container input,
-.container select {
-    display: inline;
-    margin-top: 1rem;
-    /*vertical-align: middle;*/
-}
-
-.container label {
-    width: 30%;
-    font-weight: bold;
-    float: left;
-}
-
-.container input,
-.container select {
-    padding: 0.4rem;
-    width: 200px;
-    border-radius: 5px;
-    float: right;
-}
-
-/*#registerbtn {
-    position: relative;
-    top: 50%;
-    left: 0%;
-    
-    transform: translate(-70%, 30%);
-    height: 70px;
-    width:  10px;
-}*/
-
-input[type="submit"] {
-    margin: 8% 0 0 0;
-    padding: 1rem 2rem;
-    background-color: #ffffff;
-    border: 1px solid #000000;
-    color: #000000;
-    font-size: 1.6rem;
-    border-radius: .5rem;
-    cursor: pointer;
-    text-transform: uppercase
-}
-
-button[type="button"] {
-    /* margin: 8% 0 0 31%; */
-    /*padding: 2rem 5rem;*/
-    background-color: #ffffff;
-    border: 1px solid #000000;
-    color: #000000;
-    font-size: 1.6rem;
-    border-radius: .5rem;
-    cursor: pointer;
-    text-transform: uppercase
-}

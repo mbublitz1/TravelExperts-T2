@@ -1,10 +1,11 @@
 ﻿@model TravelExperts.Controllers.BookingDetailViewModel
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_InputLayout.cshtml";
 }
 
 <!DOCTYPE html>
+<h4>@Model.PackageId</h4>
 
 <html>
 <head>
@@ -12,14 +13,13 @@
     <title>Index</title>
 </head>
 <body>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-    
-    
-    @using (Html.BeginForm()) 
+
+
+
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
             <h4>BookingDetailViewModel</h4>
             <hr />
@@ -31,7 +31,7 @@
                     @Html.ValidationMessageFor(model => model.BookingId, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.BookingDate, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -39,7 +39,7 @@
                     @Html.ValidationMessageFor(model => model.BookingDate, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.BookingNo, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -47,7 +47,7 @@
                     @Html.ValidationMessageFor(model => model.BookingNo, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.TravelerCount, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -55,7 +55,7 @@
                     @Html.ValidationMessageFor(model => model.TravelerCount, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.CustomerId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -63,7 +63,7 @@
                     @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.TripTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -71,7 +71,7 @@
                     @Html.ValidationMessageFor(model => model.TripTypeId, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.PackageId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -79,7 +79,7 @@
                     @Html.ValidationMessageFor(model => model.PackageId, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.BookingDetailId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -87,7 +87,7 @@
                     @Html.ValidationMessageFor(model => model.BookingDetailId, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.ItineraryNo, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -95,7 +95,7 @@
                     @Html.ValidationMessageFor(model => model.ItineraryNo, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.TripStart, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -103,7 +103,7 @@
                     @Html.ValidationMessageFor(model => model.TripStart, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.TripEnd, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -111,7 +111,7 @@
                     @Html.ValidationMessageFor(model => model.TripEnd, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -119,7 +119,7 @@
                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Destination, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -127,7 +127,7 @@
                     @Html.ValidationMessageFor(model => model.Destination, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.BasePrice, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -135,7 +135,7 @@
                     @Html.ValidationMessageFor(model => model.BasePrice, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.AgencyCommission, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -143,7 +143,7 @@
                     @Html.ValidationMessageFor(model => model.AgencyCommission, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.BookDetId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -151,7 +151,7 @@
                     @Html.ValidationMessageFor(model => model.BookDetId, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.RegionId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -159,7 +159,7 @@
                     @Html.ValidationMessageFor(model => model.RegionId, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.ClassId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -167,7 +167,7 @@
                     @Html.ValidationMessageFor(model => model.ClassId, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.FeeId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -175,7 +175,7 @@
                     @Html.ValidationMessageFor(model => model.FeeId, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.ProductSupplierId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -183,7 +183,7 @@
                     @Html.ValidationMessageFor(model => model.ProductSupplierId, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
@@ -191,9 +191,11 @@
             </div>
         </div>
     }
-    
+
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
 </body>
 </html>

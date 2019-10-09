@@ -342,12 +342,15 @@ input[type="submit"] {
     text-transform: uppercase
 }
 
-button[type="button"] {
-    /* margin: 8% 0 0 31%; */
-    padding: 2rem 5rem;
-    background-color: #ffffff;
+.buttonContainer{
+    padding-top: 10px;
+}
+
+.button {
+    padding: 1rem 3rem;
+    background-color: blue;
     border: 1px solid #000000;
-    color: #000000;
+    color: #ffffff;
     font-size: 1.6rem;
     border-radius: .5rem;
     cursor: pointer;
@@ -379,13 +382,28 @@ button[type="button"] {
 ul {
     list-style-type: none;
 }
+
+.listPadding {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*padding-left: 50px;*/
+    text-align :left;
+}
+
+.listPadding span {
+    font-weight: bold;
+    padding-left : 190px;
+}
+.listPadding div {
+    text-align :center; 
+    font-weight : bold;
+}
+
 /*a:link a:visited { color: #999999; }*/
 /*a:hover a:active { color: #000000; }*/
-
 /*---------------------------------------------*/
 /*CONTACT*/
 /*---------------------------------------------*/
-
 .back-to-top {
     background-color: #50A1CB; /* button color */
     color: white; /* text/arrow color */
