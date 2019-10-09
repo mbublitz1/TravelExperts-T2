@@ -93,7 +93,7 @@ namespace Data.Persistence.Repositories
         public List<ProductListViewModel> GetProducts(int id)
         {
             string selectStatement =
-                @"SELECT pa.PackageId, p.ProdName, s.SupName FROM Products_Suppliers ps
+                @"SELECT pa.PackageId, p.ProdName, s.SupName, pps.ProductSupplierId FROM Products_Suppliers ps
                 JOIN Products p ON ps.ProductId = p.ProductId
                 JOIN Suppliers s ON ps.SupplierId = s.SupplierId
                 JOIN Packages_Products_Suppliers pps ON ps.ProductSupplierId = pps.ProductSupplierId
@@ -115,6 +115,7 @@ namespace Data.Persistence.Repositories
                     ProductListViewModel p = new ProductListViewModel();
                     p.ProdName = reader["ProdName"].ToString();
                     p.SupName = reader["SupName"].ToString();
+                    p.ProductSupplierId = Convert.ToInt32(reader["ProductSupplierId"]);
                     data.Add(p);
                 }
                 reader.Close();
@@ -133,7 +134,9 @@ namespace Data.Persistence.Repositories
 
         public void DeletePackage(int id)
         {
-            string deleteStatement = "DELETE FROM Packages WHERE PackageId = @id";
+            string deleteStatement =
+                @"DELETE FROM Packages_Products_Suppliers WHERE PackageId = @id;
+                DELETE FROM Packages WHERE PackageId = @id;";
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand deleteCommand = new SqlCommand(deleteStatement, conn);
             deleteCommand.Parameters.AddWithValue("@id", id);
@@ -153,9 +156,11 @@ namespace Data.Persistence.Repositories
                 conn.Close();
             }
         }
+
         public void InsertPackage(string PkgName, DateTime PkgStartDate,
             DateTime PkgEndDate, string PkgDesc,
-            double PkgBasePrice, double PkgAgencyCommission, string PackageImageLocation, List<int> productsList)
+            double PkgBasePrice, double PkgAgencyCommission,
+            string PackageImageLocation, List<int> productsList)
         {
             string insertStatement =
                 @"INSERT INTO Packages (PkgName, PkgStartDate, 
@@ -193,7 +198,7 @@ namespace Data.Persistence.Repositories
                         VALUES (@PackageId, @ProductSupplierId)";
                     SqlCommand insertProductCommand = new SqlCommand(insertProductStatement, conn);
                     insertProductCommand.Parameters.AddWithValue("@PackageId", modified);
-                    insertProductCommand.Parameters.AddWithValue("@ProductSupplierId", i);
+                    insertProductCommand.Parameters.AddWithValue("@ProductSupplierId", productsList[i]);
                     try
                     {
                         conn.Open();
@@ -221,6 +226,7 @@ namespace Data.Persistence.Repositories
             }
 
         }
+
         public List<ProductListViewModel> GetProductSuppliers()
         {
             string selectStatement =
@@ -250,6 +256,84 @@ namespace Data.Persistence.Repositories
             {
                 MessageBox.Show(ex.Message);
                 return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void UpdatePackage(int PackageId, string PkgName, DateTime PkgStartDate,
+            DateTime PkgEndDate, string PkgDesc,
+            double PkgBasePrice, double PkgAgencyCommission,
+            string PackageImageLocation, List<int> productsList)
+        {
+            string updateStatement =
+                @"UPDATE Packages
+                SET
+                    PkgName = @PkgName,
+                    PkgStartDate = @PkgStartDate,
+                    PkgEndDate = @PkgEndDate,
+                    PkgDesc = @PkgDesc,
+                    PkgBasePrice = @PkgBasePrice,
+                    PkgAgencyCommission = @PkgAgencyCommission
+                WHERE PackageId = @PackageId";
+            string deleteStatement =
+                @"DELETE FROM Packages_Products_Suppliers WHERE PackageId = @PackageId";
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand updateCommand = new SqlCommand(updateStatement, conn);
+            SqlCommand deleteCommand = new SqlCommand(deleteStatement, conn);
+            updateCommand.Parameters.AddWithValue("@PackageId", PackageId);
+            updateCommand.Parameters.AddWithValue("@PkgName", PkgName);
+            updateCommand.Parameters.AddWithValue("@PkgStartDate", PkgStartDate);
+            updateCommand.Parameters.AddWithValue("@PkgEndDate", PkgEndDate);
+            updateCommand.Parameters.AddWithValue("@PkgDesc", PkgDesc);
+            updateCommand.Parameters.AddWithValue("@PkgBasePrice", PkgBasePrice);
+            updateCommand.Parameters.AddWithValue("@PkgAgencyCommission", PkgAgencyCommission);
+            deleteCommand.Parameters.AddWithValue("@PackageId", PackageId);
+            if (PackageImageLocation == null)
+            {
+                updateCommand.Parameters.AddWithValue("@PackageImageLocation", DBNull.Value);
+            }
+            else
+            {
+                updateCommand.Parameters.AddWithValue("@PackageImageLocation", PackageImageLocation);
+            }
+            try
+            {
+                conn.Open();
+                //int count = insertCommand.ExecuteNonQuery();
+                updateCommand.ExecuteNonQuery();
+                deleteCommand.ExecuteNonQuery();
+                conn.Close();
+
+                for (int i = 0; i < productsList.Count; i++)
+                {
+                    string updateProductStatement =
+                        @"INSERT INTO Packages_Products_Suppliers
+                        VALUES (@PackageId, @ProductSupplierId)";
+                    SqlCommand updateProductCommand = new SqlCommand(updateProductStatement, conn);
+                    updateProductCommand.Parameters.AddWithValue("@PackageId", PackageId);
+                    updateProductCommand.Parameters.AddWithValue("@ProductSupplierId", productsList[i]);
+                    try
+                    {
+                        conn.Open();
+                        updateProductCommand.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             finally
             {
