@@ -200,7 +200,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\BookingStyles.css" />
+    <Content Include="Content\Styles\BookingStyles.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -208,7 +208,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\grid.css" />
-    <Content Include="Content\HeadingStyle.css" />
+    <Content Include="Content\Styles\CommonStyles.css" />
+    <Content Include="Content\Styles\HomeStyles.css" />
     <Content Include="Content\img\1Caribbean_New_Year\1.jpeg" />
     <Content Include="Content\img\1Caribbean_New_Year\1.jpg" />
     <Content Include="Content\img\1Caribbean_New_Year\2.jpg" />
@@ -288,9 +289,9 @@
     <Content Include="Content\img\travelexpertnew.png" />
     <Content Include="Content\img\travelexpertold.png" />
     <Content Include="Content\img\TravelExperts.png" />
-    <Content Include="Content\Input.css" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\reset.css" />
+    <Content Include="Content\Styles\Register.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -334,7 +335,7 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\Styles\Site.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />

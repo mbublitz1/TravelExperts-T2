@@ -1,0 +1,293 @@
+﻿body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('/img/ocean-club.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+/* = 16px */
+
+
+/*---------------------------------------------*/
+/*HEADER*/
+/*---------------------------------------------*/
+
+header {
+    height: 100vh;
+}
+
+    header h1, h3 {
+        margin: 0 auto;
+        width: 848px;
+    }
+
+    header h1 {
+        font-family: 'Lobster', cursive;
+        font-size: 85px;
+        color: white;
+    }
+
+    header h3 {
+        color: white;
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+/*Responsible for centering welcome text*/
+.heading-text-box {
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*---------------------------------------------*/
+/*NAVIGATION*/
+/*---------------------------------------------*/
+
+
+/*Select all li inside ul list in main-nav class*/
+.head-nav li {
+    /*change display style to inline block*/
+    display: inline-block;
+    margin-left: 40px;
+}
+
+
+/*---------------------------------------------*/
+/*PLAN SECTION*/
+/*---------------------------------------------*/
+
+#Plans {
+    height: 600px;
+}
+
+.carousel-inner {
+    padding-bottom: 40px;
+}
+
+.carousel-item {
+    padding-top: 5px;
+    text-align: center;
+}
+
+    .carousel-item h4 {
+        padding: 2px;
+    }
+
+    .carousel-item img {
+        padding: 5px;
+        width: 389px;
+        height: 294px;
+    }
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f00' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f00' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+    margin-right: -360px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    margin-top: -140px;
+    margin-left: -180px;
+}
+
+.carousel-indicators li {
+    background-color: red;
+}
+
+.pkgHeader {
+    color: #1066bb;
+    font-size: 22px;
+    padding: 3px;
+}
+
+.pkgDesc {
+    padding-top: 30px;
+    font-size: 18px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.pkgCost {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 35px;
+}
+
+/*---------------------------------------------*/
+/*MAIN*/
+/*---------------------------------------------*/
+main > section:nth-of-type(odd) {
+    background: white;
+    color: #183840;
+}
+
+/*---------------------------------------------*/
+/*REGISTRATION*/
+/*---------------------------------------------*/
+#register {
+    margin-top: 10px;
+}
+
+.registration--main_form {
+    padding-bottom: 3%;
+}
+
+    .registration--main_form h3,
+    .registration--main_form label,
+    .registration--main_form p {
+        color: white;
+    }
+
+#form {
+    padding-top: 4%;
+}
+
+.signup-form label,
+.signup-form input,
+.signup-form select {
+    display: inline-block;
+    margin-top: 1rem;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.signup-form label {
+    width: 30%;
+    font-weight: bold;
+}
+
+.signup-form input,
+.signup-form select {
+    padding: 0.4rem;
+    width: 68%;
+    border-radius: 5px;
+}
+
+#registerbtn {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-70%, 30%);
+    height: 90%;
+    width: 90%;
+}
+
+input[type="submit"] {
+    margin: 8% 0 0 31%;
+    padding: 2rem 5rem;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    color: #000000;
+    font-size: 1.6rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    text-transform: uppercase
+}
+
+.buttonContainer {
+    padding-top: 10px;
+}
+
+.button {
+    padding: 1rem 3rem;
+    background-color: blue;
+    border: 1px solid #000000;
+    color: #ffffff;
+    font-size: 1.6rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    text-transform: uppercase
+}
+
+
+/*---------------------------------------------*/
+/*CONTACT*/
+/*---------------------------------------------*/
+
+.contact {
+    padding-top: 40px;
+    text-align: center;
+}
+
+#ContactUs {
+    padding-top: 85px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100vw;
+}
+
+    #ContactUs div {
+        text-align: center;
+    }
+
+ul {
+    list-style-type: none;
+}
+
+.listPadding {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*padding-left: 50px;*/
+    text-align: left;
+}
+
+    .listPadding span {
+        font-weight: bold;
+        padding-left: 190px;
+    }
+
+    .listPadding span1 {
+        font-weight: bold;
+        padding-left: 160px;
+    }
+
+    .listPadding div {
+        text-align: center;
+        font-weight: bold;
+    }
+
+/*a:link a:visited { color: #999999; }*/
+/*a:hover a:active { color: #000000; }*/
+/*---------------------------------------------*/
+/*CONTACT*/
+/*---------------------------------------------*/
+.back-to-top {
+    background-color: #50A1CB; /* button color */
+    color: white; /* text/arrow color */
+    display: none;
+    z-index: 999;
+    /* float in bottom right corner */
+    /* 20 pixels from edge */
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    /* size of button is 50 pixels*/
+    width: 50px;
+    height: 50px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* round button */
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+a.back-to-top {
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.6;
+    padding-left: 2px;
+    padding-top: 4px;
+}
+
+#arrow {
+    padding-top: 3px;
+}

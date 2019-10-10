@@ -3,8 +3,8 @@
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_InputLayout.cshtml";
 }
-@Styles.Render("~/Content/inputcss")
-
+    <link href="~/Content/Styles/CommonStyles.css" rel="stylesheet" />
+    <link href="~/Content/Styles/Register.css" rel="stylesheet" />
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <div class="container">

@@ -31,10 +31,9 @@ namespace TravelExperts
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/Site.css"));
+                      "~/Content/Styles/CommonStyles.css",
+                      "~/Content/Styles/HomeStyles.css"));
 
-            bundles.Add(new StyleBundle("~/Content/inputcss").Include(
-                "~/Content/Input.css"));
         }
     }
 }
