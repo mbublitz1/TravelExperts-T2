@@ -394,6 +394,11 @@ ul {
     font-weight: bold;
     padding-left : 190px;
 }
+.listPadding span1{
+    font-weight :bold;
+    padding-left :160px; 
+}
+
 .listPadding div {
     text-align :center; 
     font-weight : bold;

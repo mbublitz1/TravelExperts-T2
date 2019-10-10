@@ -80,7 +80,7 @@
                 @foreach (var item in Model.Agencies)
                 {
                     <ul class="listPadding">
-                        <li><span class="center">@item.AgncyCity</span></li>
+                        <li><div>@item.AgncyCity</div></li>
                         <li><span>Phone: </span>@item.AgncyPhone</li>
                         <li><span>Fax: </span>@item.AgncyFax</li>
                         
@@ -92,14 +92,14 @@
                 <p><strong>EMAIL:</strong></p>
                     @foreach (var parent in Model.Agencies)
                     {   <ul class="listPadding">
-                        <li><span class="center">@parent.AgncyCity</span></li>
+                        <li><div>@parent.AgncyCity</div></li>
                         </ul>
                         foreach (var child in parent.Agents)
                         {
                             <ul class="listPadding">
-                                <li><span>Agent Name: </span>@child.AgtFirstName @child.AgtLastName</li>
-                                <li><span>Email: </span>@child.AgtEmail</li>
-                                <li></li>
+                              <li><span1>Agent Name: </span1>@child.AgtFirstName @child.AgtLastName</li>
+                                <li><span1>Email: </span1>@child.AgtEmail</li>
+                                
                             </ul>
                         }
                     }
