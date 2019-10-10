@@ -51,8 +51,11 @@ namespace Data.Persistence.Repositories
                 .Include(a => a.Agents).ToList();
 
             return result;
+        }
 
-
+        public List<TripType> GetTripTypes()
+        {
+            return _context.TripTypes.ToList();
         }
     }
 }

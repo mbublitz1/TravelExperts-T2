@@ -47,7 +47,11 @@
                                 <p>@Model.Packages[i].PkgDesc</p>
                                 <p>@Model.Packages[i].PkgBasePrice</p>
                                 <div class="buttonContainer">
-                                    @Html.ActionLink("Book", "Index", "Booking", new { id = Model.Packages[i].PackageId }, null)
+                                    @Html.ActionLink("Book",
+                                        "Index", 
+                                        "Booking",
+                                        new { id = Model.Packages[i].PackageId },
+                                        new { @class = "button"})
                                 </div>
                             </div>
                         }

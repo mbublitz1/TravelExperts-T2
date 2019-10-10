@@ -7,8 +7,6 @@ namespace TravelExperts.Controllers
     public class BookingDetailViewModel
     {
 
-        public int BookingId { get; set; }
-
         public DateTime? BookingDate { get; set; }
 
         public string BookingNo { get; set; }
@@ -49,6 +47,8 @@ namespace TravelExperts.Controllers
         public string FeeId { get; set; }
 
         public int? ProductSupplierId { get; set; }
+
+        public List<TripType> TripTypes { get; set; }
 
         public virtual Booking Booking { get; set; }
 
