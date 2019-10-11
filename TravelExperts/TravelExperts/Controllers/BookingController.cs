@@ -26,8 +26,25 @@ namespace TravelExperts.Controllers
             return View(viewModel);
         }
 
-        public ActionResult BookTrip(int id)
+        public ActionResult BookTrip(BookingDetailViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+                var viewModel = new BookingDetailViewModel
+                {
+                    BookingDate = model.BookingDate,
+                    TripStart = model.TripStart,
+                    TripEnd = model.TripEnd,
+                    TravelerCount = model.TravelerCount,
+                    TripTypeId = model.TripTypeId,
+                    PackageId = model.PackageId,
+                    ItineraryNo = model.ItineraryNo,
+                    Description = model.Description,
+                    Destination = model.Destination
+
+                };
+            }
+
             return View();
         }
 

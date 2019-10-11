@@ -164,8 +164,12 @@ header {
     padding-bottom: 8px;
 }
 
-.dropdown-menu.p-4.show {
-    width: 200px;
+.dropdown-menu {
+    width: 300px;
+}
+
+.dropdown-menu label, .dropdown-menu input, .dropdown-menu button {
+    font-size: 16px;
 }
 
 /*Sticky nav*/

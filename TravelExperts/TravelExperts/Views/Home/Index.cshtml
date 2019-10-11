@@ -48,10 +48,10 @@
                                 <p>@Model.Packages[i].PkgBasePrice</p>
                                 <div class="buttonContainer">
                                     @Html.ActionLink("Book",
-                                        "Index", 
+                                        "Index",
                                         "Booking",
                                         new { id = Model.Packages[i].PackageId },
-                                        new { @class = "button"})
+                                        new { @class = "button" })
                                 </div>
                             </div>
                         }
@@ -76,67 +76,80 @@
 </section>
 <!--            Contact Section - Sumit and John-->
 <!--            Sumit and John worked on the style and loading records from database-->
-        <section id="ContactUs">
-            <div>
-                <em class="fas fa-phone-square-alt fa-3x"></em><br><br>
-                <p><strong>PHONE:</strong></p>
+<section id="ContactUs">
+    <div>
+        <em class="fas fa-phone-square-alt fa-3x"></em><br><br>
+        <p><strong>PHONE:</strong></p>
 
-                @foreach (var item in Model.Agencies)
-                {
-                    <ul class="listPadding">
-                        <li><div>@item.AgncyCity</div></li>
-                        <li><span>Phone: </span>@item.AgncyPhone</li>
-                        <li><span>Fax: </span>@item.AgncyFax</li>
-                        
-                    </ul>
-                }
-                </div>
-            <div>
-                <em class="fas fa-envelope-open-text fa-3x"></em><br><br>
-                <p><strong>EMAIL:</strong></p>
-                    @foreach (var parent in Model.Agencies)
-                    {   <ul class="listPadding">
-                        <li><div>@parent.AgncyCity</div></li>
-                        </ul>
-                        foreach (var child in parent.Agents)
-                        {
-                            <ul class="listPadding">
-                              <li><span1>Agent Name: </span1>@child.AgtFirstName @child.AgtLastName</li>
-                                <li><span1>Email: </span1>@child.AgtEmail</li>
-                                
-                            </ul>
-                        }
-                    }
-            </div>
-            <div>
-                <em class="fas fa-map-marker-alt fa-3x"></em><br><br>
-                <p><strong>ADDRESS:</strong></p>
-                
-                    @foreach (var item in Model.Agencies)
-                    {
-                        <ul class="listPadding">
-                            <li><div>@item.AgncyCity</div></li>
-                             <li><span>@item.AgncyAddress</span></li>
-                        </ul>
-                    }
-                
-            </div>
-        </section>
+        @foreach (var item in Model.Agencies)
+        {
+            <ul class="listPadding">
+                <li><div>@item.AgncyCity</div></li>
+                <li><span>Phone: </span>@item.AgncyPhone</li>
+                <li><span>Fax: </span>@item.AgncyFax</li>
+
+            </ul>
+        }
+    </div>
+    <div>
+        <em class="fas fa-envelope-open-text fa-3x"></em><br><br>
+        <p><strong>EMAIL:</strong></p>
+        @foreach (var parent in Model.Agencies)
+        {<ul class="listPadding">
+                <li><div>@parent.AgncyCity</div></li>
+            </ul>
+            foreach (var child in parent.Agents)
+            {
+                <ul class="listPadding">
+                    <li><span1>Agent Name: </span1>@child.AgtFirstName @child.AgtLastName</li>
+                    <li><span1>Email: </span1>@child.AgtEmail</li>
+
+                </ul>
+            }
+        }
+    </div>
+    <div>
+        <em class="fas fa-map-marker-alt fa-3x"></em><br><br>
+        <p><strong>ADDRESS:</strong></p>
+
+        @foreach (var item in Model.Agencies)
+        {
+            <ul class="listPadding">
+                <li><div>@item.AgncyCity</div></li>
+                <li><span>@item.AgncyAddress</span></li>
+            </ul>
+        }
+
+    </div>
+</section>
 <a href="#" class="back-to-top"><i id="arrow" class="fas fa-arrow-alt-circle-up fa-3x"></i></a>
 </main>
 
+@section scripts {
+    <script>
+        $('#btnLogin').click(function(e) {
+            var data = {
+                Email: $("#username").val(),
+                Password: $("#password").val(),
+                RememberMe: $("#remember").val()
+            };
+            var returnUrl = "@Url.Action("Index","Home")";
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                url: "/Account/Login",
+                data: `{data: ${JSON.stringify(data)} }`,
+                success:
+                    function () {
+                        alert("success");
+                    },
+                error: function() {
+                    alert("Error!");
+                }
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@*<script src="vendor/js/jquery-3.4.1.min.js"></script>
-    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="vendor/js/bootstrap.min.js"></script>
-    <script src="vendor/js/node_modules/jquery-waypoints/waypoints.min.js"></script>
-    <script src="vendor/js/jquery-validation-1.19.1/dist/jquery.validate.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/plsReg.js"></script>*@
-@*<script>
-              $("#regForm").validate();
-    </script>*@
+            });
 
+        });
+    </script>
+}
