@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -156,35 +157,37 @@ namespace TravelExperts.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var customer = new Customer
-                {
-                    CustFirstName = model.CustFirstName,
-                    CustLastName = model.CustLastName,
-                    CustAddress = model.CustAddress,
-                    CustCity = model.CustCity,
-                    CustProv = model.CustProv,
-                    CustPostal = model.CustPostal,
-                    CustCountry = model.CustCountry,
-                    CustBusPhone = model.CustBusPhone,
-                    CustHomePhone = model.CustHomePhone,
-                    CustEmail = model.Email
-                };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    var customer = new Customer
+                    {
+                        CustFirstName = model.CustFirstName,
+                        CustLastName = model.CustLastName,
+                        CustAddress = model.CustAddress,
+                        CustCity = model.CustCity,
+                        CustProv = model.CustProv,
+                        CustPostal = model.CustPostal,
+                        CustCountry = model.CustCountry,
+                        CustBusPhone = model.CustBusPhone,
+                        CustHomePhone = model.CustHomePhone,
+                        CustEmail = model.Email
+                    };
                     customer.UserId = user.Id;
                     TravelMVCRepository repository = new TravelMVCRepository(new ApplicationDbContext());
                     repository.AddCustomer(customer);
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
+
             }
 
             // If we got this far, something failed, redisplay form
@@ -398,6 +401,7 @@ namespace TravelExperts.Controllers
                     }
                 }
                 AddErrors(result);
+                
             }
 
             ViewBag.ReturnUrl = returnUrl;

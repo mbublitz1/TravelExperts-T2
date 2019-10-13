@@ -13,6 +13,8 @@ namespace Data.Core.ViewModel
         public ICollection<Agent> Agents { get; set; }
         public ICollection<Agency> Agencies { get; set; }
 
+        public LoginViewModel LoginViewModel { get; set; }
+
     }
 
     

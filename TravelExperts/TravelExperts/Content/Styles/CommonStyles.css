@@ -20,10 +20,10 @@ body {
 }
 /* = 16px */
 
-.pgrow {
+/*.pgrow {
     max-width: 1140px;
     margin: 0 auto;
-}
+}*/
 
 .box {
     padding: 1%;
@@ -93,13 +93,32 @@ header {
         font-family: 'Ubuntu', sans-serif;
     }
 
+.flexcontainer {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+dt {
+    color: white;
+}
+
+.pageLogo {
+    flex: 2 0 auto;
+    text-align: right;
+}
+
+.menu {
+    flex: 2 0 40%;
+    text-align: center;
+}
+
 .logo {
     /*Sets height of logo*/
     height: 80px;
     /*Width should be determined automatically*/
     width: auto;
     /*image to be floated to the left*/
-    float: left;
+    /*float: left;*/
     /*add space between the top of page and logo*/
     margin-top: 10px;
 }
@@ -115,7 +134,7 @@ header {
     Display: inline-block;
     color: white;
     /*Navigation unordered list should be floated to the right*/
-    float: right;
+    /*float: right;*/
     /*Get rid of bullet points*/
     list-style: none;
     /*Add space between top of page an menu*/

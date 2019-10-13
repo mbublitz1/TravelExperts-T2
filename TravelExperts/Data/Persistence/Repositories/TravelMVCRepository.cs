@@ -19,9 +19,9 @@ namespace Data.Persistence.Repositories
             _context = context;
         }
 
-        public Customer GetCustomer(int id)
+        public Customer GetCustomer(string id)
         {
-            return _context.Customers.SingleOrDefault(c => c.CustomerId == id);
+            return _context.Customers.SingleOrDefault(c => c.UserId == id);
         }
 
         public List<Package> GetPackages()
@@ -43,6 +43,27 @@ namespace Data.Persistence.Repositories
         {
             _context.Customers.Add(customer);
             _context.SaveChanges();
+        }
+
+        public int UpdateCustomer(Customer itemInDb, Customer model)
+        {
+            if (itemInDb != null)
+            {
+                itemInDb.CustFirstName = model.CustFirstName;
+                itemInDb.CustLastName = model.CustLastName;
+                itemInDb.CustAddress = model.CustAddress;
+                itemInDb.CustCity = model.CustCity;
+                itemInDb.CustProv = model.CustProv;
+                itemInDb.CustPostal = model.CustPostal;
+                itemInDb.CustCountry = model.CustCountry;
+                itemInDb.CustHomePhone = model.CustHomePhone;
+                itemInDb.CustBusPhone = model.CustBusPhone;
+                itemInDb.CustEmail = model.CustEmail;
+
+                return _context.SaveChanges();
+            }
+
+            return 0;
         }
 
         public List<Agency> GetAgentandAgencies()

@@ -7,24 +7,31 @@
     <link href="~/Content/Styles/Register.css" rel="stylesheet" />
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-    <div class="container">
-        <div class="account labelContainer ">
+    <div class="flexcontainer">
+        <div class="item">
+            @Html.AntiForgeryToken()
+
             <div>
                 @Html.LabelFor(m => m.Email)
                 @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
             </div>
             <div>
                 @Html.LabelFor(m => m.Password)
                 @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
 
             </div>
             <div>
                 @Html.LabelFor(m => m.ConfirmPassword)
                 @Html.PasswordFor(m => m.ConfirmPassword)
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
+            <div>
+                @Html.ValidationSummary("", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="register  labelContainer">
-            @Html.AntiForgeryToken()
+        <div class="item">
             <div>
                 <div>
                     @Html.LabelFor(c => c.CustFirstName)
@@ -64,8 +71,8 @@
                 </div>
             </div>
         </div>
-        <div>
-            <div class="register   labelContainer">
+        <div class="item">
+            <div>
                 <div>
                     @Html.LabelFor(c => c.CustCountry)
                     @Html.TextBoxFor(c => c.CustCountry)
@@ -85,11 +92,10 @@
                 </div>
                 <div class="form-group">
                     <div>
-                        <input id="registerbtn" type="submit" class="btn btn-default" value="Register" />
+                        <input  type="submit" value="Register" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
 }
-@*https://stackoverflow.com/questions/33197402/link-asp-net-identity-users-to-user-detail-table*@

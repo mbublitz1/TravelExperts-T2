@@ -210,6 +210,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\grid.css" />
     <Content Include="Content\Styles\CommonStyles.css" />
+    <Content Include="Content\Styles\CustomerStyles.css" />
     <Content Include="Content\Styles\HomeStyles.css" />
     <Content Include="Content\img\1Caribbean_New_Year\1.jpeg" />
     <Content Include="Content\img\1Caribbean_New_Year\1.jpg" />
@@ -292,7 +293,10 @@
     <Content Include="Content\img\TravelExperts.png" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\reset.css" />
+    <Content Include="Content\Styles\LoginStyles.css" />
+    <Content Include="Content\Styles\ManageStyles.css" />
     <Content Include="Content\Styles\Register.css" />
+    <Content Include="Content\Styles\Temp.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />

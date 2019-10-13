@@ -22,7 +22,7 @@ namespace TravelExperts.Controllers
 
         public ActionResult Index()
         {
-            PackageAgentViewModel viewModel = new PackageAgentViewModel
+            LoginViewModel viewModel = new LoginViewModel()
             {
                 Packages = _context.GetPackages(),
                 Agencies = _context.GetAgentandAgencies()

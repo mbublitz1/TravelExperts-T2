@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Data.Core.Models;
 
 namespace Data.Core.ViewModel
 {
@@ -60,6 +61,10 @@ namespace Data.Core.ViewModel
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        public List<Package> Packages { get; set; }
+        public ICollection<Agent> Agents { get; set; }
+        public ICollection<Agency> Agencies { get; set; }
     }
 
     public class ResetPasswordViewModel

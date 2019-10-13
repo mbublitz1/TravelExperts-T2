@@ -6,20 +6,23 @@
     <title>Travel Experts</title>
     <meta name="description" content="Travel Experts website">
     <link href="~/Content/Styles/CommonStyles.css" rel="stylesheet" />
-    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
     <nav>
-        <div class="pgrow">
-            <img class="logo" src="~/Content/img/travelexpertnew.png" alt="Travel experts logo">
-            <ul class="head-nav">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                <li><a href="#AboutUs">About Us</a></li>
-                <li><a href="#ContactUs">Contact Us</a></li>
-            </ul>
+        <div class="flexcontainer">
+            <div class="pageLogo">
+                <img class="logo" src="~/Content/img/travelexpertnew.png" alt="Travel experts logo">
+            </div>
+            <div class="menu">
+                <ul class="head-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                    <li><a href="#AboutUs">About Us</a></li>
+                    <li><a href="#ContactUs">Contact Us</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     @RenderBody()
@@ -29,4 +32,4 @@
 </body>
 </html>
 
-  
+

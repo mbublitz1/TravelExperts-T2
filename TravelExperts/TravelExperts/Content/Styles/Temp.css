@@ -1,0 +1,100 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,300i,400');
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+
+body {
+    font-size: 16px;
+    font-size: 1.6rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/Register Button.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+/* = 16px */
+
+/*---------------------------------------------*/
+/*HEADER*/
+/*---------------------------------------------*/
+
+.container {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.pageLogo {
+    flex: 2 0 auto;
+    text-align: center;
+}
+
+.menu {
+    flex: 1 0 30%;
+}
+
+.head-nav {
+   justify-content: flex-end;
+    Display: inline-block;
+    color: white;
+    /*Navigation unordered list should be floated to the right*/
+    /*float: right;*/
+    /*Get rid of bullet points*/
+    list-style: none;
+    /*Add space between top of page an menu*/
+    margin-top: 52px;
+}
+
+/*Select all li inside ul list in main-nav class*/
+.head-nav li {
+    /*change display style to inline block*/
+    display: inline-block;
+    margin-left: 40px;
+}
+
+/*Select all anchor elements with li as parent*/
+/*Adding link and visited pseudo code will give effects when hovering over menu*/
+.head-nav li a:link,
+.head-nav li a:visited {
+    padding: 8px 0;
+    /*text to white*/
+    color: #fff;
+    /*remove underlines from menu items*/
+    text-decoration: none;
+    /*change text to upper case*/
+    text-transform: uppercase;
+    /*this will be 90% of base font in HTML selector, which would be 18px to figure out divide 18px by 20px to get .90 or 90%*/
+    font-size: 90%;
+    /*This will create the border but since you don't want to see it before the element is hovered over this needs to be made*/
+    /*transparent*/
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.head-nav li a:hover,
+.head-nav li a:active,
+.head-nav li button:hover,
+.head-nav li button:active {
+    /*This will add the solid border when an element is hovered over*/
+    border-bottom: 2px solid #0099cc;
+}
+
+.logo {
+    /*Sets height of logo*/
+    height: 80px;
+    /*Width should be determined automatically*/
+    width: auto;
+    /*image to be floated to the left*/
+    /*float: left;*/
+    /*add space between the top of page and logo*/
+    margin-top: 10px;
+}
