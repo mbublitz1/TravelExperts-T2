@@ -5,12 +5,14 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using Data.Core.Models;
+using Data.Core.ViewModel;
 using Data.Persistence;
 using Data.Persistence.Repositories;
 using Microsoft.AspNet.Identity;
 
 namespace TravelExperts.Controllers
 {
+    [Authorize]
     public class CustomerController : Controller
     {
         TravelMVCRepository _context = new TravelMVCRepository(new ApplicationDbContext());
@@ -36,6 +38,15 @@ namespace TravelExperts.Controllers
             }
 
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult TravelProducts()
+        {
+            string userId = User.Identity.GetUserId();
+            TravelProductViewModel viewModel = _context.GetCustomerTravelProducts(userId);
+
+            return View(viewModel);
+
         }
     }
 }

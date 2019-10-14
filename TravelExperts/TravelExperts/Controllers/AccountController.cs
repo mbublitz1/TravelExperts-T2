@@ -179,9 +179,9 @@ namespace TravelExperts.Controllers
                         CustCountry = model.CustCountry,
                         CustBusPhone = model.CustBusPhone,
                         CustHomePhone = model.CustHomePhone,
-                        CustEmail = model.Email
+                        CustEmail = model.Email,
+                        UserId = user.Id
                     };
-                    customer.UserId = user.Id;
                     TravelMVCRepository repository = new TravelMVCRepository(new ApplicationDbContext());
                     repository.AddCustomer(customer);
                     return RedirectToAction("Index", "Home");

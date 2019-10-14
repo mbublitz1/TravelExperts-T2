@@ -78,5 +78,27 @@ namespace Data.Persistence.Repositories
         {
             return _context.TripTypes.ToList();
         }
+
+        public TravelProductViewModel GetCustomerTravelProducts(string userId)
+        {
+            var result = _context.Customers
+                .Include(b => b.Bookings).SingleOrDefault(b => b.UserId == userId);
+
+
+            if (result != null)
+            {
+                TravelProductViewModel travelProducts = new TravelProductViewModel
+                {
+                    CustomerId = result.CustomerId,
+                    CustFirstName = result.CustFirstName,
+                    CustLastName = result.CustLastName,
+                    Bookings = result.Bookings.ToList()
+                };
+
+                return travelProducts;
+            }
+
+            return null;
+        }
     }
 }

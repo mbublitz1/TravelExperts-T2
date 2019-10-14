@@ -13,7 +13,7 @@ namespace Data.Persistence.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201910062259533_SeedUsers"; }
+            get { return "201910140303093_SeedUsers"; }
         }
         
         string IMigrationMetadata.Source

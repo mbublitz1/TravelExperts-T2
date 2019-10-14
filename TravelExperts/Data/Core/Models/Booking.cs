@@ -23,6 +23,15 @@ namespace Data.Core.Models
 
         public int? CustomerId { get; set; }
 
+        public decimal? GetTotals()
+        {
+            decimal? total = 0;
+
+            total += (Package.PkgBasePrice + Package.PkgAgencyCommission) * (decimal?) TravelerCount;
+
+            return total;
+        }
+
         [StringLength(1)]
         public string TripTypeId { get; set; }
 

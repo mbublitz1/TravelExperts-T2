@@ -1,0 +1,40 @@
+﻿@model Data.Core.ViewModel.TravelProductViewModel
+
+@{
+    ViewBag.Title = "TravelProducts";
+    Layout = "~/Views/Shared/_InputLayout.cshtml";
+}
+    <link href="~/Content/Styles/TravelProdStyles.css" rel="stylesheet" />
+<h2>Travel Product Details</h2>
+<div class="flexcontainer">
+    <div class="form-group">
+        @Html.LabelFor(c => c.CustFirstName)
+        @Html.DisplayFor(c => c.CustFirstName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(c => c.CustLastName)
+        @Html.DisplayFor(c => c.CustLastName, new { @class = "form-control" })
+    </div>
+    <div>
+        <table id="itemList" class="table table-bordered table-hover">
+            <thead>
+            <tr class="row">
+                <th class="col-2">Package Desc</th>
+                <th class="col-2">Traveler Count</th>
+                <th class="col-2">Total Cost</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Bookings)
+            {
+                <tr class="row">
+                    <td class="col-2">@item.Package.PkgDesc</td>
+                    <td class="col-2">@item.TravelerCount</td>
+                    <td class="col-2">@item.GetTotals()</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

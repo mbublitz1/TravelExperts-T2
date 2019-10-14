@@ -297,6 +297,7 @@
     <Content Include="Content\Styles\ManageStyles.css" />
     <Content Include="Content\Styles\Register.css" />
     <Content Include="Content\Styles\Temp.css" />
+    <Content Include="Content\Styles\TravelProdStyles.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -480,6 +481,7 @@
     <Content Include="Views\Package\test.cshtml" />
     <Content Include="Views\Booking\BookTrip.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\TravelProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
