@@ -61,11 +61,10 @@ namespace TravelExperts_Desktop
             txtBasePrice.Text = data.PkgBasePrice.ToString("c");
             txtCommission.Text = Convert.ToDouble(data.PkgAgencyCommission).ToString("c");
             gridProducts.DataSource = package.GetProducts(selectedPackage);
+            string image = ConfigurationManager.AppSettings["PathToProject"] + data.PackageImageLocation;
             try
             {
-                byte[] img = data.Image;
-                MemoryStream ms = new MemoryStream(img);
-                pbImage.Image = Image.FromStream(ms);
+                pbImage.Image = Image.FromFile(image);
             }
             catch
             {

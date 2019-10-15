@@ -75,17 +75,7 @@ namespace Data.Persistence.Repositories
                     data.PkgDesc = reader["PkgDesc"].ToString();
                     data.PkgBasePrice = Convert.ToDecimal(reader["PkgBasePrice"]);
                     data.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
-                    if (reader["Image"] == DBNull.Value)
-                    {
-                        data.Image = null;
-                    }
-                    else
-                    {
-                        //byte[] img = (byte[])reader["Image"];
-                        //MemoryStream ms = new MemoryStream(img);
-                        //data.Image = ms;
-                        data.Image = (byte[])reader["Image"];
-                    }
+                    data.PackageImageLocation = reader["PackageImageLocation"].ToString();
                 }
                 reader.Close();
                 return data;
