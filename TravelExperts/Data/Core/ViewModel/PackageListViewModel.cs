@@ -10,5 +10,6 @@ namespace Data.Core.ViewModel
     {
         public int PackageId { get; set; }
         public string PkgName { get; set; }
+        public bool expired { get; set; }
     }
 }

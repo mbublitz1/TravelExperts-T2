@@ -28,6 +28,7 @@ namespace TravelExperts_Desktop
             gridPackages.DataSource = packages.GetPackages();
             int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
             gridProducts.DataSource = packages.GetProducts(selectedPackage);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -38,6 +39,14 @@ namespace TravelExperts_Desktop
             gridProducts.DataSource = packages.GetProducts(selectedPackage);
             AddPackage.callRefreshData += RefreshData;
             UpdatePackage.callRefreshData += RefreshData;
+
+            for (int i = 0; i < gridPackages.RowCount; i++)
+            {
+                if (Convert.ToBoolean(gridPackages.Rows[i].Cells["Expired"].Value))
+                {
+                    gridPackages.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
         }
 
         private void GridPackages_SelectionChanged(object sender, EventArgs e)
@@ -95,16 +104,16 @@ namespace TravelExperts_Desktop
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             int PackageId = data.PackageId;
-            //string PkgName = data.PkgName;
-            //DateTime PkgStartDate = Convert.ToDateTime(data.PkgStartDate);
-            //DateTime PkgEndDate = Convert.ToDateTime(data.PkgEndDate);
-            //string PkgDesc = data.PkgDesc;
-            //decimal PkgBasePrice = data.PkgBasePrice;
-            //decimal PkgAgencyCommission = Convert.ToDecimal(data.PkgAgencyCommission);
-            //MemoryStream Image = data.Image;
+            string PkgName = data.PkgName;
+            DateTime PkgStartDate = Convert.ToDateTime(data.PkgStartDate);
+            DateTime PkgEndDate = Convert.ToDateTime(data.PkgEndDate);
+            string PkgDesc = data.PkgDesc;
+            decimal PkgBasePrice = data.PkgBasePrice;
+            decimal PkgAgencyCommission = Convert.ToDecimal(data.PkgAgencyCommission);
+            string PackageImageLocation = data.PackageImageLocation;
 
-            //UpdatePackage UpdatePkgManager = new UpdatePackage(PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, Image);
-            //UpdatePkgManager.Show();
+            UpdatePackage UpdatePkgManager = new UpdatePackage(PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PackageImageLocation);
+            UpdatePkgManager.Show();
         }
     }
 }

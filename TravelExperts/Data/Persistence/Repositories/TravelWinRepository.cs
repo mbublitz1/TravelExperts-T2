@@ -22,7 +22,7 @@ namespace Data.Persistence.Repositories
 
         public List<PackageListViewModel> GetPackages()
         {
-            string selectStatement = "SELECT PackageId, PkgName FROM Packages ORDER BY PackageId";
+            string selectStatement = "SELECT PackageId, PkgName, PkgStartDate FROM Packages ORDER BY PackageId";
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
 
@@ -34,9 +34,19 @@ namespace Data.Persistence.Repositories
 
                 while (reader.Read())
                 {
+                    DateTime today = DateTime.Now;
                     PackageListViewModel p = new PackageListViewModel();
                     p.PackageId = Convert.ToInt32(reader["PackageId"]);
                     p.PkgName = reader["PkgName"].ToString();
+                    DateTime PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"]);
+                    if (PkgStartDate < today)
+                    {
+                        p.expired = true;
+                    }
+                    else
+                    {
+                        p.expired = false;
+                    }
                     data.Add(p);
                 }
                 reader.Close();
@@ -336,31 +346,6 @@ namespace Data.Persistence.Repositories
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public MemoryStream GetImage()
-        {
-            string selectStatement = @"SELECT Image FROM Packages WHERE PackageId = 87";
-            SqlConnection conn = new SqlConnection(connString);
-            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-
-            try
-            {
-                conn.Open();
-                byte[] img = (byte[])selectCommand.ExecuteScalar();
-                MemoryStream ms = new MemoryStream(img);
-                conn.Close();
-                return ms;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
             }
             finally
             {
