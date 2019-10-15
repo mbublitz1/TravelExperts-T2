@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,7 +75,16 @@ namespace Data.Persistence.Repositories
                     data.PkgDesc = reader["PkgDesc"].ToString();
                     data.PkgBasePrice = Convert.ToDecimal(reader["PkgBasePrice"]);
                     data.PkgAgencyCommission = Convert.ToDecimal(reader["PkgAgencyCommission"]);
-                    data.PackageImageLocation = reader["PackageImageLocation"].ToString();
+                    if (reader["Image"] == DBNull.Value)
+                    {
+                        data.Image = null;
+                    }
+                    else
+                    {
+                        byte[] img = (byte[])reader["Image"];
+                        MemoryStream ms = new MemoryStream(img);
+                        data.Image = ms;
+                    }
                 }
                 reader.Close();
                 return data;
@@ -335,6 +345,31 @@ namespace Data.Persistence.Repositories
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public MemoryStream GetImage()
+        {
+            string selectStatement = @"SELECT Image FROM Packages WHERE PackageId = 87";
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+
+            try
+            {
+                conn.Open();
+                byte[] img = (byte[])selectCommand.ExecuteScalar();
+                MemoryStream ms = new MemoryStream(img);
+                conn.Close();
+                return ms;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
             }
             finally
             {

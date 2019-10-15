@@ -31,8 +31,8 @@ namespace TravelExperts_Desktop
             dateTimePackageStart.Value = PkgStartDate;
             dateTimePackageEnd.Value = PkgEndDate;
             txtPackageDescription.Text = PkgDesc;
-            txtPackagePrice.Text = PkgBasePrice.ToString("C");
-            txtPackageAgency.Text = PkgAgencyCommission.ToString("C");
+            txtPackagePrice.Text = PkgBasePrice.ToString("F");
+            txtPackageAgency.Text = PkgAgencyCommission.ToString("F");
             txtFilePath.Text = PackageImageLocation;
         }
 
@@ -58,11 +58,8 @@ namespace TravelExperts_Desktop
             catch
             {
                 PictureBox errorPic = new PictureBox();
-                //pbImage.Size = ;
                 pbImage.Image = errorPic.ErrorImage;
             }
-            //int selectedProductSupplier = Convert.ToInt32(gridProductSupplierAdd.CurrentRow.Cells[0].Value);
-
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -72,38 +69,46 @@ namespace TravelExperts_Desktop
 
         private void BtnApply_Click(object sender, EventArgs e)
         {
-            int PackageId = selectedPackage;
-            string PkgName = txtPackageName.Text;
-            DateTime PkgStartDate = dateTimePackageStart.Value;
-            DateTime PkgEndDate = dateTimePackageEnd.Value;
-            string PkgDesc = txtPackageDescription.Text;
-            double PkgBasePrice = double.Parse(txtPackagePrice.Text);
-            double PkgAgencyCommission = double.Parse(txtPackageAgency.Text);
-            string PackageImageLocation = "";
-            if (!newImage) {
-                PackageImageLocation = txtFilePath.Text;
-            }
-            else if (txtFilePath.Text == "")
+            try
             {
-                PackageImageLocation = null;
-            }
-            else
-            {
-                string image = ConfigurationManager.AppSettings["PathToProject"];
-                PackageImageLocation = @"\Content\img\" + Path.GetFileName(txtFilePath.Text);
-                File.Copy(txtFilePath.Text, image + PackageImageLocation);
-            }
+                int PackageId = selectedPackage;
+                string PkgName = txtPackageName.Text;
+                DateTime PkgStartDate = dateTimePackageStart.Value;
+                DateTime PkgEndDate = dateTimePackageEnd.Value;
+                string PkgDesc = txtPackageDescription.Text;
+                double PkgBasePrice = double.Parse(txtPackagePrice.Text);
+                double PkgAgencyCommission = double.Parse(txtPackageAgency.Text);
+                string PackageImageLocation = "";
+                if (!newImage)
+                {
+                    PackageImageLocation = txtFilePath.Text;
+                }
+                else if (txtFilePath.Text == "")
+                {
+                    PackageImageLocation = null;
+                }
+                else
+                {
+                    string image = ConfigurationManager.AppSettings["PathToProject"];
+                    PackageImageLocation = @"\Content\img\" + Path.GetFileName(txtFilePath.Text);
+                    File.Copy(txtFilePath.Text, image + PackageImageLocation);
+                }
 
-            List<int> productsList = new List<int>();
-            for (int i = 0; i < gridProductSupplierRemove.Rows.Count; i++)
-            {
-                int product = Convert.ToInt32(gridProductSupplierRemove.Rows[i].Cells["colProductSupplierIdRight"].Value);
-                productsList.Add(product);
-            }
+                List<int> productsList = new List<int>();
+                for (int i = 0; i < gridProductSupplierRemove.Rows.Count; i++)
+                {
+                    int product = Convert.ToInt32(gridProductSupplierRemove.Rows[i].Cells["colProductSupplierIdRight"].Value);
+                    productsList.Add(product);
+                }
 
-            TravelWinRepository package = new TravelWinRepository();
-            package.UpdatePackage(PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PackageImageLocation, productsList);
-            callRefreshData();
+                TravelWinRepository package = new TravelWinRepository();
+                package.UpdatePackage(PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PackageImageLocation, productsList);
+                callRefreshData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnAddImage_Click(object sender, EventArgs e)
@@ -115,7 +120,6 @@ namespace TravelExperts_Desktop
                 this.txtFilePath.Text = this.openFileDialog1.FileName;
                 pbImage.Image = Image.FromFile(txtFilePath.Text);
             }
-
         }
 
         private void BtnAddSupplier_Click(object sender, EventArgs e)
