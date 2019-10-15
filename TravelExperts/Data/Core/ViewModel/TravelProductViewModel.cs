@@ -17,6 +17,10 @@ namespace Data.Core.ViewModel
 
         public List<Booking> Bookings { get; set; }
 
+        public int GetBookingCountWithPackage()
+        {
+            return Bookings.Count(p => p.PackageId == null);
+        }
 
         //public int PackageId { get; set; }
         //public string PkgDesc { get; set; }
