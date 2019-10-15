@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Experts</title>
     <meta name="description" content="Travel Experts website">
-    @Styles.Render("~/Content/css")
+    <link href="~/Content/Styles/CommonStyles.css" rel="stylesheet" />
     @Scripts.Render("~/Content/boot")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -19,6 +19,8 @@
             <div class="menu">
                 <ul class="head-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+                    <li>@Html.ActionLink("Travel Products", "TravelProducts", "Customer")</li>
                     <li><a href="#AboutUs">About Us</a></li>
                     <li><a href="#ContactUs">Contact Us</a></li>
                     <li>
@@ -28,13 +30,12 @@
             </div>
         </div>
     </nav>
-
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
 

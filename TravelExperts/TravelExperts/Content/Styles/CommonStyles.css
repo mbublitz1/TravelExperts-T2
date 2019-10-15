@@ -183,6 +183,12 @@ dt {
     padding-bottom: 8px;
 }
 
+#logoutForm a {
+    color: black;
+    font-size: 16px;
+}
+
+
 .dropdown-menu {
     width: 300px;
 }

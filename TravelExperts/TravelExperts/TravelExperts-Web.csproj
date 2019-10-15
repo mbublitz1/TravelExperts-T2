@@ -477,11 +477,12 @@
     <Content Include="Views\Booking\Index.cshtml" />
     <Content Include="Views\Package\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Shared\_InputLayout.cshtml" />
+    <Content Include="Views\Shared\_InputLayoutold.cshtml" />
     <Content Include="Views\Package\test.cshtml" />
     <Content Include="Views\Booking\BookTrip.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\TravelProducts.cshtml" />
+    <Content Include="Views\Shared\_InputLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

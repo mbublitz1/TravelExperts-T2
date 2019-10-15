@@ -1,6 +1,4 @@
-﻿@using Microsoft.AspNet.Identity
-
-    <!DOCTYPE html>
+﻿<!DOCTYPE html>
     <html>
     <head>
         <meta charset="utf-8" />
@@ -8,6 +6,7 @@
         <title>Travel Experts</title>
         <meta name="description" content="Travel Experts website">
         @Styles.Render("~/Content/css")
+        @Scripts.Render("~/Content/boot")
         @Scripts.Render("~/bundles/modernizr")
 
     </head>
@@ -22,7 +21,10 @@
                         <li><a href="#Plans">Travel Plans</a></li>
                         <li><a href="#AboutUs">About Us</a></li>
                         <li><a href="#ContactUs">Contact Us</a></li>
-                        @if (Request.IsAuthenticated)
+                        <li>
+                            @Html.Partial("_LoginPartial")
+                        </li>
+                        @*@if (Request.IsAuthenticated)
                         {
                             using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm", @class = "navbar-right"}))
                             {
@@ -40,7 +42,7 @@
                         {
                             <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new {id = "registerLink"})</li>
                             <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new {id = "loginLink"})</li>
-                        }
+                        }*@
                     </ul>
                 </div>
             </div>

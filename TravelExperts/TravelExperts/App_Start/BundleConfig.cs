@@ -33,6 +33,8 @@ namespace TravelExperts
                       "~/Content/bootstrap.css",
                       "~/Content/Styles/CommonStyles.css",
                       "~/Content/Styles/HomeStyles.css"));
+            bundles.Add(new StyleBundle("~/Content/boot").Include(
+                "~/Content/bootstrap.css"));
 
         }
     }
