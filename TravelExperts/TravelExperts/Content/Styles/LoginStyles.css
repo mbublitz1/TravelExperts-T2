@@ -9,3 +9,70 @@
 #loginForm label {
     color: white;
 }
+
+.itemContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 8rem;
+}
+
+
+.itemContainer label {
+    display: inline-block;
+    width: 145px;
+    text-align: left;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}
+
+.itemContainer input, .itemContainer label {
+    margin: 5px;
+}
+
+
+    .itemContainer input[type="text"], .itemContainer input[type="password"] {
+        padding: 0.4rem;
+        width: 300px;
+        border-radius: 5px;
+    }
+
+.field-validation-error {
+    display: block;
+    color: red;
+}
+
+.input-validation-error {
+    background-color: #FFDAD9;
+    border: 1px solid red;
+}
+
+
+.editor input[type="checkbox"] {
+    width: 80px;
+    margin: 0 0 0 10px;
+}
+
+input[type="submit"] {
+    margin: 8% 0 0 0;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    color: #000000;
+    font-size: 1.6rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+button[type="button"] {
+    /* margin: 8% 0 0 31%; */
+    /*padding: 2rem 5rem;*/
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    color: #000000;
+    font-size: 1.6rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    text-transform: uppercase
+}
