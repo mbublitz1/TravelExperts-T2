@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.IO;
 
 namespace Data.Core.Models
 {
@@ -34,7 +35,7 @@ namespace Data.Core.Models
         public decimal? PkgAgencyCommission { get; set; }
 
         [MaxLength(255)]
-        public string PackageImageLocation { get; set; }
+        public MemoryStream Image { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }

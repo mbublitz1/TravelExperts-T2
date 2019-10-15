@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,10 +61,9 @@ namespace TravelExperts_Desktop
             txtBasePrice.Text = data.PkgBasePrice.ToString("c");
             txtCommission.Text = Convert.ToDouble(data.PkgAgencyCommission).ToString("c");
             gridProducts.DataSource = package.GetProducts(selectedPackage);
-            string image = ConfigurationManager.AppSettings["PathToProject"] + data.PackageImageLocation;
             try
             {
-                pbImage.Image = Image.FromFile(image);
+                pbImage.Image = Image.FromStream(data.Image);
             }
             catch
             {
@@ -94,17 +94,16 @@ namespace TravelExperts_Desktop
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             int PackageId = data.PackageId;
-            string PkgName = data.PkgName;
-            DateTime PkgStartDate = Convert.ToDateTime(data.PkgStartDate);
-            DateTime PkgEndDate = Convert.ToDateTime(data.PkgEndDate);
-            string PkgDesc = data.PkgDesc;
-            decimal PkgBasePrice = data.PkgBasePrice;
-            decimal PkgAgencyCommission = Convert.ToDecimal(data.PkgAgencyCommission);
-            string PackageImageLocation = data.PackageImageLocation;
+            //string PkgName = data.PkgName;
+            //DateTime PkgStartDate = Convert.ToDateTime(data.PkgStartDate);
+            //DateTime PkgEndDate = Convert.ToDateTime(data.PkgEndDate);
+            //string PkgDesc = data.PkgDesc;
+            //decimal PkgBasePrice = data.PkgBasePrice;
+            //decimal PkgAgencyCommission = Convert.ToDecimal(data.PkgAgencyCommission);
+            //MemoryStream Image = data.Image;
 
-            UpdatePackage UpdatePkgManager = new UpdatePackage(PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PackageImageLocation);
-            UpdatePkgManager.Show();
-
+            //UpdatePackage UpdatePkgManager = new UpdatePackage(PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, Image);
+            //UpdatePkgManager.Show();
         }
     }
 }

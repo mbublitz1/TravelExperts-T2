@@ -42,13 +42,13 @@
             this.lblCommission = new System.Windows.Forms.Label();
             this.txtCommission = new System.Windows.Forms.TextBox();
             this.gridProducts = new System.Windows.Forms.DataGridView();
+            this.colProdType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.pbImage = new System.Windows.Forms.PictureBox();
-            this.colProdType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridPackages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -56,6 +56,8 @@
             // 
             // gridPackages
             // 
+            this.gridPackages.AllowUserToAddRows = false;
+            this.gridPackages.AllowUserToDeleteRows = false;
             this.gridPackages.AllowUserToResizeColumns = false;
             this.gridPackages.AllowUserToResizeRows = false;
             this.gridPackages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -83,7 +85,7 @@
             this.PackageId.MinimumWidth = 6;
             this.PackageId.Name = "PackageId";
             this.PackageId.ReadOnly = true;
-            this.PackageId.Width = 21;
+            this.PackageId.Width = 6;
             // 
             // PackageName
             // 
@@ -195,6 +197,8 @@
             // 
             // gridProducts
             // 
+            this.gridProducts.AllowUserToAddRows = false;
+            this.gridProducts.AllowUserToDeleteRows = false;
             this.gridProducts.AllowUserToResizeRows = false;
             this.gridProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -203,6 +207,7 @@
             this.colSupplier,
             this.ProductSupplierId});
             this.gridProducts.Location = new System.Drawing.Point(749, 105);
+            this.gridProducts.MultiSelect = false;
             this.gridProducts.Name = "gridProducts";
             this.gridProducts.ReadOnly = true;
             this.gridProducts.RowHeadersVisible = false;
@@ -210,6 +215,30 @@
             this.gridProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridProducts.Size = new System.Drawing.Size(392, 140);
             this.gridProducts.TabIndex = 13;
+            // 
+            // colProdType
+            // 
+            this.colProdType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdType.DataPropertyName = "ProdName";
+            this.colProdType.HeaderText = "Product Type";
+            this.colProdType.Name = "colProdType";
+            this.colProdType.ReadOnly = true;
+            this.colProdType.Width = 96;
+            // 
+            // colSupplier
+            // 
+            this.colSupplier.DataPropertyName = "SupName";
+            this.colSupplier.HeaderText = "Supplier";
+            this.colSupplier.Name = "colSupplier";
+            this.colSupplier.ReadOnly = true;
+            // 
+            // ProductSupplierId
+            // 
+            this.ProductSupplierId.DataPropertyName = "ProductSupplierId";
+            this.ProductSupplierId.HeaderText = "ProductSupplierId";
+            this.ProductSupplierId.Name = "ProductSupplierId";
+            this.ProductSupplierId.ReadOnly = true;
+            this.ProductSupplierId.Visible = false;
             // 
             // btnAdd
             // 
@@ -250,30 +279,6 @@
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage.TabIndex = 17;
             this.pbImage.TabStop = false;
-            // 
-            // colProdType
-            // 
-            this.colProdType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdType.DataPropertyName = "ProdName";
-            this.colProdType.HeaderText = "Product Type";
-            this.colProdType.Name = "colProdType";
-            this.colProdType.ReadOnly = true;
-            this.colProdType.Width = 96;
-            // 
-            // colSupplier
-            // 
-            this.colSupplier.DataPropertyName = "SupName";
-            this.colSupplier.HeaderText = "Supplier";
-            this.colSupplier.Name = "colSupplier";
-            this.colSupplier.ReadOnly = true;
-            // 
-            // ProductSupplierId
-            // 
-            this.ProductSupplierId.DataPropertyName = "ProductSupplierId";
-            this.ProductSupplierId.HeaderText = "ProductSupplierId";
-            this.ProductSupplierId.Name = "ProductSupplierId";
-            this.ProductSupplierId.ReadOnly = true;
-            this.ProductSupplierId.Visible = false;
             // 
             // PackageManager
             // 

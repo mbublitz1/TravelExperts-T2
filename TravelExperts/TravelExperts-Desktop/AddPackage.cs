@@ -49,34 +49,41 @@ namespace TravelExperts_Desktop
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            string PkgName = txtPackageName.Text;
-            DateTime PkgStartDate = dateTimePackageStart.Value;
-            DateTime PkgEndDate = dateTimePackageEnd.Value;
-            string PkgDesc = txtPackageDescription.Text;
-            double PkgBasePrice = double.Parse(txtPackagePrice.Text);
-            double PkgAgencyCommission = double.Parse(txtPackageAgency.Text);
-            string PackageImageLocation = "";
-            if (txtFilePath.Text == "")
+            try
             {
-                PackageImageLocation = null;
-            }
-            else
-            {
-                string image = ConfigurationManager.AppSettings["PathToProject"];
-                PackageImageLocation = @"\Content\img\" + Path.GetFileName(txtFilePath.Text);
-                File.Copy(txtFilePath.Text, image + PackageImageLocation);
-            }
+                string PkgName = txtPackageName.Text;
+                DateTime PkgStartDate = dateTimePackageStart.Value;
+                DateTime PkgEndDate = dateTimePackageEnd.Value;
+                string PkgDesc = txtPackageDescription.Text;
+                double PkgBasePrice = double.Parse(txtPackagePrice.Text);
+                double PkgAgencyCommission = double.Parse(txtPackageAgency.Text);
+                string PackageImageLocation = "";
+                if (txtFilePath.Text == "")
+                {
+                    PackageImageLocation = null;
+                }
+                else
+                {
+                    string image = ConfigurationManager.AppSettings["PathToProject"];
+                    PackageImageLocation = @"\Content\img\" + Path.GetFileName(txtFilePath.Text);
+                    File.Copy(txtFilePath.Text, image + PackageImageLocation);
+                }
 
-            List<int> productsList = new List<int>();
-            for (int i = 0; i < gridProductSupplierRemove.Rows.Count - 1; i++)
-            {
-                int product = Convert.ToInt32(gridProductSupplierRemove.Rows[i].Cells["ProductSupplierId"].Value);
-                productsList.Add(product);
-            }
+                List<int> productsList = new List<int>();
+                for (int i = 0; i < gridProductSupplierRemove.Rows.Count; i++)
+                {
+                    int product = Convert.ToInt32(gridProductSupplierRemove.Rows[i].Cells["ProductSupplierId"].Value);
+                    productsList.Add(product);
+                }
 
-            TravelWinRepository package = new TravelWinRepository();
-            package.InsertPackage(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PackageImageLocation, productsList);
-            callRefreshData();
+                TravelWinRepository package = new TravelWinRepository();
+                package.InsertPackage(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PackageImageLocation, productsList);
+                callRefreshData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
