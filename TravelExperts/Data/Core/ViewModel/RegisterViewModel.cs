@@ -52,19 +52,23 @@ namespace Data.Core.ViewModel
         [Required]
         [StringLength(7)]
         [Display(Name = "Postal Code")]
+        [RegularExpression("^[A-Za-z][0-9][A-Za-z][ -]?[0-9][A-Za-z][0-9]$", ErrorMessage = "Invalid postal code")]
         public string CustPostal { get; set; }
 
         [StringLength(25)]
         [Display(Name = "Country")]
         public string CustCountry { get; set; }
 
-        [StringLength(20)]
+        [Required]
+        [StringLength(13)]
         [Display(Name = "Home Phone")]
+        [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Invalid Phone Number")]
         public string CustHomePhone { get; set; }
 
         [Required]
         [StringLength(20)]
         [Display(Name = "Business Phone")]
+        [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Invalid Phone Number")]
         public string CustBusPhone { get; set; }
 
         [StringLength(128)]
