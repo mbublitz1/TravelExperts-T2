@@ -83,22 +83,20 @@ namespace Data.Persistence.Repositories
         {
             var result = _context.Customers
                 .Include(b => b.Bookings).SingleOrDefault(b => b.UserId == userId);
-
+            TravelProductViewModel travelProducts = new TravelProductViewModel();
 
             if (result != null)
             {
-                TravelProductViewModel travelProducts = new TravelProductViewModel
+                travelProducts = new TravelProductViewModel
                 {
                     CustomerId = result.CustomerId,
                     CustFirstName = result.CustFirstName,
                     CustLastName = result.CustLastName,
                     Bookings = result.Bookings.ToList()
                 };
-
-                return travelProducts;
             }
 
-            return null;
+            return travelProducts;
         }
     }
 }

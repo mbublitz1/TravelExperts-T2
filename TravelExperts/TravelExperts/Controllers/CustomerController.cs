@@ -45,6 +45,11 @@ namespace TravelExperts.Controllers
             string userId = User.Identity.GetUserId();
             TravelProductViewModel viewModel = _context.GetCustomerTravelProducts(userId);
 
+            if (viewModel.GetBookingCountWithPackage() == 0)
+            {
+               viewModel.Bookings = new List<Booking>();
+            }
+
             return View(viewModel);
 
         }
