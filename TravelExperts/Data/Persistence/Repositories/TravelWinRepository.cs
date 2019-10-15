@@ -81,9 +81,10 @@ namespace Data.Persistence.Repositories
                     }
                     else
                     {
-                        byte[] img = (byte[])reader["Image"];
-                        MemoryStream ms = new MemoryStream(img);
-                        data.Image = ms;
+                        //byte[] img = (byte[])reader["Image"];
+                        //MemoryStream ms = new MemoryStream(img);
+                        //data.Image = ms;
+                        data.Image = (byte[])reader["Image"];
                     }
                 }
                 reader.Close();

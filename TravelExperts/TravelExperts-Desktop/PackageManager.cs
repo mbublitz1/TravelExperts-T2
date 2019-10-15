@@ -63,7 +63,9 @@ namespace TravelExperts_Desktop
             gridProducts.DataSource = package.GetProducts(selectedPackage);
             try
             {
-                pbImage.Image = Image.FromStream(data.Image);
+                byte[] img = data.Image;
+                MemoryStream ms = new MemoryStream(img);
+                pbImage.Image = Image.FromStream(ms);
             }
             catch
             {
