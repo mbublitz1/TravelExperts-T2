@@ -3,9 +3,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_InputLayout.cshtml";
 }
-    <link href="~/Content/Styles/CustomerStyles.css" rel="stylesheet" />
+<link href="~/Content/Styles/CustomerStyles.css" rel="stylesheet" />
 <div class="flexcontainer">
-
     <div>
         <div>
             @Html.LabelFor(c => c.CustFirstName)
@@ -44,8 +43,6 @@
 
         </div>
     </div>
-</div>
-<div>
     <div>
         <div>
             @Html.LabelFor(c => c.CustCountry)
@@ -69,12 +66,11 @@
             @Html.TextBoxFor(c => c.CustEmail)
             @Html.ValidationMessageFor(v => v.CustEmail)
         </div>
-        <div class="form-group">
-            <div>
+            <div class="btnAlign">
                 <input id="updateCustomer" type="submit" class="btn btn-default" value="Update" />
+                @Html.ActionLink("Update", "Update", "Customer")
                 @Html.HiddenFor(m => m.CustomerId)
             </div>
-        </div>
     </div>
 </div>
 

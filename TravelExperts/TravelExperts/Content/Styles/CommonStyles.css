@@ -197,25 +197,3 @@ dt {
     font-size: 16px;
 }
 
-/*Sticky nav*/
-.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 58px;
-    background-color: rgba(255, 255, 255, 0.30);
-    z-index: 9999;
-}
-
-    .sticky .head-nav {
-        margin: 25px 0 0 0;
-    }
-
-        .sticky .head-nav li a:link,
-        .sticky .head-nav li a:visited,
-        .head-nav li button:link,
-        .head-nav li button:visited {
-            padding: 8px 0;
-            color: #555;
-        }

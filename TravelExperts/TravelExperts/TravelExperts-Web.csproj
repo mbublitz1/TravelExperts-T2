@@ -483,6 +483,7 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\TravelProducts.cshtml" />
     <Content Include="Views\Shared\_InputLayout.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

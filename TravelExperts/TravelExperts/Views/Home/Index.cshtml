@@ -1,8 +1,9 @@
 ﻿
 @model Data.Core.ViewModel.LoginViewModel
-<head>
-    <script src="https://kit.fontawesome.com/7a976362d3.js"></script>
-</head>
+    <head>
+        <script src="https://kit.fontawesome.com/7a976362d3.js"></script>
+        <link href="~/Content/Styles/HomeStyles.css" rel="stylesheet" />
+    </head>
 
 <header>
     <div class="heading-text-box">
@@ -45,7 +46,7 @@
                                 <h4>@Model.Packages[i].PkgName</h4>
                                 <img src="@Model.Packages[i].PackageImageLocation" alt="@Model.Packages[i].PkgName">
                                 <p>@Model.Packages[i].PkgDesc</p>
-                                <p>@Model.Packages[i].PkgBasePrice</p>
+                                <p>@Model.Packages[i].PkgBasePrice.ToString("c2")</p>
                                 <div class="buttonContainer">
                                     @Html.ActionLink("Book",
                                         "Index",
