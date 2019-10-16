@@ -73,7 +73,8 @@ namespace TravelExperts_Desktop
             string image = ConfigurationManager.AppSettings["PathToProject"] + data.PackageImageLocation;
             try
             {
-                pbImage.Image = Image.FromFile(image);
+                //pbImage.Image = Image.FromFile(image);
+                pbImage.Load(image);
             }
             catch
             {

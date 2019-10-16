@@ -272,6 +272,7 @@
             this.PackageId.MinimumWidth = 6;
             this.PackageId.Name = "PackageId";
             this.PackageId.ReadOnly = true;
+            this.PackageId.Visible = false;
             this.PackageId.Width = 6;
             // 
             // PackageName
