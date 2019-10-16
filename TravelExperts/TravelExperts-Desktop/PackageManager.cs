@@ -28,6 +28,14 @@ namespace TravelExperts_Desktop
             gridPackages.DataSource = packages.GetPackages();
             int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
             gridProducts.DataSource = packages.GetProducts(selectedPackage);
+            for (int i = 0; i < gridPackages.RowCount; i++)
+            {
+                if (Convert.ToBoolean(gridPackages.Rows[i].Cells["Expired"].Value))
+                {
+                    gridPackages.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+
 
         }
 
@@ -65,8 +73,8 @@ namespace TravelExperts_Desktop
             txtEndDate.Text = data.PkgEndDate.Value.Date.ToShortDateString();
 
             *************************************************/
-            txtStartDate.Text = data.PkgStartDate.ToString();
-            txtEndDate.Text = data.PkgEndDate.ToString();
+            txtStartDate.Text = Convert.ToDateTime(data.PkgStartDate).ToShortDateString();
+            txtEndDate.Text = Convert.ToDateTime(data.PkgEndDate).ToShortDateString();
             txtBasePrice.Text = data.PkgBasePrice.ToString("c");
             txtCommission.Text = Convert.ToDouble(data.PkgAgencyCommission).ToString("c");
             gridProducts.DataSource = package.GetProducts(selectedPackage);

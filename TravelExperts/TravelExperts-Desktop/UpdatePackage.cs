@@ -38,6 +38,7 @@ namespace TravelExperts_Desktop
 
         private void UpdatePackage_Load(object sender, EventArgs e)
         {
+            gridProductSupplierRemove.AutoGenerateColumns = false;
             TravelWinRepository package = new TravelWinRepository();
             gridProductSupplierAdd.DataSource = package.GetProductSuppliers();
             gridProductSupplierRemove.DataSource = package.GetProducts(selectedPackage);
@@ -46,7 +47,7 @@ namespace TravelExperts_Desktop
                 ProductListViewModel gridRight = new ProductListViewModel();
                 gridRight.ProdName = gridProductSupplierRemove.Rows[i].Cells["colProdTypeRight"].Value.ToString();
                 gridRight.SupName = gridProductSupplierRemove.Rows[i].Cells["colSupplierRight"].Value.ToString();
-                gridRight.ProductSupplierId = Convert.ToInt32(gridProductSupplierRemove.Rows[i].Cells["colProductSupplierIdRight"].Value);
+                gridRight.ProductSupplierId = Convert.ToInt32(gridProductSupplierRemove.Rows[i].Cells["ProductSupplierId"].Value);
                 toAdd.Add(gridRight);
             }
 
@@ -98,7 +99,7 @@ namespace TravelExperts_Desktop
                 List<int> productsList = new List<int>();
                 for (int i = 0; i < gridProductSupplierRemove.Rows.Count; i++)
                 {
-                    int product = Convert.ToInt32(gridProductSupplierRemove.Rows[i].Cells["colProductSupplierIdRight"].Value);
+                    int product = Convert.ToInt32(gridProductSupplierRemove.Rows[i].Cells["ProductSupplierId"].Value);
                     productsList.Add(product);
                 }
 
@@ -128,7 +129,7 @@ namespace TravelExperts_Desktop
             ProductListViewModel gridRight = new ProductListViewModel();
             gridRight.ProdName = gridProductSupplierAdd.CurrentRow.Cells["colProdTypeLeft"].Value.ToString();
             gridRight.SupName = gridProductSupplierAdd.CurrentRow.Cells["colSupplierLeft"].Value.ToString();
-            gridRight.ProductSupplierId = Convert.ToInt32(gridProductSupplierAdd.CurrentRow.Cells["colProductSupplierId"].Value);
+            gridRight.ProductSupplierId = Convert.ToInt32(gridProductSupplierAdd.CurrentRow.Cells["colProductSupplierIdLeft"].Value);
             toAdd.Add(gridRight);
             gridProductSupplierRemove.DataSource = null;
             gridProductSupplierRemove.DataSource = toAdd;

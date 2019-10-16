@@ -182,8 +182,8 @@ namespace Data.Persistence.Repositories
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand insertCommand = new SqlCommand(insertStatement, conn);
             insertCommand.Parameters.AddWithValue("@PkgName", PkgName);
-            insertCommand.Parameters.AddWithValue("@PkgStartDate", PkgStartDate);
-            insertCommand.Parameters.AddWithValue("@PkgEndDate", PkgEndDate);
+            insertCommand.Parameters.AddWithValue("@PkgStartDate", PkgStartDate.Date);
+            insertCommand.Parameters.AddWithValue("@PkgEndDate", PkgEndDate.Date);
             insertCommand.Parameters.AddWithValue("@PkgDesc", PkgDesc);
             insertCommand.Parameters.AddWithValue("@PkgBasePrice", PkgBasePrice);
             insertCommand.Parameters.AddWithValue("@PkgAgencyCommission", PkgAgencyCommission);
@@ -297,8 +297,8 @@ namespace Data.Persistence.Repositories
             SqlCommand deleteCommand = new SqlCommand(deleteStatement, conn);
             updateCommand.Parameters.AddWithValue("@PackageId", PackageId);
             updateCommand.Parameters.AddWithValue("@PkgName", PkgName);
-            updateCommand.Parameters.AddWithValue("@PkgStartDate", PkgStartDate);
-            updateCommand.Parameters.AddWithValue("@PkgEndDate", PkgEndDate);
+            updateCommand.Parameters.AddWithValue("@PkgStartDate", PkgStartDate.Date);
+            updateCommand.Parameters.AddWithValue("@PkgEndDate", PkgEndDate.Date);
             updateCommand.Parameters.AddWithValue("@PkgDesc", PkgDesc);
             updateCommand.Parameters.AddWithValue("@PkgBasePrice", PkgBasePrice);
             updateCommand.Parameters.AddWithValue("@PkgAgencyCommission", PkgAgencyCommission);
