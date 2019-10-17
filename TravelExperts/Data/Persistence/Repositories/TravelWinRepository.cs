@@ -450,7 +450,7 @@ namespace Data.Persistence.Repositories
                 VALUES (@SupplierId, @SupName)";
             string insertProductsSupplierStatement =
                 @"INSERT INTO Products_Suppliers (ProductId, SupplierId)
-                VALUES (@ProductId, SupplierId)";
+                VALUES (@ProductId, @SupplierId)";
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand insertSupplierCommand = new SqlCommand(insertSupplierStatement, conn);
             SqlCommand insertProductsSupplierCommand = new SqlCommand(insertProductsSupplierStatement, conn);
@@ -463,6 +463,59 @@ namespace Data.Persistence.Repositories
                 conn.Open();
                 int supplierCount = insertSupplierCommand.ExecuteNonQuery();
                 int productsSupplierCount = insertProductsSupplierCommand.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void DeleteProduct(int ProductId)
+        {
+            string deleteStatement =
+                @"DELETE FROM Products WHERE ProductId = @ProductId;";
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand deleteCommand = new SqlCommand(deleteStatement, conn);
+            deleteCommand.Parameters.AddWithValue("@ProductId", ProductId);
+
+            try
+            {
+                conn.Open();
+                deleteCommand.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void DeleteSupplier(int SupplierId)
+        {
+            string deleteSupplierStatement =
+                @"DELETE FROM Suppliers WHERE SupplierId = @SupplierId;";
+            string deleteProductsSupplierStatement =
+                @"DELETE FROM Products_Suppliers WHERE SupplierId = @SupplierId;";
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand deleteSupplierCommand = new SqlCommand(deleteSupplierStatement, conn);
+            SqlCommand deleteProductsSupplierCommand = new SqlCommand(deleteProductsSupplierStatement, conn);
+            deleteSupplierCommand.Parameters.AddWithValue("@SupplierId", SupplierId);
+            deleteProductsSupplierCommand.Parameters.AddWithValue("@SupplierId", SupplierId);
+
+            try
+            {
+                conn.Open();
+                deleteProductsSupplierCommand.ExecuteNonQuery();
+                deleteSupplierCommand.ExecuteNonQuery();
                 conn.Close();
             }
             catch (SqlException ex)

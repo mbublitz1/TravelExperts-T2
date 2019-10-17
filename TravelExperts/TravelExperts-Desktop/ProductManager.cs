@@ -14,6 +14,9 @@ namespace TravelExperts_Desktop
 {
     public partial class ProductManager : Form
     {
+        public delegate void GenerateEvent();
+        public static GenerateEvent callRefreshData;
+
         public ProductManager()
         {
             InitializeComponent();
@@ -50,7 +53,7 @@ namespace TravelExperts_Desktop
             products.InsertProduct(ProdName);
             gridProducts.DataSource = products.GetProduct();
             RefreshCB();
-            //callRefreshData();
+            callRefreshData();
         }
 
         private void BtnSupplierAdd_Click(object sender, EventArgs e)
@@ -61,6 +64,27 @@ namespace TravelExperts_Desktop
             Product prod = cbProducts.SelectedItem as Product;
             TravelWinRepository suppliers = new TravelWinRepository();
             suppliers.InsertSupplier(SupplierId, SupName, prod.ProductId);
+            gridSuppliers.DataSource = suppliers.GetSuppliers();
+            callRefreshData();
+        }
+
+        private void BtnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            int ProductId = Convert.ToInt32(gridProducts.CurrentRow.Cells["ProductId"].Value);
+            TravelWinRepository products = new TravelWinRepository();
+            products.DeleteProduct(ProductId);
+            gridProducts.DataSource = products.GetProduct();
+            RefreshCB();
+            callRefreshData();
+        }
+
+        private void BtnDeleteSupplier_Click(object sender, EventArgs e)
+        {
+            int SupplierId = Convert.ToInt32(gridSuppliers.CurrentRow.Cells["SupplierId"].Value);
+            TravelWinRepository suppliers = new TravelWinRepository();
+            suppliers.DeleteSupplier(SupplierId);
+            gridSuppliers.DataSource = suppliers.GetSuppliers();
+            callRefreshData();
         }
     }
 }

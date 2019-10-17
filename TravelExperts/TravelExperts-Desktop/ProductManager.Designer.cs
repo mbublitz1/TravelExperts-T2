@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblProducts = new System.Windows.Forms.Label();
-            this.gridProducts = new System.Windows.Forms.DataGridView();
-            this.lblNewProduct = new System.Windows.Forms.Label();
-            this.txtNewProduct = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtNewSuppler = new System.Windows.Forms.TextBox();
-            this.lblNewSupplier = new System.Windows.Forms.Label();
-            this.gridSuppliers = new System.Windows.Forms.DataGridView();
-            this.lblSuppliers = new System.Windows.Forms.Label();
-            this.cbProducts = new System.Windows.Forms.ComboBox();
-            this.lblSelectProduct = new System.Windows.Forms.Label();
-            this.btnProductAdd = new System.Windows.Forms.Button();
-            this.btnSupplierAdd = new System.Windows.Forms.Button();
             this.btnDeleteProduct = new System.Windows.Forms.Button();
-            this.btnDeleteSupplier = new System.Windows.Forms.Button();
+            this.btnProductAdd = new System.Windows.Forms.Button();
+            this.lblNewProduct = new System.Windows.Forms.Label();
+            this.gridProducts = new System.Windows.Forms.DataGridView();
             this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Products_Suppliers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtNewProduct = new System.Windows.Forms.TextBox();
+            this.lblProducts = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtSupplierId = new System.Windows.Forms.TextBox();
+            this.lblSupplierId = new System.Windows.Forms.Label();
+            this.btnDeleteSupplier = new System.Windows.Forms.Button();
+            this.btnSupplierAdd = new System.Windows.Forms.Button();
+            this.lblSelectProduct = new System.Windows.Forms.Label();
+            this.cbProducts = new System.Windows.Forms.ComboBox();
+            this.txtNewSuppler = new System.Windows.Forms.TextBox();
+            this.lblNewSupplier = new System.Windows.Forms.Label();
+            this.gridSuppliers = new System.Windows.Forms.DataGridView();
             this.SupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Products_Products_Suppliers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSupplierId = new System.Windows.Forms.TextBox();
-            this.lblSupplierId = new System.Windows.Forms.Label();
+            this.lblSuppliers = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
             this.panel2.SuspendLayout();
@@ -72,15 +72,34 @@
             this.panel1.Size = new System.Drawing.Size(194, 579);
             this.panel1.TabIndex = 0;
             // 
-            // lblProducts
+            // btnDeleteProduct
             // 
-            this.lblProducts.AutoSize = true;
-            this.lblProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProducts.Location = new System.Drawing.Point(3, 9);
-            this.lblProducts.Name = "lblProducts";
-            this.lblProducts.Size = new System.Drawing.Size(72, 20);
-            this.lblProducts.TabIndex = 0;
-            this.lblProducts.Text = "Products";
+            this.btnDeleteProduct.Location = new System.Drawing.Point(38, 551);
+            this.btnDeleteProduct.Name = "btnDeleteProduct";
+            this.btnDeleteProduct.Size = new System.Drawing.Size(102, 23);
+            this.btnDeleteProduct.TabIndex = 5;
+            this.btnDeleteProduct.Text = "Delete Selected";
+            this.btnDeleteProduct.UseVisualStyleBackColor = true;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.BtnDeleteProduct_Click);
+            // 
+            // btnProductAdd
+            // 
+            this.btnProductAdd.Location = new System.Drawing.Point(38, 522);
+            this.btnProductAdd.Name = "btnProductAdd";
+            this.btnProductAdd.Size = new System.Drawing.Size(102, 23);
+            this.btnProductAdd.TabIndex = 4;
+            this.btnProductAdd.Text = "Add";
+            this.btnProductAdd.UseVisualStyleBackColor = true;
+            this.btnProductAdd.Click += new System.EventHandler(this.BtnProductAdd_Click);
+            // 
+            // lblNewProduct
+            // 
+            this.lblNewProduct.AutoSize = true;
+            this.lblNewProduct.Location = new System.Drawing.Point(6, 469);
+            this.lblNewProduct.Name = "lblNewProduct";
+            this.lblNewProduct.Size = new System.Drawing.Size(69, 13);
+            this.lblNewProduct.TabIndex = 2;
+            this.lblNewProduct.Text = "New Product";
             // 
             // gridProducts
             // 
@@ -103,14 +122,28 @@
             this.gridProducts.Size = new System.Drawing.Size(177, 434);
             this.gridProducts.TabIndex = 1;
             // 
-            // lblNewProduct
+            // ProductId
             // 
-            this.lblNewProduct.AutoSize = true;
-            this.lblNewProduct.Location = new System.Drawing.Point(6, 469);
-            this.lblNewProduct.Name = "lblNewProduct";
-            this.lblNewProduct.Size = new System.Drawing.Size(69, 13);
-            this.lblNewProduct.TabIndex = 2;
-            this.lblNewProduct.Text = "New Product";
+            this.ProductId.DataPropertyName = "ProductId";
+            this.ProductId.HeaderText = "ProductId";
+            this.ProductId.Name = "ProductId";
+            this.ProductId.ReadOnly = true;
+            this.ProductId.Visible = false;
+            // 
+            // ProdName
+            // 
+            this.ProdName.DataPropertyName = "ProdName";
+            this.ProdName.HeaderText = "Product Name";
+            this.ProdName.Name = "ProdName";
+            this.ProdName.ReadOnly = true;
+            // 
+            // Products_Suppliers
+            // 
+            this.Products_Suppliers.DataPropertyName = "Products_Suppliers";
+            this.Products_Suppliers.HeaderText = "Products_Suppliers";
+            this.Products_Suppliers.Name = "Products_Suppliers";
+            this.Products_Suppliers.ReadOnly = true;
+            this.Products_Suppliers.Visible = false;
             // 
             // txtNewProduct
             // 
@@ -118,6 +151,16 @@
             this.txtNewProduct.Name = "txtNewProduct";
             this.txtNewProduct.Size = new System.Drawing.Size(177, 20);
             this.txtNewProduct.TabIndex = 3;
+            // 
+            // lblProducts
+            // 
+            this.lblProducts.AutoSize = true;
+            this.lblProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProducts.Location = new System.Drawing.Point(3, 9);
+            this.lblProducts.Name = "lblProducts";
+            this.lblProducts.Size = new System.Drawing.Size(72, 20);
+            this.lblProducts.TabIndex = 0;
+            this.lblProducts.Text = "Products";
             // 
             // panel2
             // 
@@ -136,6 +179,59 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(275, 579);
             this.panel2.TabIndex = 4;
+            // 
+            // txtSupplierId
+            // 
+            this.txtSupplierId.Location = new System.Drawing.Point(7, 446);
+            this.txtSupplierId.Name = "txtSupplierId";
+            this.txtSupplierId.Size = new System.Drawing.Size(263, 20);
+            this.txtSupplierId.TabIndex = 8;
+            // 
+            // lblSupplierId
+            // 
+            this.lblSupplierId.AutoSize = true;
+            this.lblSupplierId.Location = new System.Drawing.Point(4, 430);
+            this.lblSupplierId.Name = "lblSupplierId";
+            this.lblSupplierId.Size = new System.Drawing.Size(59, 13);
+            this.lblSupplierId.TabIndex = 7;
+            this.lblSupplierId.Text = "Supplier ID";
+            // 
+            // btnDeleteSupplier
+            // 
+            this.btnDeleteSupplier.Location = new System.Drawing.Point(83, 551);
+            this.btnDeleteSupplier.Name = "btnDeleteSupplier";
+            this.btnDeleteSupplier.Size = new System.Drawing.Size(102, 23);
+            this.btnDeleteSupplier.TabIndex = 6;
+            this.btnDeleteSupplier.Text = "Delete Selected";
+            this.btnDeleteSupplier.UseVisualStyleBackColor = true;
+            this.btnDeleteSupplier.Click += new System.EventHandler(this.BtnDeleteSupplier_Click);
+            // 
+            // btnSupplierAdd
+            // 
+            this.btnSupplierAdd.Location = new System.Drawing.Point(83, 522);
+            this.btnSupplierAdd.Name = "btnSupplierAdd";
+            this.btnSupplierAdd.Size = new System.Drawing.Size(102, 23);
+            this.btnSupplierAdd.TabIndex = 5;
+            this.btnSupplierAdd.Text = "Add";
+            this.btnSupplierAdd.UseVisualStyleBackColor = true;
+            this.btnSupplierAdd.Click += new System.EventHandler(this.BtnSupplierAdd_Click);
+            // 
+            // lblSelectProduct
+            // 
+            this.lblSelectProduct.AutoSize = true;
+            this.lblSelectProduct.Location = new System.Drawing.Point(4, 469);
+            this.lblSelectProduct.Name = "lblSelectProduct";
+            this.lblSelectProduct.Size = new System.Drawing.Size(77, 13);
+            this.lblSelectProduct.TabIndex = 5;
+            this.lblSelectProduct.Text = "Select Product";
+            // 
+            // cbProducts
+            // 
+            this.cbProducts.FormattingEnabled = true;
+            this.cbProducts.Location = new System.Drawing.Point(7, 485);
+            this.cbProducts.Name = "cbProducts";
+            this.cbProducts.Size = new System.Drawing.Size(263, 21);
+            this.cbProducts.TabIndex = 4;
             // 
             // txtNewSuppler
             // 
@@ -174,94 +270,6 @@
             this.gridSuppliers.Size = new System.Drawing.Size(263, 356);
             this.gridSuppliers.TabIndex = 1;
             // 
-            // lblSuppliers
-            // 
-            this.lblSuppliers.AutoSize = true;
-            this.lblSuppliers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSuppliers.Location = new System.Drawing.Point(3, 9);
-            this.lblSuppliers.Name = "lblSuppliers";
-            this.lblSuppliers.Size = new System.Drawing.Size(75, 20);
-            this.lblSuppliers.TabIndex = 0;
-            this.lblSuppliers.Text = "Suppliers";
-            // 
-            // cbProducts
-            // 
-            this.cbProducts.FormattingEnabled = true;
-            this.cbProducts.Location = new System.Drawing.Point(7, 485);
-            this.cbProducts.Name = "cbProducts";
-            this.cbProducts.Size = new System.Drawing.Size(263, 21);
-            this.cbProducts.TabIndex = 4;
-            // 
-            // lblSelectProduct
-            // 
-            this.lblSelectProduct.AutoSize = true;
-            this.lblSelectProduct.Location = new System.Drawing.Point(4, 469);
-            this.lblSelectProduct.Name = "lblSelectProduct";
-            this.lblSelectProduct.Size = new System.Drawing.Size(77, 13);
-            this.lblSelectProduct.TabIndex = 5;
-            this.lblSelectProduct.Text = "Select Product";
-            // 
-            // btnProductAdd
-            // 
-            this.btnProductAdd.Location = new System.Drawing.Point(38, 522);
-            this.btnProductAdd.Name = "btnProductAdd";
-            this.btnProductAdd.Size = new System.Drawing.Size(102, 23);
-            this.btnProductAdd.TabIndex = 4;
-            this.btnProductAdd.Text = "Add";
-            this.btnProductAdd.UseVisualStyleBackColor = true;
-            this.btnProductAdd.Click += new System.EventHandler(this.BtnProductAdd_Click);
-            // 
-            // btnSupplierAdd
-            // 
-            this.btnSupplierAdd.Location = new System.Drawing.Point(83, 522);
-            this.btnSupplierAdd.Name = "btnSupplierAdd";
-            this.btnSupplierAdd.Size = new System.Drawing.Size(102, 23);
-            this.btnSupplierAdd.TabIndex = 5;
-            this.btnSupplierAdd.Text = "Add";
-            this.btnSupplierAdd.UseVisualStyleBackColor = true;
-            this.btnSupplierAdd.Click += new System.EventHandler(this.BtnSupplierAdd_Click);
-            // 
-            // btnDeleteProduct
-            // 
-            this.btnDeleteProduct.Location = new System.Drawing.Point(38, 551);
-            this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(102, 23);
-            this.btnDeleteProduct.TabIndex = 5;
-            this.btnDeleteProduct.Text = "Delete Selected";
-            this.btnDeleteProduct.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteSupplier
-            // 
-            this.btnDeleteSupplier.Location = new System.Drawing.Point(83, 551);
-            this.btnDeleteSupplier.Name = "btnDeleteSupplier";
-            this.btnDeleteSupplier.Size = new System.Drawing.Size(102, 23);
-            this.btnDeleteSupplier.TabIndex = 6;
-            this.btnDeleteSupplier.Text = "Delete Selected";
-            this.btnDeleteSupplier.UseVisualStyleBackColor = true;
-            // 
-            // ProductId
-            // 
-            this.ProductId.DataPropertyName = "ProductId";
-            this.ProductId.HeaderText = "ProductId";
-            this.ProductId.Name = "ProductId";
-            this.ProductId.ReadOnly = true;
-            this.ProductId.Visible = false;
-            // 
-            // ProdName
-            // 
-            this.ProdName.DataPropertyName = "ProdName";
-            this.ProdName.HeaderText = "Product Name";
-            this.ProdName.Name = "ProdName";
-            this.ProdName.ReadOnly = true;
-            // 
-            // Products_Suppliers
-            // 
-            this.Products_Suppliers.DataPropertyName = "Products_Suppliers";
-            this.Products_Suppliers.HeaderText = "Products_Suppliers";
-            this.Products_Suppliers.Name = "Products_Suppliers";
-            this.Products_Suppliers.ReadOnly = true;
-            this.Products_Suppliers.Visible = false;
-            // 
             // SupplierId
             // 
             this.SupplierId.DataPropertyName = "SupplierId";
@@ -285,21 +293,15 @@
             this.Products_Products_Suppliers.ReadOnly = true;
             this.Products_Products_Suppliers.Visible = false;
             // 
-            // txtSupplierId
+            // lblSuppliers
             // 
-            this.txtSupplierId.Location = new System.Drawing.Point(7, 446);
-            this.txtSupplierId.Name = "txtSupplierId";
-            this.txtSupplierId.Size = new System.Drawing.Size(263, 20);
-            this.txtSupplierId.TabIndex = 8;
-            // 
-            // lblSupplierId
-            // 
-            this.lblSupplierId.AutoSize = true;
-            this.lblSupplierId.Location = new System.Drawing.Point(4, 430);
-            this.lblSupplierId.Name = "lblSupplierId";
-            this.lblSupplierId.Size = new System.Drawing.Size(59, 13);
-            this.lblSupplierId.TabIndex = 7;
-            this.lblSupplierId.Text = "Supplier ID";
+            this.lblSuppliers.AutoSize = true;
+            this.lblSuppliers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSuppliers.Location = new System.Drawing.Point(3, 9);
+            this.lblSuppliers.Name = "lblSuppliers";
+            this.lblSuppliers.Size = new System.Drawing.Size(75, 20);
+            this.lblSuppliers.TabIndex = 0;
+            this.lblSuppliers.Text = "Suppliers";
             // 
             // ProductManager
             // 
@@ -309,6 +311,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "ProductManager";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductManager";
             this.Load += new System.EventHandler(this.ProductManager_Load);
             this.panel1.ResumeLayout(false);

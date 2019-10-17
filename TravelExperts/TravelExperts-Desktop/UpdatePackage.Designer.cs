@@ -31,19 +31,12 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnApply = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gridProductSupplierRemove = new System.Windows.Forms.DataGridView();
-            this.gridProductSupplierAdd = new System.Windows.Forms.DataGridView();
             this.lblImageLocation = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtFilePath = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtPackageDescription = new System.Windows.Forms.TextBox();
             this.txtPackageAgency = new System.Windows.Forms.TextBox();
-            this.btnRemoveSupplier = new System.Windows.Forms.Button();
             this.txtPackagePrice = new System.Windows.Forms.TextBox();
             this.txtPackageName = new System.Windows.Forms.TextBox();
-            this.btnAddSupplier = new System.Windows.Forms.Button();
             this.dateTimePackageEnd = new System.Windows.Forms.DateTimePicker();
             this.lblPkgName = new System.Windows.Forms.Label();
             this.dateTimePackageStart = new System.Windows.Forms.DateTimePicker();
@@ -52,18 +45,25 @@
             this.lblPkgEndDate = new System.Windows.Forms.Label();
             this.lblPkgDesc = new System.Windows.Forms.Label();
             this.lblPackagePrice = new System.Windows.Forms.Label();
+            this.gridProductSupplierRemove = new System.Windows.Forms.DataGridView();
+            this.colProdTypeRight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupplierRight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductSupplierIdLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridProductSupplierAdd = new System.Windows.Forms.DataGridView();
+            this.colProdTypeLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupplierLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductSupplierIdLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnRemoveSupplier = new System.Windows.Forms.Button();
+            this.btnAddSupplier = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.btnAddImage = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.colProdTypeLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupplierLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductSupplierIdLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProdTypeRight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupplierRight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductSupplierIdLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductSupplierRemove)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductSupplierAdd)).BeginInit();
@@ -115,53 +115,6 @@
             this.panel1.Size = new System.Drawing.Size(478, 244);
             this.panel1.TabIndex = 21;
             // 
-            // gridProductSupplierRemove
-            // 
-            this.gridProductSupplierRemove.AllowUserToAddRows = false;
-            this.gridProductSupplierRemove.AllowUserToDeleteRows = false;
-            this.gridProductSupplierRemove.AllowUserToResizeRows = false;
-            this.gridProductSupplierRemove.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridProductSupplierRemove.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridProductSupplierRemove.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colProdTypeRight,
-            this.colSupplierRight,
-            this.ProductSupplierId,
-            this.ProductSupplierIdLeft});
-            this.gridProductSupplierRemove.Location = new System.Drawing.Point(400, 33);
-            this.gridProductSupplierRemove.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gridProductSupplierRemove.MultiSelect = false;
-            this.gridProductSupplierRemove.Name = "gridProductSupplierRemove";
-            this.gridProductSupplierRemove.ReadOnly = true;
-            this.gridProductSupplierRemove.RowHeadersVisible = false;
-            this.gridProductSupplierRemove.RowHeadersWidth = 82;
-            this.gridProductSupplierRemove.RowTemplate.Height = 24;
-            this.gridProductSupplierRemove.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridProductSupplierRemove.Size = new System.Drawing.Size(310, 549);
-            this.gridProductSupplierRemove.TabIndex = 28;
-            // 
-            // gridProductSupplierAdd
-            // 
-            this.gridProductSupplierAdd.AllowUserToAddRows = false;
-            this.gridProductSupplierAdd.AllowUserToDeleteRows = false;
-            this.gridProductSupplierAdd.AllowUserToResizeRows = false;
-            this.gridProductSupplierAdd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridProductSupplierAdd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridProductSupplierAdd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colProdTypeLeft,
-            this.colSupplierLeft,
-            this.colProductSupplierIdLeft});
-            this.gridProductSupplierAdd.Location = new System.Drawing.Point(2, 33);
-            this.gridProductSupplierAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gridProductSupplierAdd.MultiSelect = false;
-            this.gridProductSupplierAdd.Name = "gridProductSupplierAdd";
-            this.gridProductSupplierAdd.ReadOnly = true;
-            this.gridProductSupplierAdd.RowHeadersVisible = false;
-            this.gridProductSupplierAdd.RowHeadersWidth = 82;
-            this.gridProductSupplierAdd.RowTemplate.Height = 24;
-            this.gridProductSupplierAdd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridProductSupplierAdd.Size = new System.Drawing.Size(311, 549);
-            this.gridProductSupplierAdd.TabIndex = 27;
-            // 
             // lblImageLocation
             // 
             this.lblImageLocation.AutoSize = true;
@@ -172,16 +125,6 @@
             this.lblImageLocation.TabIndex = 25;
             this.lblImageLocation.Text = "Image Location:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 15);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 13);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Products Suppliers";
-            // 
             // txtFilePath
             // 
             this.txtFilePath.Location = new System.Drawing.Point(121, 213);
@@ -189,29 +132,6 @@
             this.txtFilePath.Name = "txtFilePath";
             this.txtFilePath.Size = new System.Drawing.Size(151, 20);
             this.txtFilePath.TabIndex = 26;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(336, 365);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Remove";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(345, 202);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Add ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtPackageDescription
             // 
@@ -230,17 +150,6 @@
             this.txtPackageAgency.Size = new System.Drawing.Size(151, 20);
             this.txtPackageAgency.TabIndex = 12;
             // 
-            // btnRemoveSupplier
-            // 
-            this.btnRemoveSupplier.Location = new System.Drawing.Point(342, 293);
-            this.btnRemoveSupplier.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRemoveSupplier.Name = "btnRemoveSupplier";
-            this.btnRemoveSupplier.Size = new System.Drawing.Size(34, 70);
-            this.btnRemoveSupplier.TabIndex = 17;
-            this.btnRemoveSupplier.Text = "←";
-            this.btnRemoveSupplier.UseVisualStyleBackColor = true;
-            this.btnRemoveSupplier.Click += new System.EventHandler(this.BtnRemoveSupplier_Click);
-            // 
             // txtPackagePrice
             // 
             this.txtPackagePrice.Location = new System.Drawing.Point(121, 110);
@@ -256,17 +165,6 @@
             this.txtPackageName.Name = "txtPackageName";
             this.txtPackageName.Size = new System.Drawing.Size(151, 20);
             this.txtPackageName.TabIndex = 10;
-            // 
-            // btnAddSupplier
-            // 
-            this.btnAddSupplier.Location = new System.Drawing.Point(342, 218);
-            this.btnAddSupplier.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(34, 70);
-            this.btnAddSupplier.TabIndex = 16;
-            this.btnAddSupplier.Text = "→";
-            this.btnAddSupplier.UseVisualStyleBackColor = true;
-            this.btnAddSupplier.Click += new System.EventHandler(this.BtnAddSupplier_Click);
             // 
             // dateTimePackageEnd
             // 
@@ -352,6 +250,168 @@
             this.lblPackagePrice.Text = "Package Price:";
             this.lblPackagePrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // gridProductSupplierRemove
+            // 
+            this.gridProductSupplierRemove.AllowUserToAddRows = false;
+            this.gridProductSupplierRemove.AllowUserToDeleteRows = false;
+            this.gridProductSupplierRemove.AllowUserToResizeRows = false;
+            this.gridProductSupplierRemove.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridProductSupplierRemove.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridProductSupplierRemove.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colProdTypeRight,
+            this.colSupplierRight,
+            this.ProductSupplierId,
+            this.ProductSupplierIdLeft});
+            this.gridProductSupplierRemove.Location = new System.Drawing.Point(400, 33);
+            this.gridProductSupplierRemove.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gridProductSupplierRemove.MultiSelect = false;
+            this.gridProductSupplierRemove.Name = "gridProductSupplierRemove";
+            this.gridProductSupplierRemove.ReadOnly = true;
+            this.gridProductSupplierRemove.RowHeadersVisible = false;
+            this.gridProductSupplierRemove.RowHeadersWidth = 82;
+            this.gridProductSupplierRemove.RowTemplate.Height = 24;
+            this.gridProductSupplierRemove.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridProductSupplierRemove.Size = new System.Drawing.Size(310, 549);
+            this.gridProductSupplierRemove.TabIndex = 28;
+            // 
+            // colProdTypeRight
+            // 
+            this.colProdTypeRight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdTypeRight.DataPropertyName = "ProdName";
+            this.colProdTypeRight.HeaderText = "Product Type";
+            this.colProdTypeRight.MinimumWidth = 10;
+            this.colProdTypeRight.Name = "colProdTypeRight";
+            this.colProdTypeRight.ReadOnly = true;
+            this.colProdTypeRight.Width = 96;
+            // 
+            // colSupplierRight
+            // 
+            this.colSupplierRight.DataPropertyName = "SupName";
+            this.colSupplierRight.HeaderText = "Supplier";
+            this.colSupplierRight.MinimumWidth = 10;
+            this.colSupplierRight.Name = "colSupplierRight";
+            this.colSupplierRight.ReadOnly = true;
+            // 
+            // ProductSupplierId
+            // 
+            this.ProductSupplierId.DataPropertyName = "ProductSupplierId";
+            this.ProductSupplierId.HeaderText = "ProductSupplierId";
+            this.ProductSupplierId.Name = "ProductSupplierId";
+            this.ProductSupplierId.ReadOnly = true;
+            this.ProductSupplierId.Visible = false;
+            // 
+            // ProductSupplierIdLeft
+            // 
+            this.ProductSupplierIdLeft.DataPropertyName = "colProductSupplierIdLeft";
+            this.ProductSupplierIdLeft.HeaderText = "ProductSupplierIdLeft";
+            this.ProductSupplierIdLeft.Name = "ProductSupplierIdLeft";
+            this.ProductSupplierIdLeft.ReadOnly = true;
+            this.ProductSupplierIdLeft.Visible = false;
+            // 
+            // gridProductSupplierAdd
+            // 
+            this.gridProductSupplierAdd.AllowUserToAddRows = false;
+            this.gridProductSupplierAdd.AllowUserToDeleteRows = false;
+            this.gridProductSupplierAdd.AllowUserToResizeRows = false;
+            this.gridProductSupplierAdd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridProductSupplierAdd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridProductSupplierAdd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colProdTypeLeft,
+            this.colSupplierLeft,
+            this.colProductSupplierIdLeft});
+            this.gridProductSupplierAdd.Location = new System.Drawing.Point(2, 33);
+            this.gridProductSupplierAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gridProductSupplierAdd.MultiSelect = false;
+            this.gridProductSupplierAdd.Name = "gridProductSupplierAdd";
+            this.gridProductSupplierAdd.ReadOnly = true;
+            this.gridProductSupplierAdd.RowHeadersVisible = false;
+            this.gridProductSupplierAdd.RowHeadersWidth = 82;
+            this.gridProductSupplierAdd.RowTemplate.Height = 24;
+            this.gridProductSupplierAdd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridProductSupplierAdd.Size = new System.Drawing.Size(311, 549);
+            this.gridProductSupplierAdd.TabIndex = 27;
+            // 
+            // colProdTypeLeft
+            // 
+            this.colProdTypeLeft.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdTypeLeft.DataPropertyName = "ProdName";
+            this.colProdTypeLeft.HeaderText = "Product Type";
+            this.colProdTypeLeft.MinimumWidth = 10;
+            this.colProdTypeLeft.Name = "colProdTypeLeft";
+            this.colProdTypeLeft.ReadOnly = true;
+            this.colProdTypeLeft.Width = 96;
+            // 
+            // colSupplierLeft
+            // 
+            this.colSupplierLeft.DataPropertyName = "SupName";
+            this.colSupplierLeft.HeaderText = "Supplier";
+            this.colSupplierLeft.MinimumWidth = 10;
+            this.colSupplierLeft.Name = "colSupplierLeft";
+            this.colSupplierLeft.ReadOnly = true;
+            // 
+            // colProductSupplierIdLeft
+            // 
+            this.colProductSupplierIdLeft.DataPropertyName = "ProductSupplierId";
+            this.colProductSupplierIdLeft.HeaderText = "ProductSupplierId";
+            this.colProductSupplierIdLeft.Name = "colProductSupplierIdLeft";
+            this.colProductSupplierIdLeft.ReadOnly = true;
+            this.colProductSupplierIdLeft.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(47, 15);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 13);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Products Suppliers";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Location = new System.Drawing.Point(336, 365);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Remove";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(345, 202);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Add ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnRemoveSupplier
+            // 
+            this.btnRemoveSupplier.Location = new System.Drawing.Point(342, 293);
+            this.btnRemoveSupplier.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemoveSupplier.Name = "btnRemoveSupplier";
+            this.btnRemoveSupplier.Size = new System.Drawing.Size(34, 70);
+            this.btnRemoveSupplier.TabIndex = 17;
+            this.btnRemoveSupplier.Text = "←";
+            this.btnRemoveSupplier.UseVisualStyleBackColor = true;
+            this.btnRemoveSupplier.Click += new System.EventHandler(this.BtnRemoveSupplier_Click);
+            // 
+            // btnAddSupplier
+            // 
+            this.btnAddSupplier.Location = new System.Drawing.Point(342, 218);
+            this.btnAddSupplier.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddSupplier.Name = "btnAddSupplier";
+            this.btnAddSupplier.Size = new System.Drawing.Size(34, 70);
+            this.btnAddSupplier.TabIndex = 16;
+            this.btnAddSupplier.Text = "→";
+            this.btnAddSupplier.UseVisualStyleBackColor = true;
+            this.btnAddSupplier.Click += new System.EventHandler(this.BtnAddSupplier_Click);
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -402,66 +462,6 @@
             this.panel3.Size = new System.Drawing.Size(714, 587);
             this.panel3.TabIndex = 25;
             // 
-            // colProdTypeLeft
-            // 
-            this.colProdTypeLeft.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdTypeLeft.DataPropertyName = "ProdName";
-            this.colProdTypeLeft.HeaderText = "Product Type";
-            this.colProdTypeLeft.MinimumWidth = 10;
-            this.colProdTypeLeft.Name = "colProdTypeLeft";
-            this.colProdTypeLeft.ReadOnly = true;
-            this.colProdTypeLeft.Width = 96;
-            // 
-            // colSupplierLeft
-            // 
-            this.colSupplierLeft.DataPropertyName = "SupName";
-            this.colSupplierLeft.HeaderText = "Supplier";
-            this.colSupplierLeft.MinimumWidth = 10;
-            this.colSupplierLeft.Name = "colSupplierLeft";
-            this.colSupplierLeft.ReadOnly = true;
-            // 
-            // colProductSupplierIdLeft
-            // 
-            this.colProductSupplierIdLeft.DataPropertyName = "ProductSupplierId";
-            this.colProductSupplierIdLeft.HeaderText = "ProductSupplierId";
-            this.colProductSupplierIdLeft.Name = "colProductSupplierIdLeft";
-            this.colProductSupplierIdLeft.ReadOnly = true;
-            this.colProductSupplierIdLeft.Visible = false;
-            // 
-            // colProdTypeRight
-            // 
-            this.colProdTypeRight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdTypeRight.DataPropertyName = "ProdName";
-            this.colProdTypeRight.HeaderText = "Product Type";
-            this.colProdTypeRight.MinimumWidth = 10;
-            this.colProdTypeRight.Name = "colProdTypeRight";
-            this.colProdTypeRight.ReadOnly = true;
-            this.colProdTypeRight.Width = 96;
-            // 
-            // colSupplierRight
-            // 
-            this.colSupplierRight.DataPropertyName = "SupName";
-            this.colSupplierRight.HeaderText = "Supplier";
-            this.colSupplierRight.MinimumWidth = 10;
-            this.colSupplierRight.Name = "colSupplierRight";
-            this.colSupplierRight.ReadOnly = true;
-            // 
-            // ProductSupplierId
-            // 
-            this.ProductSupplierId.DataPropertyName = "ProductSupplierId";
-            this.ProductSupplierId.HeaderText = "ProductSupplierId";
-            this.ProductSupplierId.Name = "ProductSupplierId";
-            this.ProductSupplierId.ReadOnly = true;
-            this.ProductSupplierId.Visible = false;
-            // 
-            // ProductSupplierIdLeft
-            // 
-            this.ProductSupplierIdLeft.DataPropertyName = "colProductSupplierIdLeft";
-            this.ProductSupplierIdLeft.HeaderText = "ProductSupplierIdLeft";
-            this.ProductSupplierIdLeft.Name = "ProductSupplierIdLeft";
-            this.ProductSupplierIdLeft.ReadOnly = true;
-            this.ProductSupplierIdLeft.Visible = false;
-            // 
             // UpdatePackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -476,6 +476,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UpdatePackage";
             this.Padding = new System.Windows.Forms.Padding(8);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Package Manager";
             this.Load += new System.EventHandler(this.UpdatePackage_Load);
             this.panel1.ResumeLayout(false);

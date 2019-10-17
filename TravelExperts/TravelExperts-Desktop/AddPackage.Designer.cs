@@ -471,6 +471,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "AddPackage";
             this.Padding = new System.Windows.Forms.Padding(6);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Package Manager";
             this.Load += new System.EventHandler(this.AddManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridProductSupplierAdd)).EndInit();

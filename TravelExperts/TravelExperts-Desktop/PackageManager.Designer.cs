@@ -50,21 +50,21 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.gridAllProducts = new System.Windows.Forms.DataGridView();
+            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AllProductSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPackages = new System.Windows.Forms.Label();
             this.lblProducts = new System.Windows.Forms.Label();
             this.btnConfigure = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AllProductSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbImage = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.gridPackages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridAllProducts)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridPackages
@@ -100,7 +100,6 @@
             this.PackageId.Name = "PackageId";
             this.PackageId.ReadOnly = true;
             this.PackageId.Visible = false;
-            this.PackageId.Width = 6;
             // 
             // PackageName
             // 
@@ -313,6 +312,30 @@
             this.gridAllProducts.Size = new System.Drawing.Size(310, 687);
             this.gridAllProducts.TabIndex = 18;
             // 
+            // ProdName
+            // 
+            this.ProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ProdName.DataPropertyName = "ProdName";
+            this.ProdName.HeaderText = "Product Type";
+            this.ProdName.Name = "ProdName";
+            this.ProdName.ReadOnly = true;
+            this.ProdName.Width = 96;
+            // 
+            // SupName
+            // 
+            this.SupName.DataPropertyName = "SupName";
+            this.SupName.HeaderText = "Supplier";
+            this.SupName.Name = "SupName";
+            this.SupName.ReadOnly = true;
+            // 
+            // AllProductSupplierId
+            // 
+            this.AllProductSupplierId.DataPropertyName = "ProductSupplierId";
+            this.AllProductSupplierId.HeaderText = "AllProductSupplierId";
+            this.AllProductSupplierId.Name = "AllProductSupplierId";
+            this.AllProductSupplierId.ReadOnly = true;
+            this.AllProductSupplierId.Visible = false;
+            // 
             // lblPackages
             // 
             this.lblPackages.AutoSize = true;
@@ -368,6 +391,16 @@
             this.panel1.Size = new System.Drawing.Size(691, 753);
             this.panel1.TabIndex = 24;
             // 
+            // pbImage
+            // 
+            this.pbImage.Location = new System.Drawing.Point(218, 59);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(2);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(466, 352);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 17;
+            this.pbImage.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -379,40 +412,6 @@
             this.panel2.Size = new System.Drawing.Size(328, 752);
             this.panel2.TabIndex = 25;
             // 
-            // ProdName
-            // 
-            this.ProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ProdName.DataPropertyName = "ProdName";
-            this.ProdName.HeaderText = "Product Type";
-            this.ProdName.Name = "ProdName";
-            this.ProdName.ReadOnly = true;
-            this.ProdName.Width = 96;
-            // 
-            // SupName
-            // 
-            this.SupName.DataPropertyName = "SupName";
-            this.SupName.HeaderText = "Supplier";
-            this.SupName.Name = "SupName";
-            this.SupName.ReadOnly = true;
-            // 
-            // AllProductSupplierId
-            // 
-            this.AllProductSupplierId.DataPropertyName = "ProductSupplierId";
-            this.AllProductSupplierId.HeaderText = "AllProductSupplierId";
-            this.AllProductSupplierId.Name = "AllProductSupplierId";
-            this.AllProductSupplierId.ReadOnly = true;
-            this.AllProductSupplierId.Visible = false;
-            // 
-            // pbImage
-            // 
-            this.pbImage.Location = new System.Drawing.Point(218, 59);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(2);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(466, 352);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage.TabIndex = 17;
-            this.pbImage.TabStop = false;
-            // 
             // PackageManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,6 +420,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "PackageManager";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Package Manager";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridPackages)).EndInit();
@@ -428,9 +428,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridAllProducts)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
 
         }

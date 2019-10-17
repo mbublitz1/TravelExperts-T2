@@ -35,6 +35,7 @@ namespace TravelExperts_Desktop
                     gridPackages.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                 }
             }
+            gridAllProducts.DataSource = packages.GetProductSuppliers();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace TravelExperts_Desktop
             gridAllProducts.DataSource = packages.GetProductSuppliers();
             AddPackage.callRefreshData += RefreshData;
             UpdatePackage.callRefreshData += RefreshData;
+            ProductManager.callRefreshData += RefreshData;
 
             for (int i = 0; i < gridPackages.RowCount; i++)
             {
