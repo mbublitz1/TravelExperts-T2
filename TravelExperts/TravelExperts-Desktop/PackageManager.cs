@@ -35,8 +35,6 @@ namespace TravelExperts_Desktop
                     gridPackages.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                 }
             }
-
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -45,6 +43,7 @@ namespace TravelExperts_Desktop
             gridPackages.DataSource = packages.GetPackages();
             int selectedPackage = Convert.ToInt32(gridPackages.CurrentRow.Cells["PackageId"].Value);
             gridProducts.DataSource = packages.GetProducts(selectedPackage);
+            gridAllProducts.DataSource = packages.GetProductSuppliers();
             AddPackage.callRefreshData += RefreshData;
             UpdatePackage.callRefreshData += RefreshData;
 
@@ -123,6 +122,12 @@ namespace TravelExperts_Desktop
 
             UpdatePackage UpdatePkgManager = new UpdatePackage(PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PackageImageLocation);
             UpdatePkgManager.Show();
+        }
+
+        private void BtnConfigure_Click(object sender, EventArgs e)
+        {
+            ProductManager ConfigureProducts = new ProductManager();
+            ConfigureProducts.Show();
         }
     }
 }

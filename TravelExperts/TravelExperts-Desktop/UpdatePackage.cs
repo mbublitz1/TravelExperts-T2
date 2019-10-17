@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -91,9 +92,28 @@ namespace TravelExperts_Desktop
                 }
                 else
                 {
-                    string image = ConfigurationManager.AppSettings["PathToProject"];
+                    //string image = ConfigurationManager.AppSettings["PathToProject"];
                     PackageImageLocation = @"\Content\img\" + Path.GetFileName(txtFilePath.Text);
-                    File.Copy(txtFilePath.Text, image + PackageImageLocation);
+                    //File.Copy(txtFilePath.Text, image + PackageImageLocation);
+                    string host = "ftp://mikebublitz.com/Content/img/" + Path.GetFileName(txtFilePath.Text);
+
+                    FileInfo toUpload = new FileInfo(txtFilePath.Text);
+                    FtpWebRequest request = (FtpWebRequest)WebRequest.Create(host);
+                    request.Credentials = new NetworkCredential("mwbublit", "ftppassword");
+                    request.Method = WebRequestMethods.Ftp.UploadFile;
+                    Stream ftpStream = request.GetRequestStream();
+                    FileStream file = File.OpenRead(txtFilePath.Text);
+                    int length = 1024;
+                    byte[] buffer = new byte[length];
+                    int bytesRead = 0;
+                    do
+                    {
+                        bytesRead = file.Read(buffer, 0, length);
+                        ftpStream.Write(buffer, 0, bytesRead);
+                    }
+                    while (bytesRead != 0);
+                    file.Close();
+                    ftpStream.Close();
                 }
 
                 List<int> productsList = new List<int>();

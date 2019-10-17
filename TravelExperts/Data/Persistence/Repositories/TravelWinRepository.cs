@@ -352,6 +352,128 @@ namespace Data.Persistence.Repositories
                 conn.Close();
             }
         }
+
+        public List<Product> GetProduct()
+        {
+            string selectStatement =
+                @"SELECT * FROM Products";
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                List<Product> data = new List<Product>();
+
+                while (reader.Read())
+                {
+                    Product p = new Product();
+                    p.ProductId = Convert.ToInt32(reader["ProductId"]);
+                    p.ProdName = reader["ProdName"].ToString();
+                    data.Add(p);
+                }
+                reader.Close();
+                return data;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public List<Supplier> GetSuppliers()
+        {
+            string selectStatement =
+                @"SELECT * FROM Suppliers";
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                List<Supplier> data = new List<Supplier>();
+
+                while (reader.Read())
+                {
+                    Supplier p = new Supplier();
+                    p.SupplierId = Convert.ToInt32(reader["SupplierId"]);
+                    p.SupName = reader["SupName"].ToString();
+                    data.Add(p);
+                }
+                reader.Close();
+                return data;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void InsertProduct(string ProdName)
+        {
+            string insertStatement =
+                @"INSERT INTO Products (ProdName)
+                VALUES (@ProdName)";
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand insertCommand = new SqlCommand(insertStatement, conn);
+            insertCommand.Parameters.AddWithValue("@ProdName", ProdName);
+            try
+            {
+                conn.Open();
+                int count = insertCommand.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void InsertSupplier(int SupplierId, string SupName, int ProductId)
+        {
+            string insertSupplierStatement =
+                @"INSERT INTO Suppliers (SupplierId, SupName)
+                VALUES (@SupplierId, @SupName)";
+            string insertProductsSupplierStatement =
+                @"INSERT INTO Products_Suppliers (ProductId, SupplierId)
+                VALUES (@ProductId, SupplierId)";
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand insertSupplierCommand = new SqlCommand(insertSupplierStatement, conn);
+            SqlCommand insertProductsSupplierCommand = new SqlCommand(insertProductsSupplierStatement, conn);
+            insertSupplierCommand.Parameters.AddWithValue("@SupplierId", SupplierId);
+            insertSupplierCommand.Parameters.AddWithValue("@SupName", SupName);
+            insertProductsSupplierCommand.Parameters.AddWithValue("@ProductId", ProductId);
+            insertProductsSupplierCommand.Parameters.AddWithValue("@SupplierId", SupplierId);
+            try
+            {
+                conn.Open();
+                int supplierCount = insertSupplierCommand.ExecuteNonQuery();
+                int productsSupplierCount = insertProductsSupplierCommand.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }
 
